@@ -1,1 +1,1 @@
-# drug-prediction
+# Drug interaction prediction
