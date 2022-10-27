@@ -8,6 +8,9 @@ import re
 import pandas as pd
 
 
+# TODO: DFI parser
+
+
 DDI_SIDE_EFFECT_1 = re.compile('The risk or severity of (?P<se>.*) can be (?P<mode>\S+)d when (?P<drug1>\w*\s*\w*) is combined with (?P<drug2>\w*\s*\w*)')
 DDI_SIDE_EFFECT_2 = re.compile('(?P<drug1>\w*\s*\w*) may (?P<mode>\S+) (?P<se>\S+\s?\w*\s?\w*) of (?P<drug2>\w*\s*\w*) as a diagnostic agent.')
 DDI_SIDE_EFFECT_3 = re.compile('The (?P<se>\S+\s?\w*\s?\w*) of (?P<drug1>\w*\s*\w*) can be (?P<mode>\S+)d when used in combination with (?P<drug2>\w*\s*\w*)')
@@ -97,12 +100,6 @@ def extract_side_effects(desc, drug_orig):
                 drug2 = pg.group("drug2")
                 if drug_orig == drug:
                     drug = drug2
-
-            # # choose the second drug (different than drug_orig)
-            # if drug1 != drug_orig:
-            #     drug = drug1
-            # else:
-            #     drug = drug2
 
             # Handle the case of multiple activities eg x, y and z activities
             has_word_activities = ("activities" in se_name)
