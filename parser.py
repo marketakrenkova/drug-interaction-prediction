@@ -133,7 +133,7 @@ def extract_side_effects(desc, drug_orig):
 
 
 def parse_drug_interactions():
-    interactions_df = pd.read_csv('../data/drugbank/drug_interactions.csv', index_col=[0])
+    interactions_df = pd.read_csv('data/drugbank/drug_interactions.csv', index_col=[0])
 
     drugs1 = []
     drugs2 = []
@@ -158,8 +158,7 @@ def parse_drug_interactions():
  
     
     interactions_triplets = pd.DataFrame({'drug1': drugs1, 'interaction': interactions, 'drug2': drugs2})
-    interactions_triplets.to_csv('../data/triplets/ddi.tsv', sep='\t')
+    interactions_triplets.to_csv('data/triplets/ddi.tsv', sep='\t')
 
 
 parse_drug_interactions()
-

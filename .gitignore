@@ -1,1 +1,10 @@
 data/
+
+__pycache__/
+.ipynb_checkpoints
+.ipython
+.dockerignore
+.bash_history
+.cache/
+.jupyter/
+.local/

@@ -6,8 +6,8 @@ import json
 # from parser import parse_drug_interactions
 
 # DrugBank
-drug_dir = '../data/drugbank/'
-triplets_dir = '../data/triplets/'
+drug_dir = 'data/drugbank/'
+triplets_dir = 'data/triplets/'
 
 # drug_id - name
 drugs = pd.read_csv(drug_dir + 'drug_id_name_map.csv', index_col=[0])
