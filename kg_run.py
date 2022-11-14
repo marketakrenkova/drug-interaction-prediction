@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
 import pandas as pd
+import time
+import os.path
+
+import torch
 
 from pykeen.models import predict
 from pykeen.pipeline import pipeline
@@ -20,20 +24,98 @@ def convert_to_triples_factory(data):
     #print(tf_data)  # kam mizeji nejake trojice? - jiny pocet zde a po vytvoreni datasetu
     return tf_data
 
-def train_model(tf_train, tf_valid, tf_test):
+def train_model(model, tf_train, tf_valid, tf_test): #, evaluation_relation_whitelist):
     # creating a model
     result = pipeline(
-        training=tf_train,
-        testing=tf_test,
-        validation=tf_valid,
-        model='TransE',
-        epochs=2,
-        evaluator=RankBasedEvaluator,
-        device='gpu'
+        training = tf_train,
+        testing = tf_test,
+        validation = tf_valid,
+        model = model,
+        optimizer = 'Adam',
+        evaluator = RankBasedEvaluator,
+        epochs = 20,
+        device = 'gpu',
+        training_kwargs = dict(
+            num_epochs = 20,
+            checkpoint_name = model + '_checkpoint.pt',
+            checkpoint_directory = 'kg_checkpoints',
+            checkpoint_frequency = 10
+        ),
+        #stopper='early',
+        #stopper_kwargs=dict(frequency=5, patience=2, relative_delta=0.002),
     )
     return result
 
+def get_predictions(result, model_name):
+    predictions_dir = 'predictions/'
+    
+    predicted_tails_df = predict.get_tail_prediction_df(
+        model = result.model, 
+        head_label = "Ibuprofen", 
+        relation_label = "decrease_adverse_effects", 
+        triples_factory = result.training,
+    )
+    print('Ibuprofen - decrease_adverse_effects:')
+    print(predicted_tails_df.head(20))
+    predicted_tails_df = predicted_tails_df.head(100)
+    predicted_tails_df.to_csv(predictions_dir + model_name + 'ibuprofen-predictions.csv')
+
+    predicted_df_2 = predict.get_tail_prediction_df(
+        model = result.model, 
+        head_label = "Galantamine", 
+        relation_label = "increase_congestive_heart_failure", 
+        triples_factory = result.training,
+    )
+    print('Galantamine - increase_congestive_heart_failure')
+    print(predicted_df_2.head(20))
+    predicted_df_2 = predicted_df_2.head(100)
+    predicted_df_2.to_csv(predictions_dir + model_name + '-galantamine-predictions.csv')
+    
+    predicted_df_3 = predict.get_head_prediction_df(
+        model = result.model, 
+        tail_label = "Pineapple", 
+        relation_label = "interacts_with", 
+        triples_factory = result.training,
+    )
+    print('Pineapple - interacts_with')
+    print(predicted_df_3.head(20))
+    predicted_df_3 = predicted_df_3.head(100)
+    predicted_df_3.to_csv(predictions_dir + model_name + '-pineapple-predictions.csv')
+    
+    predicted_df_4 = predict.get_head_prediction_df(
+        model = result.model, 
+        tail_label = "Peppermint", 
+        relation_label = "decrease_adverse_effects", 
+        triples_factory = result.training,
+    )
+    print('Peppermint - decrease_adverse_effects')
+    print(predicted_df_4.head(20))
+    predicted_df_4 = predicted_df_4.head(100)
+    predicted_df_4.to_csv(predictions_dir + model_name + '-peppermint-predictions.csv')
+    
+    #predicted_all_df = predict.get_all_prediction_df(
+    #    model = result.model, 
+    #    k = 200,
+    #    triples_factory = result.training,
+    #)
+
+    #print(predicted_all_df.head(20)) 
+    #predicted_all_df.to_csv(model_name + '-all_predicitons.csv')
+
+    
+
 def main():
+
+    model_name = 'TransE'
+    trained_model = 'results-' + model_name + '/trained_model.pkl'
+
+    # TODO: 
+    # if os.path.isfile(trained_model):
+    #     print('Loading trained model...')
+    #     results = torch.load(trained_model)
+    #     print(results.model)
+    # else:
+
     print('Reading data...')
     train = pd.read_csv('data/triplets/train.tsv', sep='\t', index_col=[0], engine='python')
     valid = pd.read_csv('data/triplets/valid.tsv', sep='\t', index_col=[0], engine='python')
@@ -44,21 +126,16 @@ def main():
     tf_valid = convert_to_triples_factory(valid.astype(str))
     tf_test = convert_to_triples_factory(test.astype(str))
     
-    tf_train, _ = tf_train.split(0.15)
-    tf_valid, _ = tf_valid.split(0.15)
-    tf_test, _ = tf_test.split(0.15)
-
     print('Training model...')
-    results = train_model(tf_train, tf_valid, tf_test)
+    start_time = time.time()
+    results = train_model(model_name, tf_train, tf_valid, tf_test)
     print('Training done.')
-    
-    hits_at_10 = results.get_metric('hits@10')
-    print('Hits at 10:', hits_at_10)
- 
-    results.save_to_directory("results")
+    print("--- %s seconds ---" % (time.time() - start_time))
 
-    with open('out.txt', 'w') as f:
-        f.write(hits_at_10)
+    results.save_to_directory("results-" + model_name)
+
+
+    get_predictions(results, model_name)
 
 if __name__ == "__main__":
     main()    

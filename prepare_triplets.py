@@ -28,6 +28,7 @@ print(drug_subclass.head())
 print()
 drug_subclass.to_csv(triplets_dir + 'drug_subclass.tsv', sep='\t')
 
+
 # subclass - class ?
 # TODO: to lower case
 # sub_class = drug_class[['class', 'subclass']].drop_duplicates()
@@ -58,6 +59,7 @@ for drug in mixtures.itertuples():
 ingredient_df = pd.DataFrame({'drug_name': drugs, 'relation': relations, 'ingredient': ingredients})        
 print(ingredient_df.head())   
 print()    
+ingredient_df = ingredient_df.drop_duplicates()
 ingredient_df.to_csv(triplets_dir + 'ingredients.tsv', sep='\t')
 
 # drug_id - inchi_key
