@@ -214,20 +214,41 @@ print(atoms_concept.head())
 print()
 atoms_concept.to_csv(triplets_dir + 'ds_atoms_concept_map.tsv', sep='\t')
 
+concepts_atoms_dic = atoms_concept.set_index('CUI')['AUI'].to_dict()
+
 # atom id -name
 atoms_name = atoms[['AUI', 'STR']]
 atoms_name['relation'] = list(itertools.repeat('has_name', atoms_name.shape[0]))
 atoms_name = atoms_name.iloc[:,[0,2,1]]
 print('Number of atmos (drug supplements):', atoms_name.shape[0])
-print(atoms_name.head())
-print()
-atoms_name.to_csv(triplets_dir + 'ds_atoms_names.tsv', sep='\t')
+# print(atoms_name.head())
+# print()
+# atoms_name.to_csv(triplets_dir + 'ds_atoms_names.tsv', sep='\t')
+
+atoms_names_dic = atoms_name.set_index('AUI')['STR'].to_dict()
+
 
 # relation: concept1 id - relation id - concept2 id
 relations = pd.read_csv(ds_data_dir + 'MRREL.csv', sep='|')
 relations = relations[['CUI1', 'REL', 'CUI2']]
+
+# split into has_ingredient and interaction files
+relations_ingredients = relations[relations['REL'] == 'has_ingredient']
+
+for i, row in relations_ingredients.iterrows():
+    relations_ingredients.at[i, 'CUI1'] = atoms_names_dic[concepts_atoms_dic[row['CUI1']]]
+    relations_ingredients.at[i, 'CUI2'] = atoms_names_dic[concepts_atoms_dic[row['CUI2']]]
+
+print(relations_ingredients.head())
+relations_ingredients.to_csv(triplets_dir + 'ds_ingredients.tsv', sep='\t')
+
+relations = relations[relations['REL'] != 'has_ingredient']
+for i, row in relations.iterrows():
+    relations.at[i, 'CUI1'] = atoms_names_dic[concepts_atoms_dic[row['CUI1']]]
+    relations.at[i, 'CUI2'] = atoms_names_dic[concepts_atoms_dic[row['CUI2']]]
+
 print(relations.head())
-relations.to_csv(triplets_dir + 'ds_relations,tsv', sep='\t')
+relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
 
 
 

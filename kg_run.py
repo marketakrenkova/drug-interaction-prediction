@@ -60,38 +60,38 @@ def get_predictions(result, model_name):
     predicted_tails_df = predicted_tails_df.head(100)
     predicted_tails_df.to_csv(predictions_dir + model_name + '-Leuprolide-predictions.csv')
 
-    #predicted_df_2 = predict.get_head_prediction_df(
-    #    model = result.model, 
-    #    tail_label = "Galantamine", 
-    #    relation_label = "increase_congestive_heart_failure", 
-    #    triples_factory = result.training,
-    #)
-    #print('Galantamine - increase_congestive_heart_failure')
-    #print(predicted_df_2.head(20))
-    #predicted_df_2 = predicted_df_2.head(100)
-    #predicted_df_2.to_csv(predictions_dir + model_name + '-galantamine-predictions.csv')
+    predicted_df_2 = predict.get_head_prediction_df(
+        model = result.model, 
+        tail_label = "Galantamine", 
+        relation_label = "increase_congestive_heart_failure", 
+        triples_factory = result.training,
+    )
+    print('Galantamine - increase_congestive_heart_failure')
+    print(predicted_df_2.head(20))
+    predicted_df_2 = predicted_df_2.head(100)
+    predicted_df_2.to_csv(predictions_dir + model_name + '-galantamine-predictions.csv')
     
-    #predicted_df_3 = predict.get_tail_prediction_df(
-    #    model = result.model, 
-    #    head_label = "Pineapple", 
-    #    relation_label = "interacts_with", 
-    #    triples_factory = result.training,
-    #)
-    #print('Pineapple - interacts_with')
-    #print(predicted_df_3.head(20))
-    #predicted_df_3 = predicted_df_3.head(100)
-    #predicted_df_3.to_csv(predictions_dir + model_name + '-pineapple-predictions.csv')
+    predicted_df_3 = predict.get_tail_prediction_df(
+        model = result.model, 
+        head_label = "Pineapple", 
+        relation_label = "interacts_with", 
+        triples_factory = result.training,
+    )
+    print('Pineapple - interacts_with')
+    print(predicted_df_3.head(20))
+    predicted_df_3 = predicted_df_3.head(100)
+    predicted_df_3.to_csv(predictions_dir + model_name + '-pineapple-predictions.csv')
     
-    #predicted_df_4 = predict.get_tail_prediction_df(
-    #    model = result.model, 
-    #    head_label = "Peppermint", 
-    #    relation_label = "decrease_adverse_effects", 
-    #    triples_factory = result.training,
-    #)
-    #print('Peppermint - decrease_adverse_effects')
-    #print(predicted_df_4.head(20))
-    #predicted_df_4 = predicted_df_4.head(100)
-    #predicted_df_4.to_csv(predictions_dir + model_name + '-peppermint-predictions.csv')
+    predicted_df_4 = predict.get_tail_prediction_df(
+        model = result.model, 
+        head_label = "Peppermint", 
+        relation_label = "decrease_adverse_effects", 
+        triples_factory = result.training,
+    )
+    print('Peppermint - decrease_adverse_effects')
+    print(predicted_df_4.head(20))
+    predicted_df_4 = predicted_df_4.head(100)
+    predicted_df_4.to_csv(predictions_dir + model_name + '-peppermint-predictions.csv')
     
     #predicted_all_df = predict.get_all_prediction_df(
     #    model = result.model, 
