@@ -138,9 +138,9 @@ def main():
     valid = valid.astype(str)
     test = test.astype(str)
     
-#     train.to_csv(data_dir + 'train.tsv', sep='\t')
-#     valid.to_csv(data_dir + 'valid.tsv', sep='\t')
-#     test.to_csv(data_dir + 'test.tsv', sep='\t')
+    train.to_csv(data_dir + 'train.tsv', sep='\t')
+    valid.to_csv(data_dir + 'valid.tsv', sep='\t')
+    test.to_csv(data_dir + 'test.tsv', sep='\t')
 
 if __name__ == "__main__":
     main() 

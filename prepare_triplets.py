@@ -5,12 +5,14 @@ import itertools
 import json
 # from parser import parse_drug_interactions
 
+# ---------------------------------------------------------------------------------
 # DrugBank
 drug_dir = 'data/drugbank/'
 triplets_dir = 'data/triplets/'
 
 # drug_id - name
 drugs = pd.read_csv(drug_dir + 'drug_id_name_map.csv', index_col=[0])
+## if ids are given to the model -> don't substitue id by name
 # drugs['relation'] = list(itertools.repeat('has_name', drugs.shape[0]))
 # drugs = drugs.iloc[:,[0,2,1]]
 # print('Number of drugs:', drugs.shape[0])
@@ -34,7 +36,6 @@ print('Number of drug subclasses:', drug_subclass.shape[0])
 print(drug_subclass.head())
 print()
 drug_subclass.to_csv(triplets_dir + 'drug_subclass.tsv', sep='\t')
-
 
 # drug_name - ingredients
 mixtures = pd.read_csv(drug_dir + 'drug_mixtures.csv', index_col=[0])
@@ -85,6 +86,7 @@ salts = pd.read_csv(drug_dir + 'drug_salts.csv', index_col=[0])
 salts_name = salts[['id', 'name']]
 salts_name['relation'] = list(itertools.repeat('has_name', salts_name.shape[0]))
 salts_name = salts_name.iloc[:,[0,2,1]]
+## if ids are given to the model -> don't substitue id by name
 # print('Number of drug salts:', salts_name.shape[0])
 # print(salts_name.head())
 # print()
@@ -137,6 +139,7 @@ food = pd.read_csv('data/food.csv')
 food_df = food[['id', 'name']]
 food_df['relation'] = list(itertools.repeat('has_name', food_df.shape[0]))
 food_df = food_df.iloc[:,[0,2,1]]
+## if ids are given to the model -> don't substitue id by name
 # print('Number of food:', food_df.shape[0])
 # print(food_df.head())
 # print()
@@ -221,6 +224,7 @@ atoms_name = atoms[['AUI', 'STR']]
 atoms_name['relation'] = list(itertools.repeat('has_name', atoms_name.shape[0]))
 atoms_name = atoms_name.iloc[:,[0,2,1]]
 print('Number of atmos (drug supplements):', atoms_name.shape[0])
+## if ids are given to the model -> don't substitue id by name
 # print(atoms_name.head())
 # print()
 # atoms_name.to_csv(triplets_dir + 'ds_atoms_names.tsv', sep='\t')
@@ -242,7 +246,8 @@ for i, row in relations_ingredients.iterrows():
 print(relations_ingredients.head())
 relations_ingredients.to_csv(triplets_dir + 'ds_ingredients.tsv', sep='\t')
 
-relations = relations[relations['REL'] != 'has_ingredient']
+# relations = relations[relations['REL'] != 'has_ingredient']
+relations = relations[relations['REL'] == 'interacts_with']
 for i, row in relations.iterrows():
     relations.at[i, 'CUI1'] = atoms_names_dic[concepts_atoms_dic[row['CUI1']]]
     relations.at[i, 'CUI2'] = atoms_names_dic[concepts_atoms_dic[row['CUI2']]]
@@ -251,7 +256,7 @@ print(relations.head())
 relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
 
 
-
+# -------------------------------------------------------------------------------------
 # atom id - source db ?
 # atom id - id in source db ?
 

@@ -106,7 +106,7 @@ def get_predictions(result, model_name):
 
 def main():
 
-    model_name = 'TransE'
+    model_name = 'TransR'
     trained_model = 'results-' + model_name + '/trained_model.pkl'
 
     # TODO: 
