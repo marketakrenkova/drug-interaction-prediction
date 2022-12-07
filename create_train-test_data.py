@@ -58,9 +58,9 @@ def split_drug_supplements_dataset(drug_supplement_df):
         valid_triplets = pd.concat([valid_triplets, valid])
         test_triplets = pd.concat([test_triplets, test])
 
-    train_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'}, copy=False)
-    valid_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'}, copy=False)
-    test_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'}, copy=False)    
+    train_triplets = train_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'})
+    valid_triplets = valid_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'})
+    test_triplets = test_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'})    
 
 #     print('Drug Supplement database - drug-suplement interactions')
 #     print('train dataset size:', train_triplets.shape[0])
@@ -83,9 +83,9 @@ def split_ddi_dataset(ddi_df):
         valid_triplets = pd.concat([valid_triplets, valid])
         test_triplets = pd.concat([test_triplets, test])
         
-    train_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'}, copy=False)
-    valid_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'}, copy=False)
-    test_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'}, copy=False)    
+    train_triplets = train_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'})
+    valid_triplets = valid_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'})
+    test_triplets = test_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'})    
 
 #     print('DrugBank drug-drug interactions')
 #     print('train dataset size:', train_triplets.shape[0])
@@ -101,6 +101,9 @@ def split_interactions_data(ddi_df, drug_supplement_df):
     train_triplets = pd.concat([train_triplets_ddi, train_triplets_ds])
     valid_triplets = pd.concat([valid_triplets_ddi, valid_triplets_ds])
     test_triplets = pd.concat([test_triplets_ddi, test_triplets_ds])
+    
+    print(train_triplets.head())
+    print(test_triplets.head())
 
     print('All interactions:')
     print('train dataset size:', train_triplets.shape[0])
@@ -113,14 +116,14 @@ def add_other_info_to_train(data_dir, train_triplets):
     files = listdir(data_dir)
 
     for file in files:
-        if file == 'ddi.tsv' or file == 'ds_relations.tsv' or file == '.ipynb_checkpoints':
+        if file == 'ddi.tsv' or file == 'ds_relations.tsv' or file == '.ipynb_checkpoints' or file == 'ds_atoms_concept_map.tsv' or file == 'ds_concept_type.tsv':
             continue
         if 'train' in file or 'valid' in file or 'test' in file:
             continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])
 
-        df.set_axis(['head', 'relation', 'tail'], axis=1, copy=False) 
+        df = df.set_axis(['head', 'relation', 'tail'], axis=1) 
         train_triplets = pd.concat([train_triplets, df])
 
     print('Final size of train dataset (with other relations):', train_triplets.shape[0]) 

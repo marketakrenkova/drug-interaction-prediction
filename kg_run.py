@@ -9,14 +9,14 @@ import torch
 from pykeen.models import predict
 from pykeen.pipeline import pipeline
 from pykeen.triples import TriplesFactory
-from pykeen.models import TransE
+from pykeen.models import TransE, NodePiece
 from pykeen.evaluation import RankBasedEvaluator
 
 
 def convert_to_triples_factory(data):
     tf_data = TriplesFactory.from_labeled_triples(
       data[["head", "relation", "tail"]].values,
-      create_inverse_triples=False,
+      create_inverse_triples=True,
       entity_to_id=None,
       relation_to_id=None,
       compact_id=False 
@@ -26,24 +26,57 @@ def convert_to_triples_factory(data):
 
 def train_model(model, tf_train, tf_valid, tf_test): 
     # creating a model
-    result = pipeline(
-        training = tf_train,
-        testing = tf_test,
-        validation = tf_valid,
-        model = model,
-        optimizer = 'Adam',
-        evaluator = RankBasedEvaluator,
-        epochs = 20,
-        device = 'gpu',
-        training_kwargs = dict(
-            num_epochs = 20,
-            checkpoint_name = model + '_checkpoint.pt',
-            checkpoint_directory = 'kg_checkpoints',
-            checkpoint_frequency = 10
-        ),
-        #stopper='early',
-        #stopper_kwargs=dict(frequency=5, patience=2, relative_delta=0.002),
-    )
+    if model == 'NodePiece':
+        result = pipeline(
+            training = tf_train,
+            testing = tf_test,
+            validation = tf_valid,
+            model = NodePiece,
+            model_kwargs = dict(
+                    tokenizers = ['anchor', 'relation'],
+                    num_tokens = [20, 12],
+                    tokenizers_kwargs = [
+                        dict(
+                            selection = "MixtureAnchorSelection",
+                            selection_kwargs=dict(
+                            selections=["degree", "pagerank", "random"],
+                            ratios=[0.4, 0.4, 0.2],
+                            num_anchors=4000
+                            ),
+                        searcher = "ScipySparse",
+                        ),
+                        dict(),
+                    ],
+                    embedding_dim = 64,
+                    interaction = 'rotate'
+                ),
+            device = 'gpu',
+            training_kwargs = dict(
+                num_epochs = 20,
+                checkpoint_name = model + '_checkpoint.pt',
+                ckeckpoint_directory = 'kg_checkpoints',
+                checkpoint_frequency = 10
+            )
+        )
+    else:    
+        result = pipeline(
+            training = tf_train,
+            testing = tf_test,
+            validation = tf_valid,
+            model = model,
+            optimizer = 'Adam',
+            evaluator = RankBasedEvaluator,
+            epochs = 20,
+            device = 'gpu',
+            training_kwargs = dict(
+                num_epochs = 20,
+                checkpoint_name = model + '_checkpoint.pt',
+                checkpoint_directory = 'kg_checkpoints',
+                checkpoint_frequency = 10
+            ),
+            #stopper='early',
+            #stopper_kwargs=dict(frequency=5, patience=2, relative_delta=0.002),
+        )
     return result
 
 def get_predictions(result, model_name):
@@ -81,17 +114,17 @@ def get_predictions(result, model_name):
     print(predicted_df_3.head(20))
     predicted_df_3 = predicted_df_3.head(100)
     predicted_df_3.to_csv(predictions_dir + model_name + '-pineapple-predictions.csv')
-    
+
     predicted_df_4 = predict.get_tail_prediction_df(
         model = result.model, 
-        head_label = "Peppermint", 
-        relation_label = "decrease_adverse_effects", 
-        triples_factory = result.training,
+        head_label = "Vedolizumab", 
+        relation_label = "increase_infection", 
+        triples_factory = result.training,   
     )
-    print('Peppermint - decrease_adverse_effects')
+    print('Vedolizumab - increase_infection')
     print(predicted_df_4.head(20))
     predicted_df_4 = predicted_df_4.head(100)
-    predicted_df_4.to_csv(predictions_dir + model_name + '-peppermint-predictions.csv')
+    predicted_df_4.to_csv(predictions_dir + model_name + '-vedolizumab-predictions.csv')
     
     #predicted_all_df = predict.get_all_prediction_df(
     #    model = result.model, 
@@ -106,7 +139,7 @@ def get_predictions(result, model_name):
 
 def main():
 
-    model_name = 'TransR'
+    model_name = 'HolE'
     trained_model = 'results-' + model_name + '/trained_model.pkl'
 
     # TODO: 
