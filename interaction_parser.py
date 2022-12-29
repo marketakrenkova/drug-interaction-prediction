@@ -7,10 +7,7 @@
 import re
 import pandas as pd
 
-
-# TODO: DFI parser
-
-
+# drug interactions
 DDI_SIDE_EFFECT_1 = re.compile('The risk or severity of (?P<se>.*) can be (?P<mode>\S+)d when (?P<drug1>\w*\s*\w*) is combined with (?P<drug2>\w*\s*\w*)')
 DDI_SIDE_EFFECT_2 = re.compile('(?P<drug1>\w*\s*\w*) may (?P<mode>\S+) (?P<se>\S+\s?\w*\s?\w*) of (?P<drug2>\w*\s*\w*) as a diagnostic agent.')
 DDI_SIDE_EFFECT_3 = re.compile('The (?P<se>\S+\s?\w*\s?\w*) of (?P<drug1>\w*\s*\w*) can be (?P<mode>\S+)d when used in combination with (?P<drug2>\w*\s*\w*)')
@@ -70,6 +67,26 @@ DDI_SE_NAME_MAP = {
     "hypotensive_activities": "hypotension",
     "serum_level": "serum_concentration"
 }
+
+# food interactions
+DFI_1 = re.compile('Avoid (?P<food>.*)$')
+DFI_2 = re.compile('Administer (?P<food>.*)')
+DFI_3 = re.compile('Drink plenty of (?P<food>.*)')
+DFI_4 = re.compile('Limit (?P<food>.*) intake')
+DFI_5 = re.compile('Take with (?P<food>.*)')
+DFI_6 = re.compile('Exercise caution with (?P<food>.*)')
+DFI_7 = re.compile('Take separate from (?P<food>.*)')
+
+patterns = [DFI_1, DFI_2, DFI_3, DFI_4, DFI_5, DFI_6, DFI_7]
+patterns_dict = { DFI_1: 'avoid', DFI_2: 'increase_intake', DFI_3: 'increase_intake', DFI_4: 'limit', 
+                 DFI_5: 'take_with', DFI_6: 'avoid', DFI_7: 'avoid'}
+
+pattern_interaction_map = {'avoid': 'decrease_effectiveness', 
+                            'limit': 'decrease_effectiveness', 
+                            'take_with': 'increase_effectiveness',
+                            'increase_intake': 'decrease_adverse_effects',
+                            'increase_antiplatelet_activities': 'increase_antiplatelet_activities'}
+
 
 def sanatize_se_txt(txt):
     return txt.strip().replace(" ", "_").lower()
@@ -159,6 +176,81 @@ def parse_drug_interactions():
     
     interactions_triplets = pd.DataFrame({'drug1': drugs1, 'interaction': interactions, 'drug2': drugs2})
     interactions_triplets.to_csv('data/triplets/ddi.tsv', sep='\t')
+    
+    
+def extract_food_interaction(desc):
+    interaction_type = ''
+    food = ''
+   
+    for pattern in patterns:
+        desc = desc.split('. ')[0]
+        desc = re.sub('\.', '', desc)
+        desc = re.sub('\ \(eg', '', desc)
+        pg = re.match(pattern, desc)
+        if pg is not None:
+            interaction_type = patterns_dict[pattern]
+            food = pg.group("food").lower() 
+            continue
+   
+    return interaction_type, food                
+    
+def parse_food_interactions():
+    food_interactions = pd.read_csv('data/drugbank/drug_food_interactions.csv', index_col=[0])
+    drugs = pd.read_csv('data/drugbank/drug_id_name_map.csv', index_col=[0])
+    
+    #food_interactions_list = list(food_interactions.description.values)
+
+    #parsed_food_interactions = []
+    
+    #for desc in food_interactions_list:
+    #    interaction, food = extract_food_interaction(desc)
+    #    if len(interaction) > 0:
+    #        parsed_food_interactions.append((interaction, food))
+            
+    drugs_list = []
+    food_list = []
+    interactions = []
+
+    for inter in food_interactions.itertuples():
+        drug = drugs[drugs['id'] == inter[1]].values[0][1]
+        desc = inter[2]
+
+        interaction, food = extract_food_interaction(desc)
+
+        if len(interaction) > 0 and interaction != 'nothing' and food != 'or without food':
+            if 'anticoagulant/antiplatelet activity' in food:
+                interaction = 'increase_antiplatelet_activities' 
+
+            elif food == 'st':
+                food = "St. John's Wort"
+
+            elif 'alcohol' in food:
+                food = "alcohol"
+
+            elif 'water' in food or 'fluids' in food:
+                food = "water"
+
+            elif 'grapefruit' in food:
+                food = "grapefruit"
+
+            elif 'potassium' in food:
+                food = 'potassium'
+
+            elif 'calcium' in food:
+                food = 'calcium'
+
+            elif 'dairy' in food:
+                food = 'dairy products'    
+
+            interaction = pattern_interaction_map[interaction]
+
+            drugs_list.append(drug)
+            food_list.append(food)  
+            interactions.append(interaction)
+
+    food_interactions_triplets = pd.DataFrame({'drug1': drugs_list, 'interaction': interactions, 'drug2': food_list})  # drug1/2 -> better parsing later
+    food_interactions_triplets.to_csv('data/triplets/dfi.tsv', sep='\t')        
 
 
 parse_drug_interactions()
+parse_food_interactions()

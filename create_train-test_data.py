@@ -7,8 +7,9 @@ from os import listdir
 def read_interactions_data(data_dir):
     ddi_df = pd.read_csv(data_dir + 'ddi.tsv', sep='\t', index_col=[0])
     drug_supplement_df = pd.read_csv(data_dir + 'ds_relations.tsv', sep='\t', index_col=[0])
+    dfi_df = pd.read_csv(data_dir + 'dfi.tsv', sep='\t', index_col=[0])
     
-    return ddi_df, drug_supplement_df
+    return ddi_df, drug_supplement_df, dfi_df
 
 # compute sizes of train and test sets if the number of exaples is <= 7
 def compute_size(n):
@@ -94,13 +95,14 @@ def split_ddi_dataset(ddi_df):
     
     return train_triplets, valid_triplets, test_triplets 
 
-def split_interactions_data(ddi_df, drug_supplement_df):
+def split_interactions_data(ddi_df, drug_supplement_df, dfi_df):
     train_triplets_ddi, valid_triplets_ddi, test_triplets_ddi = split_ddi_dataset(ddi_df)
     train_triplets_ds, valid_triplets_ds, test_triplets_ds = split_drug_supplements_dataset(drug_supplement_df)
+    train_triplets_dfi, valid_triplets_dfi, test_triplets_dfi = split_ddi_dataset(dfi_df)
     
-    train_triplets = pd.concat([train_triplets_ddi, train_triplets_ds])
-    valid_triplets = pd.concat([valid_triplets_ddi, valid_triplets_ds])
-    test_triplets = pd.concat([test_triplets_ddi, test_triplets_ds])
+    train_triplets = pd.concat([train_triplets_ddi, train_triplets_ds, train_triplets_dfi])
+    valid_triplets = pd.concat([valid_triplets_ddi, valid_triplets_ds, valid_triplets_dfi])
+    test_triplets = pd.concat([test_triplets_ddi, test_triplets_ds, test_triplets_dfi])
     
     print(train_triplets.head())
     print(test_triplets.head())
@@ -116,7 +118,7 @@ def add_other_info_to_train(data_dir, train_triplets):
     files = listdir(data_dir)
 
     for file in files:
-        if file == 'ddi.tsv' or file == 'ds_relations.tsv' or file == '.ipynb_checkpoints' or file == 'ds_atoms_concept_map.tsv' or file == 'ds_concept_type.tsv':
+        if file == 'ddi.tsv' or file == 'ds_relations.tsv' or file == 'dfi.tsv' or file == '.ipynb_checkpoints' or file == 'ds_atoms_concept_map.tsv' or file == 'ds_concept_type.tsv':
             continue
         if 'train' in file or 'valid' in file or 'test' in file:
             continue
@@ -133,8 +135,8 @@ def add_other_info_to_train(data_dir, train_triplets):
 def main():
     data_dir = 'data/triplets/'
     
-    ddi_df, drug_supplement_df = read_interactions_data(data_dir)
-    train, valid, test = split_interactions_data(ddi_df, drug_supplement_df)
+    ddi_df, drug_supplement_df, dfi_df = read_interactions_data(data_dir)
+    train, valid, test = split_interactions_data(ddi_df, drug_supplement_df, dfi_df)
     train = add_other_info_to_train(data_dir, train)
     
     train = train.astype(str)
