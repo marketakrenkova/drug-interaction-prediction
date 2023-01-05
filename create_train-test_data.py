@@ -49,6 +49,8 @@ def split_data_relation(df_relation):
 def split_drug_supplements_dataset(drug_supplement_df):
     relations = set(drug_supplement_df.REL)
     
+    print('Ds relation count:', len(relations))
+    
     train_triplets = pd.DataFrame(columns=['CUI1', 'REL', 'CUI2'])
     valid_triplets = pd.DataFrame(columns=['CUI1', 'REL', 'CUI2'])
     test_triplets = pd.DataFrame(columns=['CUI1', 'REL', 'CUI2'])
@@ -63,16 +65,18 @@ def split_drug_supplements_dataset(drug_supplement_df):
     valid_triplets = valid_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'})
     test_triplets = test_triplets.rename(columns={'CUI1': 'head', 'REL': 'relation', 'CUI2': 'tail'})    
 
-#     print('Drug Supplement database - drug-suplement interactions')
-#     print('train dataset size:', train_triplets.shape[0])
-#     print('validation dataset size:',valid_triplets.shape[0])
-#     print('test dataset size:',test_triplets.shape[0])
+    print('Drug Supplement database - drug-suplement interactions')
+    print('train dataset size:', train_triplets.shape[0])
+    print('validation dataset size:',valid_triplets.shape[0])
+    print('test dataset size:',test_triplets.shape[0])
     
     return train_triplets, valid_triplets, test_triplets
 
 # split drug-drug interaction dataset (from DrugBank)
 def split_ddi_dataset(ddi_df):
     interactions = set(ddi_df.interaction)
+    
+    print('DDI/DFI interactions count:', len(interactions))
     
     train_triplets = pd.DataFrame(columns=['drug1', 'interaction', 'drug2'])
     valid_triplets = pd.DataFrame(columns=['drug1', 'interaction', 'drug2'])
@@ -88,10 +92,10 @@ def split_ddi_dataset(ddi_df):
     valid_triplets = valid_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'})
     test_triplets = test_triplets.rename(columns={'drug1': 'head', 'interaction': 'relation', 'drug2': 'tail'})    
 
-#     print('DrugBank drug-drug interactions')
-#     print('train dataset size:', train_triplets.shape[0])
-#     print('validation dataset size:',valid_triplets.shape[0])
-#     print('test dataset size:',test_triplets.shape[0])
+    print('DrugBank drug-drug interactions')
+    print('train dataset size:', train_triplets.shape[0])
+    print('validation dataset size:',valid_triplets.shape[0])
+    print('test dataset size:',test_triplets.shape[0])
     
     return train_triplets, valid_triplets, test_triplets 
 
