@@ -101,13 +101,17 @@ def split_ddi_dataset(ddi_df):
 
 def split_interactions_data(ddi_df, drug_supplement_df, dfi_df):
     train_triplets_ddi, valid_triplets_ddi, test_triplets_ddi = split_ddi_dataset(ddi_df)
-    train_triplets_ds, valid_triplets_ds, test_triplets_ds = split_drug_supplements_dataset(drug_supplement_df)
-    train_triplets_dfi, valid_triplets_dfi, test_triplets_dfi = split_ddi_dataset(dfi_df)
+    #train_triplets_ds, valid_triplets_ds, test_triplets_ds = split_drug_supplements_dataset(drug_supplement_df)
+    #train_triplets_dfi, valid_triplets_dfi, test_triplets_dfi = split_ddi_dataset(dfi_df)
     
-    train_triplets = pd.concat([train_triplets_ddi, train_triplets_ds, train_triplets_dfi])
-    valid_triplets = pd.concat([valid_triplets_ddi, valid_triplets_ds, valid_triplets_dfi])
-    test_triplets = pd.concat([test_triplets_ddi, test_triplets_ds, test_triplets_dfi])
+    #train_triplets = pd.concat([train_triplets_ddi, train_triplets_ds, train_triplets_dfi])
+    #valid_triplets = pd.concat([valid_triplets_ddi, valid_triplets_ds, valid_triplets_dfi])
+    #test_triplets = pd.concat([test_triplets_ddi, test_triplets_ds, test_triplets_dfi])
     
+    train_triplets = train_triplets_ddi
+    valid_triplets = valid_triplets_ddi
+    test_triplets = test_triplets_ddi
+
     print(train_triplets.head())
     print(test_triplets.head())
 
@@ -125,6 +129,11 @@ def add_other_info_to_train(data_dir, train_triplets):
         if file == 'ddi.tsv' or file == 'ds_relations.tsv' or file == 'dfi.tsv' or file == '.ipynb_checkpoints' or file == 'ds_atoms_concept_map.tsv' or file == 'ds_concept_type.tsv':
             continue
         if 'train' in file or 'valid' in file or 'test' in file:
+            continue
+        # don't use food and drug supplements in KG, only compounds -> look up corresponding food according to predicted compounds
+        if file == 'food_compound.tsv' or file == 'ds_ingredients.tsv':
+            continue
+        if 'compound' in file: # only drugs
             continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])

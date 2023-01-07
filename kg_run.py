@@ -3,6 +3,7 @@
 import pandas as pd
 import time
 import os.path
+import sys
 
 import torch
 
@@ -24,9 +25,9 @@ def convert_to_triples_factory(data):
 
     return tf_data
 
-def train_model(model, tf_train, tf_valid, tf_test): 
+def train_model(model, tf_train, tf_valid, tf_test, detail): 
     # creating a model
-    if model == 'NodePiece':
+    if model == 'NodePiece':  # TODO: make it work
         result = pipeline(
             training = tf_train,
             testing = tf_test,
@@ -70,7 +71,7 @@ def train_model(model, tf_train, tf_valid, tf_test):
             device = 'gpu',
             training_kwargs = dict(
                 num_epochs = 20,
-                checkpoint_name = model + '_checkpoint.pt',
+                checkpoint_name = model + '-' + detail + '_checkpoint.pt',
                 checkpoint_directory = 'kg_checkpoints',
                 checkpoint_frequency = 10
             ),
@@ -79,7 +80,7 @@ def train_model(model, tf_train, tf_valid, tf_test):
         )
     return result
 
-def get_predictions(result, model_name):
+def get_predictions(result, model_name, detail):
     predictions_dir = 'predictions/'
     
     predicted_tails_df = predict.get_head_prediction_df(
@@ -91,7 +92,7 @@ def get_predictions(result, model_name):
     print('Leuprolide - decrease_adverse_effects:')
     print(predicted_tails_df.head(20))
     predicted_tails_df = predicted_tails_df.head(100)
-    predicted_tails_df.to_csv(predictions_dir + model_name + '-Leuprolide-predictions.csv')
+    predicted_tails_df.to_csv(predictions_dir + model_name + '-Leuprolide-predictions-' + detail + '.csv')
 
     predicted_df_2 = predict.get_head_prediction_df(
         model = result.model, 
@@ -102,7 +103,7 @@ def get_predictions(result, model_name):
     print('Galantamine - increase_congestive_heart_failure')
     print(predicted_df_2.head(20))
     predicted_df_2 = predicted_df_2.head(100)
-    predicted_df_2.to_csv(predictions_dir + model_name + '-galantamine-predictions.csv')
+    predicted_df_2.to_csv(predictions_dir + model_name + '-galantamine-predictions-'+ detail +'.csv')
     
     predicted_df_3 = predict.get_tail_prediction_df(
         model = result.model, 
@@ -113,7 +114,7 @@ def get_predictions(result, model_name):
     print('Pineapple - interacts_with')
     print(predicted_df_3.head(20))
     predicted_df_3 = predicted_df_3.head(100)
-    predicted_df_3.to_csv(predictions_dir + model_name + '-pineapple-predictions.csv')
+    predicted_df_3.to_csv(predictions_dir + model_name + '-pineapple-predictions-'+ detail +'.csv')
 
     predicted_df_4 = predict.get_tail_prediction_df(
         model = result.model, 
@@ -124,7 +125,7 @@ def get_predictions(result, model_name):
     print('Vedolizumab - increase_infection')
     print(predicted_df_4.head(20))
     predicted_df_4 = predicted_df_4.head(100)
-    predicted_df_4.to_csv(predictions_dir + model_name + '-vedolizumab-predictions.csv')
+    predicted_df_4.to_csv(predictions_dir + model_name + '-vedolizumab-predictions-' + detail + '.csv')
     
     #predicted_all_df = predict.get_all_prediction_df(
     #    model = result.model, 
@@ -137,7 +138,7 @@ def get_predictions(result, model_name):
 
     
 
-def main():
+def main(detail):
 
     model_name = 'HolE'
     trained_model = 'results-' + model_name + '/trained_model.pkl'
@@ -161,15 +162,16 @@ def main():
     
     print('Training model...')
     start_time = time.time()
-    results = train_model(model_name, tf_train, tf_valid, tf_test)
+    results = train_model(model_name, tf_train, tf_valid, tf_test, detail)
     print('Training done.')
     print("--- %s seconds ---" % (time.time() - start_time))
 
-    results.save_to_directory("results-" + model_name)
+    results.save_to_directory("results-" + model_name + '-' + detail)
 
 
-    get_predictions(results, model_name)
+    get_predictions(results, model_name, detail)
 
 if __name__ == "__main__":
-    main()    
+    detail = sys.argv[1]
+    main(detail)    
     

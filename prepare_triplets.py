@@ -260,7 +260,6 @@ relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
 # atom id - source db ?
 # atom id - id in source db ?
 
-# TODO: parser
 # attribute id - attribute name
 # attributes = pd.read_csv(ds_data_dir + 'MRSAT.csv', sep='|')
 # attr_name = attributes[['ATUI', 'ATN']]
@@ -301,7 +300,6 @@ relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
 # superclass - kinkdom ?
 # drug_id - interaction - drug_id 
 # drug_id - interaction - food
-# TODO: parser 
 
 ## FooDB
 # compound publid_id - source_id ?
