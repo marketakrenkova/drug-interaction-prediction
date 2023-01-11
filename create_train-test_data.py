@@ -99,18 +99,20 @@ def split_ddi_dataset(ddi_df):
     
     return train_triplets, valid_triplets, test_triplets 
 
-def split_interactions_data(ddi_df, drug_supplement_df, dfi_df):
-    train_triplets_ddi, valid_triplets_ddi, test_triplets_ddi = split_ddi_dataset(ddi_df)
-    #train_triplets_ds, valid_triplets_ds, test_triplets_ds = split_drug_supplements_dataset(drug_supplement_df)
-    #train_triplets_dfi, valid_triplets_dfi, test_triplets_dfi = split_ddi_dataset(dfi_df)
-    
-    #train_triplets = pd.concat([train_triplets_ddi, train_triplets_ds, train_triplets_dfi])
-    #valid_triplets = pd.concat([valid_triplets_ddi, valid_triplets_ds, valid_triplets_dfi])
-    #test_triplets = pd.concat([test_triplets_ddi, test_triplets_ds, test_triplets_dfi])
-    
-    train_triplets = train_triplets_ddi
-    valid_triplets = valid_triplets_ddi
-    test_triplets = test_triplets_ddi
+def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interaction_data):
+    train_triplets, valid_triplets, test_triplets = split_ddi_dataset(ddi_df)
+
+    if use_interaction_data[0]:    
+        train_triplets_ds, valid_triplets_ds, test_triplets_ds = split_drug_supplements_dataset(drug_supplement_df)
+        train_triplets = pd.concat([train_triplets, train_triplets_ds])
+        valid_triplets = pd.concat([valid_triplets, valid_triplets_ds])
+        test_triplets = pd.concat([test_triplets, test_triplets_ds])
+
+    if use_interaction_data[1]:    
+        train_triplets_dfi, valid_triplets_dfi, test_triplets_dfi = split_ddi_dataset(dfi_df)
+        train_triplets = pd.concat([train_triplets, train_triplets_dfi])
+        valid_triplets = pd.concat([valid_triplets, valid_triplets_dfi])
+        test_triplets = pd.concat([test_triplets, test_triplets_dfi])
 
     print(train_triplets.head())
     print(test_triplets.head())
@@ -122,7 +124,7 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df):
     
     return train_triplets, valid_triplets, test_triplets
 
-def add_other_info_to_train(data_dir, train_triplets):
+def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
     files = listdir(data_dir)
 
     for file in files:
@@ -130,10 +132,10 @@ def add_other_info_to_train(data_dir, train_triplets):
             continue
         if 'train' in file or 'valid' in file or 'test' in file:
             continue
-        # don't use food and drug supplements in KG, only compounds -> look up corresponding food according to predicted compounds
-        if file == 'food_compound.tsv' or file == 'ds_ingredients.tsv':
+        # use food and drug supplements in KG iff use_interaction_data[i]=True
+        if not use_interaction_data[0] and file == 'ds_ingredients.tsv': 
             continue
-        if 'compound' in file: # only drugs
+        if not use_interaction_data[1] and 'compound' in file:
             continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])
@@ -147,10 +149,14 @@ def add_other_info_to_train(data_dir, train_triplets):
 
 def main():
     data_dir = 'data/triplets/'
+
+    # which interactions use - drug-drug_supplement, drig-food
+    # drug-drug is used always
+    use_interactions_data = [False, False]
     
     ddi_df, drug_supplement_df, dfi_df = read_interactions_data(data_dir)
-    train, valid, test = split_interactions_data(ddi_df, drug_supplement_df, dfi_df)
-    train = add_other_info_to_train(data_dir, train)
+    train, valid, test = split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interactions_data)
+    train = add_other_info_to_train(data_dir, train, use_interactions_data)
     
     train = train.astype(str)
     valid = valid.astype(str)

@@ -21,6 +21,22 @@ def convert_to_triples_factory(data):
 
     return tf_data
 
+# class DataPreprocessor():
+#     def __init__(self, data_dir):
+#         self.data_dir = data_dir
+
+#     def split_data(self, ):
+#         pass
+
+#     def save(self):
+#         self.train = self.train.astype(str)
+#         self.valid = self.valid.astype(str)
+#         self.test = self.test.astype(str)
+
+#         self.train.to_csv(self.data_dir + 'train.tsv', sep='\t')
+#         self.valid.to_csv(self.data_dir + 'valid.tsv', sep='\t')
+#         self.test.to_csv(self.data_dir + 'test.tsv', sep='\t')       
+
 
 class DataLoader():
     def __init__(self, data_dir):
@@ -85,7 +101,7 @@ class KG_model:
         predicted_tails_df = predicted_tails_df.head(50)
         predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + tail + '_' + relation + '_' + self.specification + '.csv')
 
-
+# ----------------------------
 
 model_name = sys.argv[1]
 specification = sys.argv[2]

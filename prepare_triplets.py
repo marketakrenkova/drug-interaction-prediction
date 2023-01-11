@@ -154,7 +154,6 @@ food_ids = list(food_df.id.values)
 compound_public_ids = []
 compound_names = set()
 compound_cas_numbers = set()
-# food_compound_contibution_scores = [] # ??
 
 for food_id in food_ids:
     food_info = food_compounds[str(food_id)] 
