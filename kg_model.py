@@ -19,24 +19,10 @@ def convert_to_triples_factory(data):
         compact_id=False 
     )
 
+    print(tf_data.mapped_triples)
+
     return tf_data
-
-# class DataPreprocessor():
-#     def __init__(self, data_dir):
-#         self.data_dir = data_dir
-
-#     def split_data(self, ):
-#         pass
-
-#     def save(self):
-#         self.train = self.train.astype(str)
-#         self.valid = self.valid.astype(str)
-#         self.test = self.test.astype(str)
-
-#         self.train.to_csv(self.data_dir + 'train.tsv', sep='\t')
-#         self.valid.to_csv(self.data_dir + 'valid.tsv', sep='\t')
-#         self.test.to_csv(self.data_dir + 'test.tsv', sep='\t')       
-
+      
 
 class DataLoader():
     def __init__(self, data_dir):
@@ -82,8 +68,7 @@ class KG_model:
             training_kwargs = dict(
                 num_epochs = self.num_epochs,
                 checkpoint_name = self.model_name + '-' + self.specification + '_checkpoint.pt',
-                checkpoint_directory = 'kg_checkpoints',
-                checkpoint_frequency = self.num_epochs / 2
+                checkpoint_directory = 'kg_checkpoints'
             )
         )  
 
@@ -103,21 +88,29 @@ class KG_model:
 
 # ----------------------------
 
-model_name = sys.argv[1]
-specification = sys.argv[2]
+def main(model_name, specification):
 
-print('Reading data...')
-data = DataLoader('data/triplets/')
-data.load()
+    print('Reading data...')
+    data = DataLoader('data/triplets/')
+    data.load()
 
-kg = KG_model(model_name, data.train, data.valid, data.test, specification)
-kg.set_params(1, 'Adam', RankBasedEvaluator, 'gpu')
-kg.__str__()
-print()
-print('Training model...')
-kg.train()
-print('Training done.')
+    # kg = KG_model(model_name, data.train, data.valid, data.test, specification)
+    # kg.set_params(5, 'Adam', RankBasedEvaluator, 'gpu')
+    # kg.__str__()
+    # print()
+    # print('Training model...')
+    # kg.train()
+    # print('Training done.')
 
-kg.trained_model.save_to_directory(f'results/results-{model_name}_{specification}')
+    # kg.trained_model.save_to_directory(f'results/results-{model_name}_{specification}')
 
-kg.predict_head('Leuprolide', 'decrease_adverse_effects')
+    # kg.predict_head('Leuprolide', 'decrease_adverse_effects')
+
+if __name__ == '__main__':
+    if len(sys.argv) < 3:
+        print('Specify a model name and specification')
+
+    model_name = sys.argv[1]
+    specification = sys.argv[2]
+    
+    main(model_name, specification)

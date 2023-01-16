@@ -1,6 +1,11 @@
+numpy
 pandas
 jupyterlab==3.4.8
 matplotlib
 scikit-learn
 pykeen
 seaborn
+torch
+torch-geometric
+urllib3
+outdated

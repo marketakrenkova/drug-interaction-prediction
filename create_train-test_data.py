@@ -31,10 +31,7 @@ def split_data_relation(df_relation):
     # too few triplets with the realtion
     if df_relation.shape[0] <= 7:
         train_size, valid_size = compute_size(df_relation.shape[0])
-        
-        # shuffle df_relation
-        df_relation = df_relation.sample(frac=1, random_state=42)
-        
+        df_relation = df_relation.sample(frac=1, random_state=42)  # shuffle
         X_train = df_relation.iloc[:train_size]
         X_valid = df_relation.iloc[train_size:valid_size]
         X_test = df_relation.iloc[valid_size:]
@@ -48,7 +45,7 @@ def split_data_relation(df_relation):
 # split drug-supplements relation dataset
 def split_drug_supplements_dataset(drug_supplement_df):
     relations = set(drug_supplement_df.REL)
-    
+
     print('Ds relation count:', len(relations))
     
     train_triplets = pd.DataFrame(columns=['CUI1', 'REL', 'CUI2'])
