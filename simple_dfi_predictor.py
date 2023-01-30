@@ -26,6 +26,7 @@ class SimpleDFIPredictor():
         self.drug_ingredients = pd.read_csv(self.drug_ingredients_path, sep='\t', index_col=[0])
         self.food_ingredients = pd.read_csv(self.food_ingredients_path, sep='\t', index_col=[0])    
 
+    # food_compound_dict = {compound : [list of foods which contain this compound]}
     def create_food_compound_dict(self):
         compounds = set(self.food_ingredients.compound)
         food_compound_dict = dict()
@@ -35,6 +36,7 @@ class SimpleDFIPredictor():
 
         return food_compound_dict
 
+    # drug_compound_dict = {drug : [list of compounds which contain this drug]}
     def create_drug_compound_dict(self):
         drug_compound_dict = dict()
         interacting_drugs = set(self.ddi.drug1)
@@ -45,6 +47,8 @@ class SimpleDFIPredictor():
          
         return drug_compound_dict
 
+    # for each drug ingredient/compound (drug_ingredients), find a list of foods which contain this ingredient 
+    # return dictionary {ingredient: [list of foods  which contain this ingredient]}
     def get_similar_food(self, drug_ingredients):
         sim_food = {}
 

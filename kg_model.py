@@ -74,6 +74,8 @@ class KG_model:
 
     def predict_head(self, tail, relation):
         prediction_dir = 'predictions/'
+        
+        # TODO: use predict method of the model - return a score for a given batch of triplets (or its variants)
 
         predicted_tails_df = predict.get_head_prediction_df(
             model = self.trained_model.model, 
