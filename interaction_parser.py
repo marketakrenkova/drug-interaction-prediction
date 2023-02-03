@@ -152,13 +152,17 @@ def extract_side_effects(desc, drug_orig):
 def parse_drug_interactions():
     interactions_df = pd.read_csv('data/drugbank/drug_interactions.csv', index_col=[0])
 
+    drug_id_map = pd.read_csv('data/drugbank/drug_id_name_map.csv', index_col=[0])
+    drug_ids = drug_id_map.id
+    drug_names = drug_id_map.drug_name
+    drug_id_map_dict = dict(zip(drug_names, drug_ids))
+
     drugs1 = []
     drugs2 = []
     interactions = []
 
-
     for inter in interactions_df.itertuples():
-        # drug_id1 = inter[1]
+        # drug_id = inter[1]
         drug_name1 = inter[2]
         description = inter[3]
         side_effects, drug_name2 = extract_side_effects(description, drug_name1)
@@ -172,11 +176,15 @@ def parse_drug_interactions():
             drugs1.append(drug_name1)
             drugs2.append(drug_name2)
             interactions.append(se)
- 
-    
-    interactions_triplets = pd.DataFrame({'drug1': drugs1, 'interaction': interactions, 'drug2': drugs2})
+
+    drugs1 = pd.Series(drugs1)
+    drugs1_ids = drugs1.map(drug_id_map_dict)
+    drugs2 = pd.Series(drugs2)
+    drugs2_ids = drugs2.map(drug_id_map_dict) 
+
+    interactions_triplets = pd.DataFrame({'drug1': drugs1_ids, 'interaction': interactions, 'drug2': drugs2_ids})
+    interactions_triplets = interactions_triplets.dropna()
     interactions_triplets.to_csv('data/triplets/ddi.tsv', sep='\t')
-    
     
 def extract_food_interaction(desc):
     interaction_type = ''
@@ -197,15 +205,6 @@ def extract_food_interaction(desc):
 def parse_food_interactions():
     food_interactions = pd.read_csv('data/drugbank/drug_food_interactions.csv', index_col=[0])
     drugs = pd.read_csv('data/drugbank/drug_id_name_map.csv', index_col=[0])
-    
-    #food_interactions_list = list(food_interactions.description.values)
-
-    #parsed_food_interactions = []
-    
-    #for desc in food_interactions_list:
-    #    interaction, food = extract_food_interaction(desc)
-    #    if len(interaction) > 0:
-    #        parsed_food_interactions.append((interaction, food))
             
     drugs_list = []
     food_list = []
@@ -253,4 +252,4 @@ def parse_food_interactions():
 
 
 parse_drug_interactions()
-parse_food_interactions()
+# parse_food_interactions()

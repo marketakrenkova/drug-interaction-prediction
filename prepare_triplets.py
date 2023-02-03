@@ -11,8 +11,9 @@ drug_dir = 'data/drugbank/'
 triplets_dir = 'data/triplets/'
 
 # drug_id - name
-drugs = pd.read_csv(drug_dir + 'drug_id_name_map.csv', index_col=[0])
-## if ids are given to the model -> don't substitue id by name
+drugs_map = pd.read_csv(drug_dir + 'drug_id_name_map.csv', index_col=[0])
+
+# if ids are given to the model -> don't substitue id by name
 # drugs['relation'] = list(itertools.repeat('has_name', drugs.shape[0]))
 # drugs = drugs.iloc[:,[0,2,1]]
 # print('Number of drugs:', drugs.shape[0])
@@ -20,17 +21,17 @@ drugs = pd.read_csv(drug_dir + 'drug_id_name_map.csv', index_col=[0])
 # print()
 # drugs.to_csv(triplets_dir + 'drugs_names.tsv', sep='\t')
 
-drugs_names_dic = drugs.set_index('id')['drug_name'].to_dict()
+# drugs_names_dic = drugs.set_index('id')['drug_name'].to_dict()
 
 # drug_id - subclass
 drug_class = pd.read_csv(drug_dir + 'drug_classification.csv', index_col=[0])
 drug_subclass = drug_class[['id', 'subclass']]
 drug_subclass['relation'] = list(itertools.repeat('in_subclass', drug_subclass.shape[0]))
 drug_subclass = drug_subclass.iloc[:,[0,2,1]]
-# substitue id with drug name
-for i, row in drug_subclass.iterrows():
-    drug_subclass.at[i, 'id'] = drugs_names_dic[row['id']]
-drug_subclass.rename(columns={'id': 'drug'}, inplace=True)
+# # substitue id with drug name
+# for i, row in drug_subclass.iterrows():
+#     drug_subclass.at[i, 'id'] = drugs_names_dic[row['id']]
+# drug_subclass.rename(columns={'id': 'drug'}, inplace=True)
 
 print('Number of drug subclasses:', drug_subclass.shape[0])
 print(drug_subclass.head())
@@ -38,14 +39,14 @@ print()
 drug_subclass.to_csv(triplets_dir + 'drug_subclass.tsv', sep='\t')
 
 # drug_name - ingredients
-mixtures = pd.read_csv(drug_dir + 'drug_mixtures.csv', index_col=[0])
+mixtures = pd.read_csv(drug_dir + 'drug_mixtures.csv', index_col=[0]) # TODO: inspect data (ingredients - drugbank ID)
 drugs = []
 ingredients = []
 relations = []
 for drug in mixtures.itertuples():
     ingreds = drug[2].split('+')
     for ingredient in ingreds:
-        drugs.append(drug[1])
+        # drugs.append(drug[1])
         relations.append('contains')
         ingredients.append(ingredient)
 ingredient_df = pd.DataFrame({'drug_name': drugs, 'relation': relations, 'ingredient': ingredients})       
