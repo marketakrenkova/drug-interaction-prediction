@@ -84,6 +84,16 @@ def prepare_triplets_drugbank():
     inchi_key.to_csv(triplets_dir + 'drugs_inchi_key.tsv', sep='\t')
     # ---------------------------------------------------------------------------------
 
+    # drug_id - ATC code
+    atc_codes = pd.read_csv(drug_dir + 'drug_atc_code.csv', index_col=[0])
+    atc_codes['relation'] = list(itertools.repeat('has_atc_code', atc_codes.shape[0]))
+    atc_codes = atc_codes.iloc[:,[0,2,1]]
+    print(atc_codes.head())
+    print()
+    atc_codes.to_csv(triplets_dir + 'drug_atc_codes.tsv', sep='\t')
+
+    # ---------------------------------------------------------------------------------
+
     # # drug_id - molecule
     # molecules = pd.read_csv(drug_dir + 'drug_molecul.csv', index_col=[0])
     # molecules['relation'] = list(itertools.repeat('has_molecule', molecules.shape[0]))
@@ -298,6 +308,6 @@ def prepare_triplets_idisk():
     relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
 # ---------------------------------------------------------------------------------
 
-# prepare_triplets_drugbank()
-prepare_triplets_foodb()
+prepare_triplets_drugbank()
+# prepare_triplets_foodb()
 # prepare_triplets_idisk()
