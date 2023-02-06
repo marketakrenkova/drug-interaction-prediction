@@ -186,7 +186,7 @@ def prepare_triplets_drugbank():
 def prepare_triplets_foodb():
     # food_id - name
     food = pd.read_csv('data/food.csv')
-    food_df = food[['id', 'name']]
+    food_df = food[['public_id', 'name']]
     food_df['relation'] = list(itertools.repeat('has_name', food_df.shape[0]))
     food_df = food_df.iloc[:,[0,2,1]]
     ## if ids are given to the model -> don't substitue id by name
@@ -196,12 +196,12 @@ def prepare_triplets_foodb():
     food_df.to_csv(triplets_dir + 'food_name.tsv', sep='\t')
 
     # TODO: replace food_id with: food_1 instead 1
-    food_names_dic = food_df.set_index('id')['name'].to_dict()
+    food_names_dic = food_df.set_index('public_id')['name'].to_dict()
 
     with open('data/most_contributing_food_compounds.json', 'r') as f:
         food_compounds = json.load(f)
 
-    food_ids = list(food_df.id.values)    
+    food_ids = list(food_df['public_id'].values)    
     compound_public_ids = []
     compound_names = set()
     compound_cas_numbers = set()
@@ -308,6 +308,6 @@ def prepare_triplets_idisk():
     relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
 # ---------------------------------------------------------------------------------
 
-prepare_triplets_drugbank()
-# prepare_triplets_foodb()
+# prepare_triplets_drugbank()
+prepare_triplets_foodb()
 # prepare_triplets_idisk()
