@@ -31,7 +31,7 @@ def split_data_relation(df_relation):
     # too few triplets with the realtion
     if df_relation.shape[0] <= 7:
         train_size, valid_size = compute_size(df_relation.shape[0])
-        df_relation = df_relation.sample(frac=1, random_state=42)  # shuffle
+        df_relation = df_relation.sample(frac=1, random_state=42)  
         X_train = df_relation.iloc[:train_size]
         X_valid = df_relation.iloc[train_size:valid_size]
         X_test = df_relation.iloc[valid_size:]
@@ -127,7 +127,7 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
     for file in files:
         if file == 'ddi.tsv' or file == 'ds_relations.tsv' or file == 'dfi.tsv' or file == '.ipynb_checkpoints' or file == 'ds_atoms_concept_map.tsv' or file == 'ds_concept_type.tsv':
             continue
-        if 'train' in file or 'valid' in file or 'test' in file:
+        if 'train' in file or 'valid' in file or 'test' in file or 'name' in file:
             continue
         # use food and drug supplements in KG iff use_interaction_data[i]=True
         if not use_interaction_data[0] and file == 'ds_ingredients.tsv': 
