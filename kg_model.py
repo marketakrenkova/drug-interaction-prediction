@@ -19,9 +19,17 @@ def convert_to_triples_factory(data):
         compact_id=False 
     )
 
-    print(tf_data.mapped_triples)
-
     return tf_data
+
+
+# def convert_to_triples_factory(data, num_entities, num_relations):   
+#     tf_data = CoreTriplesFactory(
+#         data,
+#         num_entities = num_entities,
+#         num_relations = num_relations
+#     )
+
+#     return tf_data
       
 
 class DataLoader():
@@ -33,6 +41,7 @@ class DataLoader():
         valid_df = pd.read_csv(self.data_dir + 'valid.tsv', sep='\t', index_col=[0], engine='python')  
         test_df = pd.read_csv(self.data_dir + 'test.tsv', sep='\t', index_col=[0], engine='python')  
    
+        # TODO: deal with int values
         self.train = convert_to_triples_factory(train_df.astype(str))
         self.valid = convert_to_triples_factory(valid_df.astype(str))
         self.test = convert_to_triples_factory(test_df.astype(str))

@@ -211,7 +211,7 @@ def parse_food_interactions():
     interactions = []
 
     for inter in food_interactions.itertuples():
-        drug = drugs[drugs['id'] == inter[1]].values[0][1]
+        drug = drugs[drugs['id'] == inter[1]].values[0][0]
         desc = inter[2]
 
         interaction, food = extract_food_interaction(desc)
@@ -251,5 +251,5 @@ def parse_food_interactions():
     food_interactions_triplets.to_csv('data/triplets/dfi.tsv', sep='\t')        
 
 
-parse_drug_interactions()
-# parse_food_interactions()
+# parse_drug_interactions()
+parse_food_interactions()

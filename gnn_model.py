@@ -12,6 +12,7 @@ from torch_geometric.utils import negative_sampling
 from ogb.linkproppred import Evaluator, PygLinkPropPredDataset
 
 import os
+import json
 import matplotlib.pyplot as plt
 
 
@@ -138,8 +139,6 @@ def test(model, predictor, x, adj_t, split_edge, evaluator, batch_size):
     pos_train_edge = split_edge['eval_train']['edge'].to(x.device)
     pos_valid_edge = split_edge['valid']['edge'].to(x.device)
     neg_valid_edge = split_edge['valid']['edge_neg'].to(x.device)
-    # pos_test_edge = split_edge['test']['edge'].to(x.device)
-    # neg_test_edge = split_edge['test']['edge_neg'].to(x.device)
 
     pos_train_preds = []
     for perm in DataLoader(range(pos_train_edge.size(0)), batch_size):
@@ -159,18 +158,6 @@ def test(model, predictor, x, adj_t, split_edge, evaluator, batch_size):
         neg_valid_preds += [predictor(h[edge[0]], h[edge[1]]).squeeze().cpu()]
     neg_valid_pred = torch.cat(neg_valid_preds, dim=0)
 
-    # pos_test_preds = []
-    # for perm in DataLoader(range(pos_test_edge.size(0)), batch_size):
-    #     edge = pos_test_edge[perm].t()
-    #     pos_test_preds += [predictor(h[edge[0]], h[edge[1]]).squeeze().cpu()]
-    # pos_test_pred = torch.cat(pos_test_preds, dim=0)
-
-    # neg_test_preds = []
-    # for perm in DataLoader(range(neg_test_edge.size(0)), batch_size):
-    #     edge = neg_test_edge[perm].t()
-    #     neg_test_preds += [predictor(h[edge[0]], h[edge[1]]).squeeze().cpu()]
-    # neg_test_pred = torch.cat(neg_test_preds, dim=0)
-
     results = {}
     for K in [10, 20, 30]:
         evaluator.K = K
@@ -182,10 +169,6 @@ def test(model, predictor, x, adj_t, split_edge, evaluator, batch_size):
             'y_pred_pos': pos_valid_pred,
             'y_pred_neg': neg_valid_pred,
         })[f'hits@{K}']
-        # test_hits = evaluator.eval({
-        #     'y_pred_pos': pos_test_pred,
-        #     'y_pred_neg': neg_test_pred,
-        # })[f'hits@{K}']
 
         results[f'Hits@{K}'] = (train_hits, valid_hits)
 
@@ -228,7 +211,7 @@ def test_metrics(model, predictor, x, adj_t, split_edge, evaluator, batch_size):
 
 
 def run(parameters, dataset, device, gnn_dir):
-    log_steps = 1
+    log_steps = 10
 
     data = dataset[0]
     adj_t = data.adj_t.to(device)
@@ -258,7 +241,7 @@ def run(parameters, dataset, device, gnn_dir):
         predictor.load_state_dict(torch.load(gnn_dir + 'predictor_weights.pth'))
         emb.load_state_dict(torch.load(gnn_dir + 'embedding_weights.pth'))
     else:
-        # training
+        print('Training...')
         torch.nn.init.xavier_uniform_(emb.weight)
         model.reset_parameters()
         predictor.reset_parameters()
@@ -281,7 +264,6 @@ def run(parameters, dataset, device, gnn_dir):
                         f'Loss: {loss:.4f}, '
                         f'Train: {100 * train_hits:.2f}%, '
                         f'Valid: {100 * valid_hits:.2f}% '
-                        # f'Test: {100 * test_hits:.2f}%'
                     )
                 print('---')
 
@@ -305,12 +287,12 @@ def run(parameters, dataset, device, gnn_dir):
 
 def plot_history(history, num_epochs, experiment, gnn_results_dir):
     hits_val = [x[1] for x in history['hits@20']]
-    # hits_test = [x[2] for x in history['hits@20']]
     epochs = range(1, num_epochs+1)
 
+    fig = plt.figure() # creates new figure each time?
     plt.plot(epochs, history['loss'], label = "training loss")
     plt.plot(epochs, hits_val, label = "hits@20 on validation data")
-    # plt.plot(epochs, hits_test, label = "hits@20 on test data")
+  
     plt.xticks([e for e in epochs if e % 5 == 0])
     plt.legend()
     plt.xlabel('epochs')
@@ -324,48 +306,30 @@ def main():
     device = "cpu"
     if torch.cuda.is_available():
         device = "cuda"
-    #     if torch.cuda.device_count() > 1:
-    #         net = nn.DataParallel(net)
-    # net.to(device)
 
-    # run(params, dataset)
+    experiments_to_run = [2]
+    for experiment in experiments_to_run:
+        print('Running experiment %d' % experiment)
 
-    config = dict(
-        hidden_channels = 96,
-        nodes_emb = 256,
-        num_layers = 2,
-        dropout = 0.2,
-        lr = 0.001,
-        num_epochs = 5,
-        batch_size = 1024,
-    )
+        # default configuration
+        # config = dict(
+        #     hidden_channels = 96,
+        #     nodes_emb = 256,
+        #     num_layers = 2,
+        #     dropout = 0.2,
+        #     lr = 0.001,
+        #     num_epochs = 5,
+        #     batch_size = 1024,
+        # )
 
-    experiment = 1
-    gnn_results_dir = 'benchmark-ogb/gnn-'+ str(experiment) + '/'
+        # load special configuration
+        with open('benchmark-ogb/gnn-experiment-' + str(experiment) + '/config.json', 'r') as f:
+            config = json.load(f)
 
-    history = run(config, dataset, device, gnn_results_dir)
-
-    plot_history(history, config['num_epochs'], experiment, gnn_results_dir)
-
-
-    # scheduler = ASHAScheduler(
-    #     metric="loss",
-    #     mode="min",
-    #     max_t=max_num_epochs,
-    #     grace_period=1,
-    #     reduction_factor=2)
-
-    # reporter = CLIReporter(
-    #     metric_columns=["loss", "hits@20", "training_iteration"])
-
-    # result = tune.run(
-    #     partial(train_cifar, data_dir=data_dir),
-    #     resources_per_trial={"cpu": 2, "gpu": gpus_per_trial},
-    #     config=config,
-    #     num_samples=num_samples,
-    #     scheduler=scheduler,
-    #     progress_reporter=reporter)
-
+        # run experiment
+        gnn_results_dir = 'benchmark-ogb/gnn-experiment-'+ str(experiment) + '/results/'
+        history = run(config, dataset, device, gnn_results_dir)
+        plot_history(history, config['num_epochs'], experiment, gnn_results_dir)
        
 if __name__ == "__main__":
     main()      
