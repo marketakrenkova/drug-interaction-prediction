@@ -1,0 +1,15 @@
+{
+  "evaluator": "rankbased",
+  "filter_validation_when_testing": true,
+  "loss": "marginranking",
+  "metric": "both.realistic.hits_at_10",
+  "model": "complex",
+  "negative_sampler": "basic",
+  "optimizer": "adam",
+  "pykeen_git_hash": "UNHASHED",
+  "pykeen_version": "1.9.0",
+  "testing": "../../dataset/ogbl_biokg-my_split/test.txt",
+  "training": "../../dataset/ogbl_biokg-my_split/train.txt",
+  "training_loop": "slcwa",
+  "validation": "../../dataset/ogbl_biokg-my_split/valid.txt"
+}

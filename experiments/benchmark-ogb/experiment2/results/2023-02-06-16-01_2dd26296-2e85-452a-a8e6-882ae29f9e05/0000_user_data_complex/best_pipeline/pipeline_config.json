@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "_stopper_kwargs_removed_comment": "stopper_kwargs config removed after HPO: {'frequency': 5, 'patience': 20, 'relative_delta': 0.002, 'metric': 'hits@10'}",
+    "best_trial_evaluation": 0.002490841942032677,
+    "best_trial_number": 0,
+    "git_hash": "UNHASHED",
+    "version": "1.9.0"
+  },
+  "pipeline": {
+    "dataset_kwargs": {
+      "create_inverse_triples": true
+    },
+    "evaluator": "rankbased",
+    "filter_validation_when_testing": true,
+    "loss": "softplus",
+    "model": "complex",
+    "model_kwargs": {
+      "embedding_dim": 96
+    },
+    "negative_sampler": "basic",
+    "negative_sampler_kwargs": {
+      "num_negs_per_pos": 12
+    },
+    "optimizer": "sgd",
+    "optimizer_kwargs": {
+      "lr": 0.09187219782938279
+    },
+    "testing": "../../dataset/ogbl_ddi-my_split/test.txt",
+    "training": "../../dataset/ogbl_ddi-my_split/train.txt",
+    "training_kwargs": {
+      "batch_size": 64,
+      "num_epochs": 100
+    },
+    "training_loop": "slcwa",
+    "validation": "../../dataset/ogbl_ddi-my_split/valid.txt"
+  }
+}

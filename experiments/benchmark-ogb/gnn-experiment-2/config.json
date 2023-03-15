@@ -1,0 +1,9 @@
+{
+    "hidden_channels": 96,
+    "nodes_emb": 256,
+    "num_layers": 2,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "num_epochs": 300,
+    "batch_size": 1024
+}

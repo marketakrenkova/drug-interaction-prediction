@@ -1,0 +1,63 @@
+{
+    "metadata": {
+        "title": "Ablation Study Over OGB-ddi for HolE."
+    },
+    "ablation": {
+        "datasets": [
+	  {	
+	    "training": "../../../data/dataset-ogb/ogbl_ddi-my_split/train.txt",
+	    "validation": "../../../data/dataset-ogb/ogbl_ddi-my_split/valid.txt",
+	    "testing": "../../../data/dataset-ogb/ogbl_ddi-my_split/test.txt"
+	  }
+	],
+        "models":   ["HolE"],
+        "losses": ["MarginRankingLoss", "SoftplusLoss"],
+        "training_loops": ["slcwa"],
+        "optimizers": ["SGD"],
+        "create_inverse_triples": [true,false],
+        "stopper": "early",
+        "stopper_kwargs": {
+            "frequency": 5,
+            "patience": 20,
+            "relative_delta": 0.002,
+            "metric": "hits@10"
+        },
+        "model_to_model_kwargs_ranges":{
+            "HolE": {
+                "embedding_dim": {
+                    "type": "int",
+		            "low": 32,
+                    "high": 256,
+                    "q": 32
+                }
+            }
+        },
+        "model_to_training_loop_to_training_kwargs": {
+            "HolE": {
+                "slcwa": {
+                    "num_epochs": 100,
+		            "batch_size": 64
+                }
+            }
+        },
+        "model_to_optimizer_to_optimizer_kwargs_ranges": {
+            "HolE": {
+                "SGD": {
+                    "lr": {
+                        "type": "float",
+                        "low": 0.001,
+                        "high": 0.1,
+                        "scale": "log"
+                    }
+                }
+            }
+        }
+    },	
+    "optuna": {
+        "n_trials": 1,
+        "metric": "hits@10",
+        "direction": "maximize",
+        "sampler": "random",
+        "pruner": "nop"
+     }
+}

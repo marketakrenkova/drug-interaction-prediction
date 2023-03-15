@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  python: 
-    image: python-marketa
-    build: 
-      context: .
-      dockerfile: ./Dockerfile
-
