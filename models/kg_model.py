@@ -111,6 +111,8 @@ class KG_model:
         df = df.nlargest(n=k, columns="score")
         df.to_csv(prediction_dir + self.model_name + '_testset_scores_' + self.specification + '.csv')
         print(df.head())
+
+
 #     # predicts all posible new triplets, stores just k triplets with highest scores
 #     # computationally expensive!!!    
 #     def predict_all_triplets(self, k=100):
@@ -154,7 +156,7 @@ if __name__ == '__main__':
     parser.add_argument('-emb', '--embedding_dim', type=int, default=32)
     parser.add_argument('-e', '--epochs', type=int, default=1)
     parser.add_argument('-o', '--optimizer', type=str, default='Adam')
-    parser.add_argument('-lr', '--learning_rate', type=int, default=0.01)
+    parser.add_argument('-lr', '--learning_rate', type=float, default=0.01)
     parser.add_argument('-l', '--loss', type=str, default='MarginRankingLoss')
     parser.add_argument('-b', '--batch_size', type=int, default=64)
     
