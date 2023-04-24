@@ -1,0 +1,51 @@
+{
+  "type": "hpo",
+  "metadata": {
+    "title": "Ablation Study Over my data (DrugBank, FooDB, BioKG) for HolE."
+  },
+  "pipeline": {
+    "stopper": "NopStopper",
+    "training": "../../../data/triplets/train.txt",
+    "testing": "../../../data/triplets/test.txt",
+    "validation": "../../../data/triplets/valid.txt",
+    "dataset_kwargs": {
+      "create_inverse_triples": true
+    },
+    "model": "HolE",
+    "model_kwargs": {},
+    "model_kwargs_ranges": {
+      "embedding_dim": {
+        "type": "int",
+        "low": 32,
+        "high": 256,
+        "q": 32
+      }
+    },
+    "loss": "MarginRankingLoss",
+    "optimizer": "SGD",
+    "optimizer_kwargs_ranges": {
+      "lr": {
+        "type": "float",
+        "low": 0.001,
+        "high": 0.1,
+        "scale": "log"
+      }
+    },
+    "training_loop": "slcwa",
+    "training_kwargs": {
+      "num_epochs": 50,
+      "batch_size": 128
+    },
+    "evaluator": null,
+    "evaluation_kwargs": {}
+  },
+  "optuna": {
+    "n_trials": 1,
+    "timeout": 3600,
+    "metric": "hits@10",
+    "direction": "maximize",
+    "sampler": "random",
+    "pruner": "nop",
+    "storage": "sqlite:////work/experiments/my_data/experiment3/results/2023-04-04-02-41_3d805ed3-5385-453d-b098-1cf86ec2d142/0000_user_data_hole/optuna_results.db"
+  }
+}

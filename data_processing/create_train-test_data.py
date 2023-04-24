@@ -111,9 +111,6 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interaction_
         valid_triplets = pd.concat([valid_triplets, valid_triplets_dfi])
         test_triplets = pd.concat([test_triplets, test_triplets_dfi])
 
-    print(train_triplets.head())
-    print(test_triplets.head())
-
     print('All interactions:')
     print('train dataset size:', train_triplets.shape[0])
     print('validation dataset size:',valid_triplets.shape[0])
@@ -123,16 +120,19 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interaction_
 
 def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
     files = listdir(data_dir)
+    
+    files2skip = ['ddi.tsv', 'dfi.tsv', 'ds_relations.tsv', 'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 'ingredients.tsv']
 
     for file in files:
-        if file == 'ddi.tsv' or file == 'ds_relations.tsv' or file == 'dfi.tsv' or file == '.ipynb_checkpoints' or file == 'ds_atoms_concept_map.tsv' or file == 'ds_concept_type.tsv':
+        if file in files2skip:
             continue
+        # name -> don't add names of elements, just ids
         if 'train' in file or 'valid' in file or 'test' in file or 'name' in file:
             continue
         # use food and drug supplements in KG iff use_interaction_data[i]=True
-        if not use_interaction_data[0] and file == 'ds_ingredients.tsv': 
+        if not use_interaction_data[0] and file == 'ds_ingredients.tsv': # drug supplements
             continue
-        if not use_interaction_data[1] and 'compound' in file:
+        if not use_interaction_data[1] and 'compound' in file: # foods
             continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])
@@ -147,9 +147,9 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
 def main():
     data_dir = '../data/triplets/'
 
-    # which interactions use - drug-drug_supplement, drig-food
+    # which interactions use - drug-drug_supplement, drug-food
     # drug-drug is used always
-    use_interactions_data = [False, False]
+    use_interactions_data = [False, True]
     
     ddi_df, drug_supplement_df, dfi_df = read_interactions_data(data_dir)
     train, valid, test = split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interactions_data)
@@ -159,9 +159,9 @@ def main():
     valid = valid.astype(str)
     test = test.astype(str)
     
-    train.to_csv(data_dir + 'train.tsv', sep='\t')
-    valid.to_csv(data_dir + 'valid.tsv', sep='\t')
-    test.to_csv(data_dir + 'test.tsv', sep='\t')
+    train.to_csv(data_dir + 'train.tsv', sep='\t', index=False)
+    valid.to_csv(data_dir + 'valid.tsv', sep='\t', index=False)
+    test.to_csv(data_dir + 'test.tsv', sep='\t', index=False)
 
 if __name__ == "__main__":
     main() 

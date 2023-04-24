@@ -7,6 +7,7 @@ import json
 
 triplets_dir = '../data/triplets/'
 drug_dir = '../data/drugbank/'
+food_dir = '../data/fooDB/'
 
 # ---------------------------------------------------------------------------------
 # DrugBank
@@ -184,7 +185,7 @@ def prepare_triplets_drugbank():
 # FooDB
 def prepare_triplets_foodb():
     # food_id - name
-    food = pd.read_csv('data/food.csv')
+    food = pd.read_csv(food_dir + 'food.csv')
     food_df = food[['public_id', 'name']]
     food_df['relation'] = list(itertools.repeat('has_name', food_df.shape[0]))
     food_df = food_df.iloc[:,[0,2,1]]
@@ -197,7 +198,7 @@ def prepare_triplets_foodb():
     # TODO: replace food_id with: food_1 instead 1
     food_names_dic = food_df.set_index('public_id')['name'].to_dict()
 
-    with open('data/most_contributing_food_compounds.json', 'r') as f:
+    with open(food_dir + 'most_contributing_food_compounds.json', 'r') as f:
         food_compounds = json.load(f)
 
     food_ids = list(food_df['public_id'].values)    
@@ -233,6 +234,10 @@ def prepare_triplets_foodb():
     # for i, row in compound_cas_numbers_df.iterrows():
     #     compound_cas_numbers_df.at[i, 'compound_id'] = compounds_names_dic[row['compound_id']]  
     # compound_cas_numbers_df.rename(columns={'compound_id': 'compound'}, inplace=True)
+    
+    food_compound = food_compound.dropna()
+    compounds_names_df = compounds_names_df.dropna()
+    compound_cas_numbers_df = compound_cas_numbers_df.dropna()
 
     print('Number of food compounds:', food_compound.shape[0])
     print(food_compound.head())
@@ -240,6 +245,7 @@ def prepare_triplets_foodb():
     print(compounds_names_df.head())
     print()
     print(compound_cas_numbers_df.head())
+   
 
     food_compound.to_csv(triplets_dir + 'food_compound.tsv', sep='\t') 
     compounds_names_df.to_csv(triplets_dir + 'compounds_names.tsv', sep='\t') 

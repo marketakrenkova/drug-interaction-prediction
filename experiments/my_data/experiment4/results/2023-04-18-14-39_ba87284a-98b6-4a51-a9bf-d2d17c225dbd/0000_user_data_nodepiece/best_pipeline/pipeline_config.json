@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "best_trial_evaluation": 0.00985665212585135,
+    "best_trial_number": 0,
+    "git_hash": "UNHASHED",
+    "version": "1.10.1"
+  },
+  "pipeline": {
+    "dataset_kwargs": {
+      "create_inverse_triples": true
+    },
+    "evaluator": "rankbased",
+    "filter_validation_when_testing": true,
+    "loss": "bcewithlogits",
+    "model": "nodepiece",
+    "model_kwargs": {
+      "embedding_dim": 192
+    },
+    "negative_sampler": "basic",
+    "negative_sampler_kwargs": {
+      "num_negs_per_pos": 43
+    },
+    "optimizer": "adam",
+    "optimizer_kwargs": {
+      "lr": 0.09653946699504777
+    },
+    "testing": "../../../data/triplets/test.txt",
+    "training": "../../../data/triplets/train.txt",
+    "training_kwargs": {
+      "batch_size": 128,
+      "num_epochs": 50
+    },
+    "training_loop": "slcwa",
+    "validation": "../../../data/triplets/valid.txt"
+  }
+}

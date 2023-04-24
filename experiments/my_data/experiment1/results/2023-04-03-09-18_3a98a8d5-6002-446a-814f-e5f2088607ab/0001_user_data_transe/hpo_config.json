@@ -1,0 +1,51 @@
+{
+  "type": "hpo",
+  "metadata": {
+    "title": "Ablation Study Over my data (DrugBank, FooDB, BioKG) for TransE."
+  },
+  "pipeline": {
+    "stopper": "NopStopper",
+    "training": "../../../data/triplets/train.txt",
+    "testing": "../../../data/triplets/test.txt",
+    "validation": "../../../data/triplets/valid.txt",
+    "dataset_kwargs": {
+      "create_inverse_triples": false
+    },
+    "model": "TransE",
+    "model_kwargs": {},
+    "model_kwargs_ranges": {
+      "embedding_dim": {
+        "type": "int",
+        "low": 32,
+        "high": 256,
+        "q": 32
+      }
+    },
+    "loss": "MarginRankingLoss",
+    "optimizer": "SGD",
+    "optimizer_kwargs_ranges": {
+      "lr": {
+        "type": "float",
+        "low": 0.001,
+        "high": 0.1,
+        "scale": "log"
+      }
+    },
+    "training_loop": "slcwa",
+    "training_kwargs": {
+      "num_epochs": 100,
+      "batch_size": 128
+    },
+    "evaluator": null,
+    "evaluation_kwargs": {}
+  },
+  "optuna": {
+    "n_trials": 1,
+    "timeout": 3600,
+    "metric": "hits@10",
+    "direction": "maximize",
+    "sampler": "random",
+    "pruner": "nop",
+    "storage": "sqlite:////work/experiments/my_data/experiment1/results/2023-04-03-09-18_3a98a8d5-6002-446a-814f-e5f2088607ab/0001_user_data_transe/optuna_results.db"
+  }
+}
