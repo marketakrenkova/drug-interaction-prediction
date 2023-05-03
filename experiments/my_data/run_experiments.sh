@@ -16,6 +16,11 @@
 #pykeen experiments ablation config.json -d results
 #cd ..
 
-cd experiment5
+# cd experiment5
+# pykeen experiments ablation config.json -d results
+# cd ..
+
+cd experiment6
 pykeen experiments ablation config.json -d results
 cd ..
+
