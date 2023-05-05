@@ -7,7 +7,7 @@ from os import listdir
 def read_interactions_data(data_dir):
     ddi_df = pd.read_csv(data_dir + 'ddi.tsv', sep='\t', index_col=[0])
     drug_supplement_df = pd.read_csv(data_dir + 'ds_relations.tsv', sep='\t', index_col=[0])
-    dfi_df = pd.read_csv(data_dir + 'dfi.tsv', sep='\t', index_col=[0])
+    dfi_df = pd.read_csv(data_dir + 'dfi_processed.tsv', sep='\t', index_col=[0])
     
     return ddi_df, drug_supplement_df, dfi_df
 

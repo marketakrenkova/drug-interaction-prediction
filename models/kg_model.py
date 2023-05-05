@@ -79,28 +79,36 @@ class KG_model:
                 batch_size = self.batch_size,
                 num_epochs = self.num_epochs,
                 checkpoint_name = self.model_name + '-' + self.specification + '_checkpoint.pt',
+                checkpoint_frequency=10,
                 checkpoint_directory = 'kg_checkpoints'
+            ),
+            evaluation_kwargs = dict(
+                batch_size = 16
             )
         )  
 
     def predict_tail(self, head, relation, filter_known=False):
         prediction_dir = '../predictions/'
 
-        pred = predict_target(
-            model = self.trained_model.model, 
-            head = head, 
-            relation = relation, 
-            triples_factory = self.trained_model.training,
-        )
-        
-        if filter_known:
-            pred_filtered = pred.filter_triples(self.train_tf)
-            pred = pred.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
-        
-        print('Leuprolide - decrease_adverse_effects:')
-        print(pred.head(10))
-        predicted_tails_df = pred.head(50)
-        predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
+        try:
+            pred = predict_target(
+                model = self.trained_model.model, 
+                head = head, 
+                relation = relation, 
+                triples_factory = self.trained_model.training,
+            )
+
+            if filter_known:
+                pred_filtered = pred.filter_triples(self.train_tf)
+                pred = pred.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
+
+    #         print('Leuprolide - decrease_adverse_effects:')
+    #         print(pred.head(10))
+            predicted_tails_df = pred.head(20)
+            predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
+            
+        except:
+            print(f'No item with id {head} in the dataset.')
 
     # returns scores for given triplets (validation/test) - only k highest scores
     def scores_for_test_triplets(self, test_triplets, k=100):
@@ -140,16 +148,16 @@ def main(args):
 
     kg.trained_model.save_to_directory(f'results/results-{args.model}_{args.model_specification}')
     
-    kg.predict_tail('DB00007', 'decrease_adverse_effects', filter_known=True)
+#     kg.predict_tail('DB00007', 'decrease_adverse_effects', filter_known=True)
     kg.scores_for_test_triplets(data.test, k=100)
+    
+    common_drugs = pd.read_csv('../data/common_drugs.csv', sep=';')
+    common_drugs = common_drugs['DrugBank_id'].values
+    
+    for d in common_drugs:
+        kg.predict_tail(d, 'increase_adverse_effects', filter_known=True)
 
 if __name__ == '__main__':
-#     if len(sys.argv) < 3:
-#         print('Specify a model name and specification')
-
-#     model_name = sys.argv[1]
-#     specification = sys.argv[2]
-    
     parser = argparse.ArgumentParser(description='KG training')
     parser.add_argument('-m', '--model', type=str, default='TransE')
     parser.add_argument('-s', '--model_specification', type=str, default='')
@@ -160,9 +168,6 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--loss', type=str, default='MarginRankingLoss')
     parser.add_argument('-b', '--batch_size', type=int, default=64)
     
-    
-    
-    # TODO: more args??
 
     args = parser.parse_args()
     print(args)

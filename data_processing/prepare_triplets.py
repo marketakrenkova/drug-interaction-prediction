@@ -36,12 +36,21 @@ def prepare_triplets_drugbank():
     drug_subclass = drug_class[['id', 'subclass']]
     drug_subclass['relation'] = list(itertools.repeat('in_subclass', drug_subclass.shape[0]))
     drug_subclass = drug_subclass.iloc[:,[0,2,1]]
+    drug_subclass = drug_subclass.dropna()
     # # substitue id with drug name
     # for i, row in drug_subclass.iterrows():
     #     drug_subclass.at[i, 'id'] = drugs_names_dic[row['id']]
     # drug_subclass.rename(columns={'id': 'drug'}, inplace=True)
+    
+    # create subclass mapping
+    classes = drug_subclass['subclass'].unique()
+    class_map = {c: 'class_' + str(i) for i, c in enumerate(classes)}
+    drug_subclass['subclass'] = drug_subclass['subclass'].map(class_map)
+    
+    with open(drug_dir + 'drug_class_map.json', 'w') as f:
+        json.dump(class_map, f)
 
-    print('Number of drug subclasses:', drug_subclass.shape[0])
+    print('Number of drug subclasses:', len(classes))
     print(drug_subclass.head())
     print()
     drug_subclass.to_csv(triplets_dir + 'drug_subclass.tsv', sep='\t')
@@ -79,6 +88,7 @@ def prepare_triplets_drugbank():
     inchi_key = pd.read_csv(drug_dir + 'drug_inchi_key.csv', index_col=[0])
     inchi_key['relation'] = list(itertools.repeat('has_inchi_key', inchi_key.shape[0]))
     inchi_key = inchi_key.iloc[:,[0,2,1]]
+    inchi_key = inchi_key.dropna()
     print(inchi_key.head())
     print()
     inchi_key.to_csv(triplets_dir + 'drugs_inchi_key.tsv', sep='\t')
@@ -88,6 +98,7 @@ def prepare_triplets_drugbank():
     atc_codes = pd.read_csv(drug_dir + 'drug_atc_code.csv', index_col=[0])
     atc_codes['relation'] = list(itertools.repeat('has_atc_code', atc_codes.shape[0]))
     atc_codes = atc_codes.iloc[:,[0,2,1]]
+    atc_codes = atc_codes.dropna()
     print(atc_codes.head())
     print()
     atc_codes.to_csv(triplets_dir + 'drug_atc_codes.tsv', sep='\t')
@@ -121,7 +132,7 @@ def prepare_triplets_drugbank():
     salts_names_dic = salts_name.set_index('id')['name'].to_dict()
 
     # drug_id - salt_id
-    drug_salts = salts[['id', 'drug']]
+    drug_salts = salts[['id', 'drug']].dropna()
     drug_salts['relation'] = list(itertools.repeat('contains', drug_salts.shape[0]))
     drug_salts = drug_salts.iloc[:,[1,2,0]]
     drug_salts.rename(columns={'id': 'salt_id'}, inplace=True)    
@@ -152,11 +163,11 @@ def prepare_triplets_drugbank():
 
     # pathways
     pathway_df = pd.read_csv(drug_dir + 'pathways.csv', index_col=[0])
-    pathway_id_name = pathway_df[['smpdb_id', 'pathway_name']]
+    pathway_id_name = pathway_df[['smpdb_id', 'pathway_name']].dropna()
     pathway_id_name_dic = pathway_id_name.set_index('smpdb_id')['pathway_name'].to_dict()
 
     # pathway - drug
-    pathway_drug = pathway_df[['smpdb_id', 'drug_id']]
+    pathway_drug = pathway_df[['smpdb_id', 'drug_id']].dropna()
     pathway_drug['relation'] = list(itertools.repeat('involved_in_pathway', pathway_drug.shape[0]))
     pathway_drug = pathway_drug.iloc[:,[0,2,1]]
     print(pathway_drug.head())
@@ -164,9 +175,18 @@ def prepare_triplets_drugbank():
     pathway_drug.to_csv(triplets_dir + 'pathway_drug.tsv', sep='\t')
 
     # pathway - category
-    pathway_category = pathway_df[['smpdb_id', 'category']]
+    pathway_category = pathway_df[['smpdb_id', 'category']].dropna()
     pathway_category['relation'] = list(itertools.repeat('is_category', pathway_category.shape[0]))
     pathway_category = pathway_category.iloc[:,[0,2,1]]
+    
+    # create pathway_categor mapping
+    categories = pathway_category['category'].unique()
+    pathway_cat_map = {c: 'pathway_cat_' + str(i) for i, c in enumerate(categories)}
+    pathway_category['category'] = pathway_category['category'].map(pathway_cat_map)
+    
+    with open(drug_dir + 'pathway_category__map.json', 'w') as f:
+        json.dump(pathway_cat_map, f)
+    
     print(pathway_category.head())
     print()
     pathway_category.to_csv(triplets_dir + 'pathway_category.tsv', sep='\t')
@@ -186,7 +206,7 @@ def prepare_triplets_drugbank():
 def prepare_triplets_foodb():
     # food_id - name
     food = pd.read_csv(food_dir + 'food.csv')
-    food_df = food[['public_id', 'name']]
+    food_df = food[['public_id', 'name']].dropna()
     food_df['relation'] = list(itertools.repeat('has_name', food_df.shape[0]))
     food_df = food_df.iloc[:,[0,2,1]]
     ## if ids are given to the model -> don't substitue id by name
@@ -313,6 +333,6 @@ def prepare_triplets_idisk():
     relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
 # ---------------------------------------------------------------------------------
 
-# prepare_triplets_drugbank()
+prepare_triplets_drugbank()
 prepare_triplets_foodb()
 # prepare_triplets_idisk()
