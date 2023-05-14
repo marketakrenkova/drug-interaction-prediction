@@ -11,6 +11,13 @@ def read_interactions_data(data_dir):
     
     return ddi_df, drug_supplement_df, dfi_df
 
+def simplify_interactions(interaction_df, interaction_label_file):
+    labels = pd.read_csv(interaction_label_file, sep=';')
+    label_map = labels.set_index('relation').to_dict()['positive/negative']
+    interaction_df.interaction = interaction_df.interaction.map(label_map)
+    
+    return interaction_df
+
 # compute sizes of train and test sets if the number of exaples is <= 7
 def compute_size(n):
     if n == 2:
@@ -121,7 +128,7 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interaction_
 def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
     files = listdir(data_dir)
     
-    files2skip = ['ddi.tsv', 'dfi.tsv', 'ds_relations.tsv', 'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 'ingredients.tsv']
+    files2skip = ['ddi.tsv', 'dfi.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 'ingredients.tsv']
 
     for file in files:
         if file in files2skip:
@@ -146,13 +153,20 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
 
 def main():
     data_dir = '../data/triplets/'
+    interaction_label_file = '../data/unique_relations-labeled.csv'
 
     # which interactions use - drug-drug_supplement, drug-food
     # drug-drug is used always
     use_interactions_data = [False, True]
     
     ddi_df, drug_supplement_df, dfi_df = read_interactions_data(data_dir)
-    train, valid, test = split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interactions_data)
+    
+    # simplify interaction names -> just positive/negative interactions
+    ddi_df_simple = simplify_interactions(ddi_df, interaction_label_file)
+    dfi_df_simple = simplify_interactions(dfi_df, interaction_label_file)
+    
+    
+    train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, use_interactions_data)
     train = add_other_info_to_train(data_dir, train, use_interactions_data)
     
     train = train.astype(str)

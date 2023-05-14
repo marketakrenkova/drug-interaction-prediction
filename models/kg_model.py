@@ -16,7 +16,7 @@ from pykeen.evaluation import RankBasedEvaluator
 def convert_to_triples_factory(data):
     tf_data = TriplesFactory.from_labeled_triples(
         data[["head", "relation", "tail"]].values,
-        create_inverse_triples=True,
+        create_inverse_triples=False,
         entity_to_id=None,
         relation_to_id=None,
         compact_id=False 
@@ -55,6 +55,7 @@ class KG_model:
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')    
         self.batch_size = args.batch_size
         self.embedding_dim = args.embedding_dim
+        self.margin = args.loss_margin
 
     def __str__(self):  
         print(f'Training {self.model_name} - {self.specification} for {self.num_epochs} epochs on {self.device}.')
@@ -69,6 +70,9 @@ class KG_model:
                 embedding_dim = self.embedding_dim
             ),
             loss = self.loss,
+            loss_kwargs = dict(
+                margin = self.margin
+            ),
             optimizer = self.optimizer,
             optimizer_kwargs = dict(
                 lr = self.learning_rate
@@ -100,7 +104,7 @@ class KG_model:
 
             if filter_known:
                 pred_filtered = pred.filter_triples(self.train_tf)
-                pred = pred.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
+                pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
 
     #         print('Leuprolide - decrease_adverse_effects:')
     #         print(pred.head(10))
@@ -167,6 +171,7 @@ if __name__ == '__main__':
     parser.add_argument('-lr', '--learning_rate', type=float, default=0.01)
     parser.add_argument('-l', '--loss', type=str, default='MarginRankingLoss')
     parser.add_argument('-b', '--batch_size', type=int, default=64)
+    parser.add_argument('-lm', '--loss_margin', type=float, default=1.0)
     
 
     args = parser.parse_args()

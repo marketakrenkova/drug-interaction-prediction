@@ -1,0 +1,1298 @@
+,drug,interaction,food,common_compound
+1212,5-fluorouridine,decrease_therapeutic_efficacy,Arabica coffee,Allantoin
+1224,5-fluorouridine,decrease_therapeutic_efficacy,Black tea,Allantoin
+1209,5-fluorouridine,decrease_therapeutic_efficacy,Borage,Allantoin
+1215,5-fluorouridine,decrease_therapeutic_efficacy,Common pea,Allantoin
+1218,5-fluorouridine,decrease_therapeutic_efficacy,Common wheat,Allantoin
+1220,5-fluorouridine,decrease_therapeutic_efficacy,Corn,Allantoin
+1219,5-fluorouridine,decrease_therapeutic_efficacy,Gram bean,Allantoin
+1225,5-fluorouridine,decrease_therapeutic_efficacy,Green tea,Allantoin
+1227,5-fluorouridine,decrease_therapeutic_efficacy,Herbal tea,Allantoin
+1217,5-fluorouridine,decrease_therapeutic_efficacy,Potato,Allantoin
+1221,5-fluorouridine,decrease_therapeutic_efficacy,Red beetroot,Allantoin
+1226,5-fluorouridine,decrease_therapeutic_efficacy,Red tea,Allantoin
+1214,5-fluorouridine,decrease_therapeutic_efficacy,Rice,Allantoin
+1223,5-fluorouridine,decrease_therapeutic_efficacy,Shea tree,Allantoin
+1216,5-fluorouridine,decrease_therapeutic_efficacy,Sour cherry,Allantoin
+1213,5-fluorouridine,decrease_therapeutic_efficacy,Soy bean,Allantoin
+1210,5-fluorouridine,decrease_therapeutic_efficacy,Tea,Allantoin
+1211,5-fluorouridine,decrease_therapeutic_efficacy,Watermelon,Allantoin
+1222,5-fluorouridine,decrease_therapeutic_efficacy,White lupine,Allantoin
+658,Acetohydroxamic acid,increase_rash,Apple,Ethanol
+663,Acetohydroxamic acid,increase_rash,Blackcurrant,Ethanol
+647,Acetohydroxamic acid,increase_rash,Broccoli,Ethanol
+668,Acetohydroxamic acid,increase_rash,Carrot,Ethanol
+667,Acetohydroxamic acid,increase_rash,Corn,Ethanol
+656,Acetohydroxamic acid,increase_rash,Fig,Ethanol
+646,Acetohydroxamic acid,increase_rash,Garden onion,Ethanol
+666,Acetohydroxamic acid,increase_rash,Garden tomato (var.),Ethanol
+662,Acetohydroxamic acid,increase_rash,Guava,Ethanol
+650,Acetohydroxamic acid,increase_rash,Lemon,Ethanol
+649,Acetohydroxamic acid,increase_rash,Lime,Ethanol
+652,Acetohydroxamic acid,increase_rash,"Mandarin orange (Clementine, Tangerine)",Ethanol
+654,Acetohydroxamic acid,increase_rash,Muskmelon,Ethanol
+669,Acetohydroxamic acid,increase_rash,Okra,Ethanol
+660,Acetohydroxamic acid,increase_rash,Parsley,Ethanol
+661,Acetohydroxamic acid,increase_rash,Peach,Ethanol
+651,Acetohydroxamic acid,increase_rash,Pummelo,Ethanol
+665,Acetohydroxamic acid,increase_rash,Red raspberry,Ethanol
+670,Acetohydroxamic acid,increase_rash,Roselle,Ethanol
+664,Acetohydroxamic acid,increase_rash,Rosemary,Ethanol
+671,Acetohydroxamic acid,increase_rash,Soursop,Ethanol
+657,Acetohydroxamic acid,increase_rash,Soy bean,Ethanol
+659,Acetohydroxamic acid,increase_rash,Spearmint,Ethanol
+653,Acetohydroxamic acid,increase_rash,Sweet orange,Ethanol
+648,Acetohydroxamic acid,increase_rash,Watermelon,Ethanol
+655,Acetohydroxamic acid,increase_rash,Wild carrot,Ethanol
+550,Adenosine,increase_atrioventricular_blocking_(av_block)_activities,Common walnut,Nicotine
+549,Adenosine,increase_atrioventricular_blocking_(av_block)_activities,Papaya,Nicotine
+551,Adenosine,increase_atrioventricular_blocking_(av_block)_activities,Potato,Nicotine
+548,Adenosine,increase_atrioventricular_blocking_(av_block)_activities,Wild celery,Nicotine
+546,Altretamine,decrease_therapeutic_efficacy,Cocoa bean,Pyridoxine
+547,Altretamine,decrease_therapeutic_efficacy,Saskatoon berry,Pyridoxine
+673,Aripiprazole,increase_metabolism,Pomegranate,Testosterone
+818,Calcium carbimide,increase_adverse_effects,Blackcurrant,Formaldehyde
+816,Calcium carbimide,increase_adverse_effects,Oat,Formaldehyde
+817,Calcium carbimide,increase_adverse_effects,Pear,Formaldehyde
+819,Calcium carbimide,increase_adverse_effects,Red beetroot,Formaldehyde
+815,Calcium carbimide,increase_adverse_effects,Wild celery,Formaldehyde
+1279,Cefroxadine,increase_serum_concentration,Allspice,Chromium
+1276,Cefroxadine,increase_serum_concentration,American cranberry,Chromium
+1236,Cefroxadine,increase_serum_concentration,Bilberry,Selenium
+1262,Cefroxadine,increase_serum_concentration,Black walnut,Chromium
+1292,Cefroxadine,increase_serum_concentration,Black-eyed pea,Chromium
+1246,Cefroxadine,increase_serum_concentration,Brazil nut,Chromium
+1244,Cefroxadine,increase_serum_concentration,Burdock,Chromium
+1281,Cefroxadine,increase_serum_concentration,Butternut,Chromium
+1239,Cefroxadine,increase_serum_concentration,Cabbage,Selenium
+1294,Cefroxadine,increase_serum_concentration,Cabbage,Chromium
+1249,Cefroxadine,increase_serum_concentration,Caraway,Chromium
+1261,Cefroxadine,increase_serum_concentration,Cardamom,Chromium
+1243,Cefroxadine,increase_serum_concentration,Cashew nut,Chromium
+1253,Cefroxadine,increase_serum_concentration,Ceylon cinnamon,Chromium
+1252,Cefroxadine,increase_serum_concentration,Chinese cinnamon,Chromium
+1234,Cefroxadine,increase_serum_concentration,Cloudberry,Selenium
+1268,Cefroxadine,increase_serum_concentration,Cloudberry,Chromium
+1272,Cefroxadine,increase_serum_concentration,Cloves,Chromium
+1277,Cefroxadine,increase_serum_concentration,Common grape,Chromium
+1231,Cefroxadine,increase_serum_concentration,Common hazelnut,Selenium
+1255,Cefroxadine,increase_serum_concentration,Common hazelnut,Chromium
+1286,Cefroxadine,increase_serum_concentration,Common persimmon,Chromium
+1270,Cefroxadine,increase_serum_concentration,Common sage,Chromium
+1274,Cefroxadine,increase_serum_concentration,Common thyme,Chromium
+1254,Cefroxadine,increase_serum_concentration,Coriander,Chromium
+1257,Cefroxadine,increase_serum_concentration,Cumin,Chromium
+1273,Cefroxadine,increase_serum_concentration,Dandelion,Chromium
+1251,Cefroxadine,increase_serum_concentration,Endive,Chromium
+1275,Cefroxadine,increase_serum_concentration,Fenugreek,Chromium
+1287,Cefroxadine,increase_serum_concentration,French plantain,Chromium
+1228,Cefroxadine,increase_serum_concentration,Garden onion,Selenium
+1242,Cefroxadine,increase_serum_concentration,Garden onion,Chromium
+1235,Cefroxadine,increase_serum_concentration,Garden tomato (var.),Selenium
+1271,Cefroxadine,increase_serum_concentration,Garden tomato (var.),Chromium
+1280,Cefroxadine,increase_serum_concentration,Giant butterbur,Chromium
+1278,Cefroxadine,increase_serum_concentration,Ginger,Chromium
+1282,Cefroxadine,increase_serum_concentration,Ginkgo nuts,Chromium
+1283,Cefroxadine,increase_serum_concentration,Irish moss,Chromium
+1241,Cefroxadine,increase_serum_concentration,Kiwi,Chromium
+1259,Cefroxadine,increase_serum_concentration,Lemon grass,Chromium
+1266,Cefroxadine,increase_serum_concentration,Lima bean,Chromium
+1245,Cefroxadine,increase_serum_concentration,Mugwort,Chromium
+1256,Cefroxadine,increase_serum_concentration,Muskmelon,Chromium
+1264,Cefroxadine,increase_serum_concentration,Nutmeg,Chromium
+1288,Cefroxadine,increase_serum_concentration,Opium poppy,Chromium
+1240,Cefroxadine,increase_serum_concentration,Orange bell pepper,Selenium
+1296,Cefroxadine,increase_serum_concentration,Orange bell pepper,Chromium
+1247,Cefroxadine,increase_serum_concentration,Papaya,Chromium
+1285,Cefroxadine,increase_serum_concentration,Pepper (C. frutescens),Chromium
+1267,Cefroxadine,increase_serum_concentration,Pepper (Spice),Chromium
+1233,Cefroxadine,increase_serum_concentration,Peppermint,Selenium
+1263,Cefroxadine,increase_serum_concentration,Peppermint,Chromium
+1269,Cefroxadine,increase_serum_concentration,Red raspberry,Chromium
+1230,Cefroxadine,increase_serum_concentration,Roman camomile,Selenium
+1250,Cefroxadine,increase_serum_concentration,Roman camomile,Chromium
+1237,Cefroxadine,increase_serum_concentration,Roselle,Selenium
+1289,Cefroxadine,increase_serum_concentration,Roselle,Chromium
+1229,Cefroxadine,increase_serum_concentration,Safflower,Selenium
+1248,Cefroxadine,increase_serum_concentration,Safflower,Chromium
+1265,Cefroxadine,increase_serum_concentration,Scarlet bean,Chromium
+1238,Cefroxadine,increase_serum_concentration,Soft-necked garlic,Selenium
+1293,Cefroxadine,increase_serum_concentration,Soft-necked garlic,Chromium
+1290,Cefroxadine,increase_serum_concentration,Spirulina,Chromium
+1258,Cefroxadine,increase_serum_concentration,Turmeric,Chromium
+1284,Cefroxadine,increase_serum_concentration,White mustard,Chromium
+1232,Cefroxadine,increase_serum_concentration,Wild carrot,Selenium
+1260,Cefroxadine,increase_serum_concentration,Wild carrot,Chromium
+1291,Cefroxadine,increase_serum_concentration,Yam,Chromium
+1295,Cefroxadine,increase_serum_concentration,Yellow bell pepper,Chromium
+645,Celecoxib,increase_serum_concentration,Burdock,Atropine
+0,Chloramphenicol,decrease_therapeutic_efficacy,Fenugreek,Cyanocobalamin
+700,Cilostazol,increase_serum_concentration,Apple,Ethanol
+705,Cilostazol,increase_serum_concentration,Blackcurrant,Ethanol
+689,Cilostazol,increase_serum_concentration,Broccoli,Ethanol
+710,Cilostazol,increase_serum_concentration,Carrot,Ethanol
+687,Cilostazol,increase_serum_concentration,Common wheat,Diazepam
+709,Cilostazol,increase_serum_concentration,Corn,Ethanol
+698,Cilostazol,increase_serum_concentration,Fig,Ethanol
+688,Cilostazol,increase_serum_concentration,Garden onion,Ethanol
+708,Cilostazol,increase_serum_concentration,Garden tomato (var.),Ethanol
+704,Cilostazol,increase_serum_concentration,Guava,Ethanol
+692,Cilostazol,increase_serum_concentration,Lemon,Ethanol
+691,Cilostazol,increase_serum_concentration,Lime,Ethanol
+694,Cilostazol,increase_serum_concentration,"Mandarin orange (Clementine, Tangerine)",Ethanol
+696,Cilostazol,increase_serum_concentration,Muskmelon,Ethanol
+711,Cilostazol,increase_serum_concentration,Okra,Ethanol
+702,Cilostazol,increase_serum_concentration,Parsley,Ethanol
+703,Cilostazol,increase_serum_concentration,Peach,Ethanol
+686,Cilostazol,increase_serum_concentration,Potato,Diazepam
+693,Cilostazol,increase_serum_concentration,Pummelo,Ethanol
+707,Cilostazol,increase_serum_concentration,Red raspberry,Ethanol
+712,Cilostazol,increase_serum_concentration,Roselle,Ethanol
+706,Cilostazol,increase_serum_concentration,Rosemary,Ethanol
+713,Cilostazol,increase_serum_concentration,Soursop,Ethanol
+699,Cilostazol,increase_serum_concentration,Soy bean,Ethanol
+701,Cilostazol,increase_serum_concentration,Spearmint,Ethanol
+695,Cilostazol,increase_serum_concentration,Sweet orange,Ethanol
+690,Cilostazol,increase_serum_concentration,Watermelon,Ethanol
+697,Cilostazol,increase_serum_concentration,Wild carrot,Ethanol
+726,Deferasirox,increase_serum_concentration,Apple,Melatonin
+569,Deferasirox,increase_serum_concentration,Arabica coffee,Caffeine
+724,Deferasirox,increase_serum_concentration,Barley,Melatonin
+573,Deferasirox,increase_serum_concentration,Biscuit,Caffeine
+608,Deferasirox,increase_serum_concentration,Black tea,Caffeine
+572,Deferasirox,increase_serum_concentration,Breakfast cereal,Caffeine
+578,Deferasirox,increase_serum_concentration,Cake,Caffeine
+607,Deferasirox,increase_serum_concentration,Candy bar,Caffeine
+574,Deferasirox,increase_serum_concentration,Cherimoya,Caffeine
+585,Deferasirox,increase_serum_concentration,Chocolate,Caffeine
+605,Deferasirox,increase_serum_concentration,Chocolate mousse,Caffeine
+582,Deferasirox,increase_serum_concentration,Chocolate spread,Caffeine
+571,Deferasirox,increase_serum_concentration,Cocoa bean,Caffeine
+584,Deferasirox,increase_serum_concentration,Cocoa powder,Caffeine
+568,Deferasirox,increase_serum_concentration,Coffee,Caffeine
+597,Deferasirox,increase_serum_concentration,Coffee mocha,Caffeine
+596,Deferasirox,increase_serum_concentration,Coffee substitute,Caffeine
+725,Deferasirox,increase_serum_concentration,Common walnut,Melatonin
+728,Deferasirox,increase_serum_concentration,Corn,Melatonin
+590,Deferasirox,increase_serum_concentration,Cream substitute,Caffeine
+589,Deferasirox,increase_serum_concentration,Energy drink,Caffeine
+603,Deferasirox,increase_serum_concentration,Frozen yogurt,Caffeine
+606,Deferasirox,increase_serum_concentration,Fudge,Caffeine
+722,Deferasirox,increase_serum_concentration,Garden onion,Melatonin
+730,Deferasirox,increase_serum_concentration,Giant butterbur,Melatonin
+729,Deferasirox,increase_serum_concentration,Ginger,Melatonin
+609,Deferasirox,increase_serum_concentration,Green tea,Caffeine
+611,Deferasirox,increase_serum_concentration,Herbal tea,Caffeine
+586,Deferasirox,increase_serum_concentration,Hot chocolate,Caffeine
+577,Deferasirox,increase_serum_concentration,Ice cream,Caffeine
+601,Deferasirox,increase_serum_concentration,Ice cream cone,Caffeine
+587,Deferasirox,increase_serum_concentration,Icing,Caffeine
+591,Deferasirox,increase_serum_concentration,Junket,Caffeine
+565,Deferasirox,increase_serum_concentration,Lemon,Caffeine
+575,Deferasirox,increase_serum_concentration,Liquor,Caffeine
+604,Deferasirox,increase_serum_concentration,Milkshake,Caffeine
+598,Deferasirox,increase_serum_concentration,Nutritional drink,Caffeine
+723,Deferasirox,increase_serum_concentration,Oat,Melatonin
+580,Deferasirox,increase_serum_concentration,Other beverage,Caffeine
+583,Deferasirox,increase_serum_concentration,Other candy,Caffeine
+592,Deferasirox,increase_serum_concentration,Other frozen dessert,Caffeine
+579,Deferasirox,increase_serum_concentration,Pastry,Caffeine
+600,Deferasirox,increase_serum_concentration,Pie,Caffeine
+599,Deferasirox,increase_serum_concentration,Pie crust,Caffeine
+727,Deferasirox,increase_serum_concentration,Pomegranate,Melatonin
+593,Deferasirox,increase_serum_concentration,Pudding,Caffeine
+566,Deferasirox,increase_serum_concentration,Pummelo,Caffeine
+610,Deferasirox,increase_serum_concentration,Red tea,Caffeine
+570,Deferasirox,increase_serum_concentration,Robusta coffee,Caffeine
+588,Deferasirox,increase_serum_concentration,Snack bar,Caffeine
+602,Deferasirox,increase_serum_concentration,Soft drink,Caffeine
+595,Deferasirox,increase_serum_concentration,Soy milk,Caffeine
+567,Deferasirox,increase_serum_concentration,Sweet orange,Caffeine
+581,Deferasirox,increase_serum_concentration,Syrup,Caffeine
+564,Deferasirox,increase_serum_concentration,Tea,Caffeine
+594,Deferasirox,increase_serum_concentration,Waffle,Caffeine
+576,Deferasirox,increase_serum_concentration,Yogurt,Caffeine
+618,Diethylstilbestrol,increase_serum_concentration,Adzuki bean,Progesterone
+613,Diethylstilbestrol,increase_serum_concentration,Apple,Progesterone
+615,Diethylstilbestrol,increase_serum_concentration,Common pea,Progesterone
+612,Diethylstilbestrol,increase_serum_concentration,Garden onion,Progesterone
+616,Diethylstilbestrol,increase_serum_concentration,Garden tomato (var.),Progesterone
+619,Diethylstilbestrol,increase_serum_concentration,Mung bean,Progesterone
+617,Diethylstilbestrol,increase_serum_concentration,Potato,Progesterone
+614,Diethylstilbestrol,increase_serum_concentration,Rice,Progesterone
+160,Digoxin,increase_adverse_effects,Abalone,Glycine
+161,Digoxin,increase_adverse_effects,Acorn,Glycine
+131,Digoxin,increase_adverse_effects,Adzuki bean,Glycine
+348,Digoxin,increase_adverse_effects,Agave,Glycine
+305,Digoxin,increase_adverse_effects,Alaska pollock,Glycine
+315,Digoxin,increase_adverse_effects,Albacore tuna,Glycine
+7,Digoxin,increase_adverse_effects,Allium,Glycine
+103,Digoxin,increase_adverse_effects,Almond,Glycine
+164,Digoxin,increase_adverse_effects,Amaranth,Glycine
+184,Digoxin,increase_adverse_effects,American butterfish,Glycine
+129,Digoxin,increase_adverse_effects,American cranberry,Glycine
+241,Digoxin,increase_adverse_effects,American lobster,Glycine
+284,Digoxin,increase_adverse_effects,American shad,Glycine
+351,Digoxin,increase_adverse_effects,Anatidae,Glycine
+349,Digoxin,increase_adverse_effects,Anchovy,Glycine
+352,Digoxin,increase_adverse_effects,Anguilliformes,Glycine
+75,Digoxin,increase_adverse_effects,Apple,Glycine
+99,Digoxin,increase_adverse_effects,Apricot,Glycine
+50,Digoxin,increase_adverse_effects,Arabica coffee,Glycine
+506,Digoxin,increase_adverse_effects,Arepa,Glycine
+165,Digoxin,increase_adverse_effects,Arrowroot,Glycine
+166,Digoxin,increase_adverse_effects,Asian pear,Glycine
+20,Digoxin,increase_adverse_effects,Asparagus,Glycine
+199,Digoxin,increase_adverse_effects,Atlantic cod,Glycine
+205,Digoxin,increase_adverse_effects,Atlantic croaker,Glycine
+317,Digoxin,increase_adverse_effects,Atlantic halibut,Glycine
+167,Digoxin,increase_adverse_effects,Atlantic herring,Glycine
+168,Digoxin,increase_adverse_effects,Atlantic mackerel,Glycine
+170,Digoxin,increase_adverse_effects,Atlantic pollock,Glycine
+275,Digoxin,increase_adverse_effects,Atlantic salmon,Glycine
+171,Digoxin,increase_adverse_effects,Atlantic wolffish,Glycine
+88,Digoxin,increase_adverse_effects,Avocado,Glycine
+398,Digoxin,increase_adverse_effects,Baby food,Glycine
+487,Digoxin,increase_adverse_effects,Bagel,Glycine
+423,Digoxin,increase_adverse_effects,Baked beans,Glycine
+457,Digoxin,increase_adverse_effects,Baked potato,Glycine
+172,Digoxin,increase_adverse_effects,Bamboo shoots,Glycine
+138,Digoxin,increase_adverse_effects,Banana,Glycine
+66,Digoxin,increase_adverse_effects,Barley,Glycine
+371,Digoxin,increase_adverse_effects,Bean,Glycine
+282,Digoxin,increase_adverse_effects,Bearded seal,Glycine
+174,Digoxin,increase_adverse_effects,Beech nut,Glycine
+154,Digoxin,increase_adverse_effects,Beer,Glycine
+175,Digoxin,increase_adverse_effects,Beluga whale,Glycine
+159,Digoxin,increase_adverse_effects,Biscuit,Glycine
+79,Digoxin,increase_adverse_effects,Bitter gourd,Glycine
+328,Digoxin,increase_adverse_effects,"Bivalvia (Clam, Mussel, Oyster)",Glycine
+147,Digoxin,increase_adverse_effects,Black cabbage,Glycine
+538,Digoxin,increase_adverse_effects,Black tea,Glycine
+69,Digoxin,increase_adverse_effects,Black walnut,Glycine
+322,Digoxin,increase_adverse_effects,Black-eyed pea,Glycine
+176,Digoxin,increase_adverse_effects,Blue crab,Glycine
+177,Digoxin,increase_adverse_effects,Blue mussel,Glycine
+179,Digoxin,increase_adverse_effects,Bluefish,Glycine
+25,Digoxin,increase_adverse_effects,Borage,Glycine
+23,Digoxin,increase_adverse_effects,Brazil nut,Glycine
+180,Digoxin,increase_adverse_effects,Breadfruit,Glycine
+181,Digoxin,increase_adverse_effects,Breadnut tree seed,Glycine
+156,Digoxin,increase_adverse_effects,Breakfast cereal,Glycine
+465,Digoxin,increase_adverse_effects,Breakfast sandwich,Glycine
+130,Digoxin,increase_adverse_effects,Broad bean,Glycine
+30,Digoxin,increase_adverse_effects,Broccoli,Glycine
+29,Digoxin,increase_adverse_effects,Brussel sprouts,Glycine
+451,Digoxin,increase_adverse_effects,Bulgur,Glycine
+183,Digoxin,increase_adverse_effects,Burbot,Glycine
+17,Digoxin,increase_adverse_effects,Burdock,Glycine
+421,Digoxin,increase_adverse_effects,Burrito,Glycine
+383,Digoxin,increase_adverse_effects,Butter,Glycine
+467,Digoxin,increase_adverse_effects,Butterfat,Glycine
+412,Digoxin,increase_adverse_effects,Buttermilk,Glycine
+185,Digoxin,increase_adverse_effects,Butternut,Glycine
+186,Digoxin,increase_adverse_effects,Butternut squash,Glycine
+520,Digoxin,increase_adverse_effects,Cabbage,Glycine
+374,Digoxin,increase_adverse_effects,Cake,Glycine
+38,Digoxin,increase_adverse_effects,Caraway,Glycine
+187,Digoxin,increase_adverse_effects,Carob,Glycine
+145,Digoxin,increase_adverse_effects,Carrot,Glycine
+390,Digoxin,increase_adverse_effects,Casein,Glycine
+12,Digoxin,increase_adverse_effects,Cashew nut,Glycine
+189,Digoxin,increase_adverse_effects,Cassava,Glycine
+363,Digoxin,increase_adverse_effects,Catfish,Glycine
+203,Digoxin,increase_adverse_effects,Catjang pea,Glycine
+303,Digoxin,increase_adverse_effects,"Cattle (Beef, Veal)",Glycine
+28,Digoxin,increase_adverse_effects,Cauliflower,Glycine
+139,Digoxin,increase_adverse_effects,Celeriac,Glycine
+148,Digoxin,increase_adverse_effects,Celery leaves,Glycine
+190,Digoxin,increase_adverse_effects,Channel catfish,Glycine
+191,Digoxin,increase_adverse_effects,Chayote,Glycine
+367,Digoxin,increase_adverse_effects,Cheese,Glycine
+192,Digoxin,increase_adverse_effects,Cherimoya,Glycine
+193,Digoxin,increase_adverse_effects,Chervil,Glycine
+40,Digoxin,increase_adverse_effects,Chestnut,Glycine
+194,Digoxin,increase_adverse_effects,Chia,Glycine
+41,Digoxin,increase_adverse_effects,Chickpea,Glycine
+43,Digoxin,increase_adverse_effects,Chicory,Glycine
+424,Digoxin,increase_adverse_effects,Chili,Glycine
+453,Digoxin,increase_adverse_effects,Chimichanga,Glycine
+31,Digoxin,increase_adverse_effects,Chinese cabbage,Glycine
+195,Digoxin,increase_adverse_effects,Chinese chestnut,Glycine
+44,Digoxin,increase_adverse_effects,Chinese cinnamon,Glycine
+274,Digoxin,increase_adverse_effects,Chinook salmon,Glycine
+11,Digoxin,increase_adverse_effects,Chives,Glycine
+407,Digoxin,increase_adverse_effects,Chocolate,Glycine
+271,Digoxin,increase_adverse_effects,Chum salmon,Glycine
+418,Digoxin,increase_adverse_effects,Cichlidae (Tilapia),Glycine
+196,Digoxin,increase_adverse_effects,Cisco,Glycine
+355,Digoxin,increase_adverse_effects,Clawed lobster,Glycine
+121,Digoxin,increase_adverse_effects,Cloves,Glycine
+319,Digoxin,increase_adverse_effects,"Clupeinae (Herring, Sardine, Sprat)",Glycine
+122,Digoxin,increase_adverse_effects,Cocoa bean,Glycine
+406,Digoxin,increase_adverse_effects,Cocoa powder,Glycine
+197,Digoxin,increase_adverse_effects,Coconut,Glycine
+49,Digoxin,increase_adverse_effects,Coffee,Glycine
+452,Digoxin,increase_adverse_effects,Coffee substitute,Glycine
+272,Digoxin,increase_adverse_effects,Coho salmon,Glycine
+472,Digoxin,increase_adverse_effects,Cold cut,Glycine
+261,Digoxin,increase_adverse_effects,Colorado pinyon,Glycine
+91,Digoxin,increase_adverse_effects,Common bean,Glycine
+24,Digoxin,increase_adverse_effects,Common beet,Glycine
+60,Digoxin,increase_adverse_effects,Common buckwheat,Glycine
+27,Digoxin,increase_adverse_effects,Common cabbage,Glycine
+188,Digoxin,increase_adverse_effects,Common carp,Glycine
+135,Digoxin,increase_adverse_effects,Common grape,Glycine
+239,Digoxin,increase_adverse_effects,Common ling,Glycine
+339,Digoxin,increase_adverse_effects,Common mushroom,Glycine
+200,Digoxin,increase_adverse_effects,Common octopus,Glycine
+83,Digoxin,increase_adverse_effects,Common oregano,Glycine
+96,Digoxin,increase_adverse_effects,Common pea,Glycine
+258,Digoxin,increase_adverse_effects,Common persimmon,Glycine
+112,Digoxin,increase_adverse_effects,Common sage,Glycine
+123,Digoxin,increase_adverse_effects,Common thyme,Glycine
+70,Digoxin,increase_adverse_effects,Common walnut,Glycine
+126,Digoxin,increase_adverse_effects,Common wheat,Glycine
+512,Digoxin,increase_adverse_effects,Condensed milk,Glycine
+52,Digoxin,increase_adverse_effects,Coriander,Glycine
+136,Digoxin,increase_adverse_effects,Corn,Glycine
+438,Digoxin,increase_adverse_effects,Corn chip,Glycine
+495,Digoxin,increase_adverse_effects,Corn grits,Glycine
+201,Digoxin,increase_adverse_effects,Corn salad,Glycine
+494,Digoxin,increase_adverse_effects,Cornbread,Glycine
+202,Digoxin,increase_adverse_effects,Cottonseed,Glycine
+450,Digoxin,increase_adverse_effects,Couscous,Glycine
+534,Digoxin,increase_adverse_effects,"Cow milk, pasteurized, vitamin A + D added, 0% fat",Glycine
+535,Digoxin,increase_adverse_effects,"Cow milk, pasteurized, vitamin A + D added, 1% fat",Glycine
+536,Digoxin,increase_adverse_effects,"Cow milk, pasteurized, vitamin A + D added, 2% fat",Glycine
+537,Digoxin,increase_adverse_effects,"Cow milk, pasteurized, vitamin D added, 3.25% fat",Glycine
+134,Digoxin,increase_adverse_effects,Cowpea,Glycine
+350,Digoxin,increase_adverse_effects,Crab,Glycine
+479,Digoxin,increase_adverse_effects,Cracker,Glycine
+331,Digoxin,increase_adverse_effects,Crayfish,Glycine
+384,Digoxin,increase_adverse_effects,Cream,Glycine
+430,Digoxin,increase_adverse_effects,Cream substitute,Glycine
+378,Digoxin,increase_adverse_effects,Crisp bread,Glycine
+55,Digoxin,increase_adverse_effects,Cucumber,Glycine
+56,Digoxin,increase_adverse_effects,Cucurbita,Glycine
+206,Digoxin,increase_adverse_effects,Cusk,Glycine
+207,Digoxin,increase_adverse_effects,Cuttlefish,Glycine
+152,Digoxin,increase_adverse_effects,Daikon radish,Glycine
+92,Digoxin,increase_adverse_effects,Date,Glycine
+323,Digoxin,increase_adverse_effects,Deer,Glycine
+14,Digoxin,increase_adverse_effects,Dill,Glycine
+208,Digoxin,increase_adverse_effects,Dock,Glycine
+209,Digoxin,increase_adverse_effects,Dolphin fish,Glycine
+333,Digoxin,increase_adverse_effects,Domestic pig,Glycine
+409,Digoxin,increase_adverse_effects,Dried milk,Glycine
+211,Digoxin,increase_adverse_effects,Dungeness crab,Glycine
+212,Digoxin,increase_adverse_effects,Eastern oyster,Glycine
+511,Digoxin,increase_adverse_effects,Edible shell,Glycine
+433,Digoxin,increase_adverse_effects,Egg roll,Glycine
+461,Digoxin,increase_adverse_effects,Egg substitute,Glycine
+117,Digoxin,increase_adverse_effects,Eggplant,Glycine
+369,Digoxin,increase_adverse_effects,Eggs,Glycine
+214,Digoxin,increase_adverse_effects,Elderberry,Glycine
+505,Digoxin,increase_adverse_effects,Empanada,Glycine
+460,Digoxin,increase_adverse_effects,Enchilada,Glycine
+42,Digoxin,increase_adverse_effects,Endive,Glycine
+343,Digoxin,increase_adverse_effects,Enokitake,Glycine
+215,Digoxin,increase_adverse_effects,European anchovy,Glycine
+216,Digoxin,increase_adverse_effects,European chestnut,Glycine
+102,Digoxin,increase_adverse_effects,European plum,Glycine
+485,Digoxin,increase_adverse_effects,Evaporated milk,Glycine
+81,Digoxin,increase_adverse_effects,Evening primrose,Glycine
+442,Digoxin,increase_adverse_effects,Falafel,Glycine
+338,Digoxin,increase_adverse_effects,Feijoa,Glycine
+62,Digoxin,increase_adverse_effects,Fennel,Glycine
+125,Digoxin,increase_adverse_effects,Fenugreek,Glycine
+61,Digoxin,increase_adverse_effects,Fig,Glycine
+332,Digoxin,increase_adverse_effects,Flatfish,Glycine
+74,Digoxin,increase_adverse_effects,Flaxseed,Glycine
+218,Digoxin,increase_adverse_effects,Florida pompano,Glycine
+262,Digoxin,increase_adverse_effects,French plantain,Glycine
+489,Digoxin,increase_adverse_effects,French toast,Glycine
+210,Digoxin,increase_adverse_effects,Freshwater drum,Glycine
+213,Digoxin,increase_adverse_effects,Freshwater eel,Glycine
+502,Digoxin,increase_adverse_effects,Frozen yogurt,Glycine
+391,Digoxin,increase_adverse_effects,Fruit preserve,Glycine
+501,Digoxin,increase_adverse_effects,Fruit-flavor drink,Glycine
+316,Digoxin,increase_adverse_effects,Gadus (Common cod),Glycine
+73,Digoxin,increase_adverse_effects,Garden cress,Glycine
+8,Digoxin,increase_adverse_effects,Garden onion,Glycine
+108,Digoxin,increase_adverse_effects,Garden rhubarb,Glycine
+115,Digoxin,increase_adverse_effects,Garden tomato,Glycine
+116,Digoxin,increase_adverse_effects,Garden tomato (var.),Glycine
+353,Digoxin,increase_adverse_effects,Garfish,Glycine
+10,Digoxin,increase_adverse_effects,Garlic,Glycine
+507,Digoxin,increase_adverse_effects,Gefilte fish,Glycine
+394,Digoxin,increase_adverse_effects,Gelatin,Glycine
+440,Digoxin,increase_adverse_effects,Gelatin dessert,Glycine
+137,Digoxin,increase_adverse_effects,Ginger,Glycine
+219,Digoxin,increase_adverse_effects,Ginkgo nuts,Glycine
+132,Digoxin,increase_adverse_effects,Gram bean,Glycine
+220,Digoxin,increase_adverse_effects,Grape,Glycine
+151,Digoxin,increase_adverse_effects,Grapefruit,Glycine
+294,Digoxin,increase_adverse_effects,Greater sturgeon,Glycine
+530,Digoxin,increase_adverse_effects,Green bean,Glycine
+524,Digoxin,increase_adverse_effects,Green bell pepper,Glycine
+539,Digoxin,increase_adverse_effects,Green tea,Glycine
+522,Digoxin,increase_adverse_effects,Green zucchini,Glycine
+221,Digoxin,increase_adverse_effects,Greenland halibut/turbot,Glycine
+222,Digoxin,increase_adverse_effects,Grouper,Glycine
+105,Digoxin,increase_adverse_effects,Guava,Glycine
+223,Digoxin,increase_adverse_effects,Haddock,Glycine
+422,Digoxin,increase_adverse_effects,Hamburger,Glycine
+143,Digoxin,increase_adverse_effects,Hard wheat,Glycine
+225,Digoxin,increase_adverse_effects,Hazelnut,Glycine
+434,Digoxin,increase_adverse_effects,Heart of palm,Glycine
+288,Digoxin,increase_adverse_effects,Hedge mustard,Glycine
+543,Digoxin,increase_adverse_effects,Herbal tea,Glycine
+226,Digoxin,increase_adverse_effects,Hickory nut,Glycine
+128,Digoxin,increase_adverse_effects,Highbush blueberry,Glycine
+224,Digoxin,increase_adverse_effects,Hippoglossus (Common halibut),Glycine
+373,Digoxin,increase_adverse_effects,Honey,Glycine
+18,Digoxin,increase_adverse_effects,Horseradish,Glycine
+227,Digoxin,increase_adverse_effects,Horseradish tree,Glycine
+408,Digoxin,increase_adverse_effects,Hot chocolate,Glycine
+458,Digoxin,increase_adverse_effects,Hot dog,Glycine
+515,Digoxin,increase_adverse_effects,Hummus,Glycine
+468,Digoxin,increase_adverse_effects,Hushpuppy,Glycine
+228,Digoxin,increase_adverse_effects,Hyacinth bean,Glycine
+372,Digoxin,increase_adverse_effects,Ice cream,Glycine
+478,Digoxin,increase_adverse_effects,Ice cream cone,Glycine
+419,Digoxin,increase_adverse_effects,Icing,Glycine
+528,Digoxin,increase_adverse_effects,Italian sweet red pepper,Glycine
+230,Digoxin,increase_adverse_effects,Jackfruit,Glycine
+231,Digoxin,increase_adverse_effects,Japanese chestnut,Glycine
+58,Digoxin,increase_adverse_effects,Japanese persimmon,Glycine
+531,Digoxin,increase_adverse_effects,Japanese pumpkin,Glycine
+232,Digoxin,increase_adverse_effects,Jerusalem artichoke,Glycine
+312,Digoxin,increase_adverse_effects,Jicama,Glycine
+441,Digoxin,increase_adverse_effects,Junket,Glycine
+233,Digoxin,increase_adverse_effects,Jute,Glycine
+234,Digoxin,increase_adverse_effects,Kale,Glycine
+411,Digoxin,increase_adverse_effects,Kefir,Glycine
+235,Digoxin,increase_adverse_effects,Kelp,Glycine
+464,Digoxin,increase_adverse_effects,Ketchup,Glycine
+236,Digoxin,increase_adverse_effects,King mackerel,Glycine
+6,Digoxin,increase_adverse_effects,Kiwi,Glycine
+237,Digoxin,increase_adverse_effects,Lambsquarters,Glycine
+444,Digoxin,increase_adverse_effects,Lasagna,Glycine
+392,Digoxin,increase_adverse_effects,Leavening agent,Glycine
+9,Digoxin,increase_adverse_effects,Leek,Glycine
+46,Digoxin,increase_adverse_effects,Lemon,Glycine
+354,Digoxin,increase_adverse_effects,Lemon sole,Glycine
+72,Digoxin,increase_adverse_effects,Lentils,Glycine
+71,Digoxin,increase_adverse_effects,Lettuce,Glycine
+90,Digoxin,increase_adverse_effects,Lima bean,Glycine
+124,Digoxin,increase_adverse_effects,Linden,Glycine
+240,Digoxin,increase_adverse_effects,Lingcod,Glycine
+366,Digoxin,increase_adverse_effects,Liquor,Glycine
+140,Digoxin,increase_adverse_effects,Longan,Glycine
+59,Digoxin,increase_adverse_effects,Loquat,Glycine
+242,Digoxin,increase_adverse_effects,Lotus,Glycine
+324,Digoxin,increase_adverse_effects,Macadamia nut,Glycine
+466,Digoxin,increase_adverse_effects,Macaroni and cheese,Glycine
+345,Digoxin,increase_adverse_effects,Maitake,Glycine
+245,Digoxin,increase_adverse_effects,Malabar spinach,Glycine
+204,Digoxin,increase_adverse_effects,Malus (Crab apple),Glycine
+277,Digoxin,increase_adverse_effects,Mamey sapote,Glycine
+47,Digoxin,increase_adverse_effects,"Mandarin orange (Clementine, Tangerine)",Glycine
+76,Digoxin,increase_adverse_effects,Mango,Glycine
+513,Digoxin,increase_adverse_effects,Margarine,Glycine
+514,Digoxin,increase_adverse_effects,Margarine-like spread,Glycine
+357,Digoxin,increase_adverse_effects,Marine mussel,Glycine
+393,Digoxin,increase_adverse_effects,Marshmallow,Glycine
+380,Digoxin,increase_adverse_effects,Marzipan,Glycine
+388,Digoxin,increase_adverse_effects,Meat bouillon,Glycine
+449,Digoxin,increase_adverse_effects,Meatloaf,Glycine
+368,Digoxin,increase_adverse_effects,Milk (Cow),Glycine
+396,Digoxin,increase_adverse_effects,Milk (Human),Glycine
+410,Digoxin,increase_adverse_effects,Milk (Other mammals),Glycine
+518,Digoxin,increase_adverse_effects,Milk substitute,Glycine
+246,Digoxin,increase_adverse_effects,Milkfish,Glycine
+503,Digoxin,increase_adverse_effects,Milkshake,Glycine
+85,Digoxin,increase_adverse_effects,Millet,Glycine
+415,Digoxin,increase_adverse_effects,Miso,Glycine
+473,Digoxin,increase_adverse_effects,Mixed nuts,Glycine
+247,Digoxin,increase_adverse_effects,Monkfish,Glycine
+248,Digoxin,increase_adverse_effects,Mountain yam,Glycine
+496,Digoxin,increase_adverse_effects,Multigrain bread,Glycine
+133,Digoxin,increase_adverse_effects,Mung bean,Glycine
+54,Digoxin,increase_adverse_effects,Muskmelon,Glycine
+386,Digoxin,increase_adverse_effects,Mustard,Glycine
+427,Digoxin,increase_adverse_effects,Nachos,Glycine
+150,Digoxin,increase_adverse_effects,Napa cabbage,Glycine
+480,Digoxin,increase_adverse_effects,Natto,Glycine
+141,Digoxin,increase_adverse_effects,Nectarine,Glycine
+251,Digoxin,increase_adverse_effects,Nopal,Glycine
+178,Digoxin,increase_adverse_effects,Northern bluefin tuna,Glycine
+259,Digoxin,increase_adverse_effects,Northern pike,Glycine
+358,Digoxin,increase_adverse_effects,Norway lobster,Glycine
+462,Digoxin,increase_adverse_effects,Nutritional drink,Glycine
+21,Digoxin,increase_adverse_effects,Oat,Glycine
+492,Digoxin,increase_adverse_effects,Oat bread,Glycine
+252,Digoxin,increase_adverse_effects,Ocean pout,Glycine
+253,Digoxin,increase_adverse_effects,Okra,Glycine
+82,Digoxin,increase_adverse_effects,Olive,Glycine
+263,Digoxin,increase_adverse_effects,Opium poppy,Glycine
+526,Digoxin,increase_adverse_effects,Orange bell pepper,Glycine
+268,Digoxin,increase_adverse_effects,Orange roughy,Glycine
+334,Digoxin,increase_adverse_effects,Oriental wheat,Glycine
+405,Digoxin,increase_adverse_effects,Other animal fat,Glycine
+397,Digoxin,increase_adverse_effects,Other beverage,Glycine
+155,Digoxin,increase_adverse_effects,Other bread,Glycine
+488,Digoxin,increase_adverse_effects,Other bread product,Glycine
+404,Digoxin,increase_adverse_effects,Other candy,Glycine
+508,Digoxin,increase_adverse_effects,Other dish,Glycine
+413,Digoxin,increase_adverse_effects,Other fermented milk,Glycine
+395,Digoxin,increase_adverse_effects,Other fish product,Glycine
+443,Digoxin,increase_adverse_effects,Other frozen dessert,Glycine
+470,Digoxin,increase_adverse_effects,Other fruit product,Glycine
+482,Digoxin,increase_adverse_effects,Other pasta dish,Glycine
+463,Digoxin,increase_adverse_effects,Other sandwich,Glycine
+377,Digoxin,increase_adverse_effects,Other snack food,Glycine
+157,Digoxin,increase_adverse_effects,Other soy product,Glycine
+400,Digoxin,increase_adverse_effects,Other vegetable product,Glycine
+344,Digoxin,increase_adverse_effects,Oyster mushroom,Glycine
+198,Digoxin,increase_adverse_effects,Pacific cod,Glycine
+254,Digoxin,increase_adverse_effects,Pacific herring,Glycine
+229,Digoxin,increase_adverse_effects,Pacific jack mackerel,Glycine
+255,Digoxin,increase_adverse_effects,Pacific oyster,Glycine
+256,Digoxin,increase_adverse_effects,Pacific rockfish,Glycine
+279,Digoxin,increase_adverse_effects,Pacific sardine,Glycine
+169,Digoxin,increase_adverse_effects,Painted comber,Glycine
+149,Digoxin,increase_adverse_effects,Pak choy,Glycine
+445,Digoxin,increase_adverse_effects,Pancake,Glycine
+36,Digoxin,increase_adverse_effects,Papaya,Glycine
+89,Digoxin,increase_adverse_effects,Parsley,Glycine
+87,Digoxin,increase_adverse_effects,Parsnip,Glycine
+158,Digoxin,increase_adverse_effects,Pasta,Glycine
+379,Digoxin,increase_adverse_effects,Pastry,Glycine
+387,Digoxin,increase_adverse_effects,Pate,Glycine
+104,Digoxin,increase_adverse_effects,Peach,Glycine
+16,Digoxin,increase_adverse_effects,Peanut,Glycine
+106,Digoxin,increase_adverse_effects,Pear,Glycine
+39,Digoxin,increase_adverse_effects,Pecan nut,Glycine
+35,Digoxin,increase_adverse_effects,Pepper,Glycine
+257,Digoxin,increase_adverse_effects,Pepper (C. frutescens),Glycine
+94,Digoxin,increase_adverse_effects,Pepper (Spice),Glycine
+78,Digoxin,increase_adverse_effects,Peppermint,Glycine
+326,Digoxin,increase_adverse_effects,Perciformes,Glycine
+325,Digoxin,increase_adverse_effects,Percoidei (Bass and others),Glycine
+337,Digoxin,increase_adverse_effects,Persian lime,Glycine
+360,Digoxin,increase_adverse_effects,Persimmon,Glycine
+474,Digoxin,increase_adverse_effects,Phyllo dough,Glycine
+477,Digoxin,increase_adverse_effects,Pie,Glycine
+475,Digoxin,increase_adverse_effects,Pie crust,Glycine
+476,Digoxin,increase_adverse_effects,Pie filling,Glycine
+33,Digoxin,increase_adverse_effects,Pigeon pea,Glycine
+260,Digoxin,increase_adverse_effects,Pili nut,Glycine
+93,Digoxin,increase_adverse_effects,Pine nut,Glycine
+13,Digoxin,increase_adverse_effects,Pineapple,Glycine
+270,Digoxin,increase_adverse_effects,Pink salmon,Glycine
+95,Digoxin,increase_adverse_effects,Pistachio,Glycine
+486,Digoxin,increase_adverse_effects,Pita bread,Glycine
+375,Digoxin,increase_adverse_effects,Pizza,Glycine
+361,Digoxin,increase_adverse_effects,"Pleuronectidae (Dab, Halibut, Plaice)",Glycine
+435,Digoxin,increase_adverse_effects,Popcorn,Glycine
+86,Digoxin,increase_adverse_effects,Poppy,Glycine
+509,Digoxin,increase_adverse_effects,Pot pie,Glycine
+118,Digoxin,increase_adverse_effects,Potato,Glycine
+493,Digoxin,increase_adverse_effects,Potato bread,Glycine
+436,Digoxin,increase_adverse_effects,Potato chip,Glycine
+517,Digoxin,increase_adverse_effects,Potato gratin,Glycine
+516,Digoxin,increase_adverse_effects,Potato puffs,Glycine
+264,Digoxin,increase_adverse_effects,Prairie turnip,Glycine
+428,Digoxin,increase_adverse_effects,Processed cheese,Glycine
+98,Digoxin,increase_adverse_effects,"Prunus (Cherry, Plum)",Glycine
+446,Digoxin,increase_adverse_effects,Pudding,Glycine
+296,Digoxin,increase_adverse_effects,Pumpkinseed sunfish,Glycine
+504,Digoxin,increase_adverse_effects,Pupusa,Glycine
+341,Digoxin,increase_adverse_effects,Purple laver,Glycine
+97,Digoxin,increase_adverse_effects,Purslane,Glycine
+336,Digoxin,increase_adverse_effects,Quail,Glycine
+265,Digoxin,increase_adverse_effects,Quinoa,Glycine
+327,Digoxin,increase_adverse_effects,Rabbit,Glycine
+107,Digoxin,increase_adverse_effects,Radish,Glycine
+266,Digoxin,increase_adverse_effects,Rainbow smelt,Glycine
+267,Digoxin,increase_adverse_effects,Rainbow trout,Glycine
+498,Digoxin,increase_adverse_effects,Raisin bread,Glycine
+182,Digoxin,increase_adverse_effects,Rapini,Glycine
+481,Digoxin,increase_adverse_effects,Ravioli,Glycine
+153,Digoxin,increase_adverse_effects,Red beetroot,Glycine
+527,Digoxin,increase_adverse_effects,Red bell pepper,Glycine
+163,Digoxin,increase_adverse_effects,Red king crab,Glycine
+540,Digoxin,increase_adverse_effects,Red tea,Glycine
+469,Digoxin,increase_adverse_effects,Relish,Glycine
+84,Digoxin,increase_adverse_effects,Rice,Glycine
+497,Digoxin,increase_adverse_effects,Rice bread,Glycine
+51,Digoxin,increase_adverse_effects,Robusta coffee,Glycine
+417,Digoxin,increase_adverse_effects,Roe,Glycine
+533,Digoxin,increase_adverse_effects,Romaine lettuce,Glycine
+110,Digoxin,increase_adverse_effects,Rosemary,Glycine
+113,Digoxin,increase_adverse_effects,Rye,Glycine
+491,Digoxin,increase_adverse_effects,Rye bread,Glycine
+269,Digoxin,increase_adverse_effects,Sablefish,Glycine
+243,Digoxin,increase_adverse_effects,Sacred lotus,Glycine
+37,Digoxin,increase_adverse_effects,Safflower,Glycine
+53,Digoxin,increase_adverse_effects,Saffron,Glycine
+429,Digoxin,increase_adverse_effects,Salad,Glycine
+381,Digoxin,increase_adverse_effects,Salad dressing,Glycine
+301,Digoxin,increase_adverse_effects,"Salmonidae (Salmon, Trout)",Glycine
+276,Digoxin,increase_adverse_effects,Sapodilla,Glycine
+382,Digoxin,increase_adverse_effects,Sauce,Glycine
+385,Digoxin,increase_adverse_effects,Sausage,Glycine
+5,Digoxin,increase_adverse_effects,Savoy cabbage,Glycine
+280,Digoxin,increase_adverse_effects,Scallop,Glycine
+356,Digoxin,increase_adverse_effects,"Scombridae (Bonito, Mackerel, Tuna)",Glycine
+281,Digoxin,increase_adverse_effects,Scup,Glycine
+283,Digoxin,increase_adverse_effects,Sea trout,Glycine
+454,Digoxin,increase_adverse_effects,Semolina,Glycine
+114,Digoxin,increase_adverse_effects,Sesame,Glycine
+144,Digoxin,increase_adverse_effects,Shallot,Glycine
+285,Digoxin,increase_adverse_effects,Shark,Glycine
+286,Digoxin,increase_adverse_effects,Sheefish,Glycine
+287,Digoxin,increase_adverse_effects,Sheepshead,Glycine
+340,Digoxin,increase_adverse_effects,Shiitake,Glycine
+330,Digoxin,increase_adverse_effects,Shrimp,Glycine
+289,Digoxin,increase_adverse_effects,Skipjack tuna,Glycine
+318,Digoxin,increase_adverse_effects,Smelt,Glycine
+420,Digoxin,increase_adverse_effects,Snack bar,Glycine
+290,Digoxin,increase_adverse_effects,Snapper,Glycine
+321,Digoxin,increase_adverse_effects,Snow crab,Glycine
+273,Digoxin,increase_adverse_effects,Sockeye salmon,Glycine
+519,Digoxin,increase_adverse_effects,Soft-necked garlic,Glycine
+119,Digoxin,increase_adverse_effects,Sorghum,Glycine
+111,Digoxin,increase_adverse_effects,Sorrel,Glycine
+399,Digoxin,increase_adverse_effects,Soup,Glycine
+101,Digoxin,increase_adverse_effects,Sour cherry,Glycine
+541,Digoxin,increase_adverse_effects,Sour cream,Glycine
+64,Digoxin,increase_adverse_effects,Soy bean,Glycine
+448,Digoxin,increase_adverse_effects,Soy milk,Glycine
+414,Digoxin,increase_adverse_effects,Soy sauce,Glycine
+278,Digoxin,increase_adverse_effects,Spanish mackerel,Glycine
+77,Digoxin,increase_adverse_effects,Spearmint,Glycine
+291,Digoxin,increase_adverse_effects,Spelt,Glycine
+120,Digoxin,increase_adverse_effects,Spinach,Glycine
+320,Digoxin,increase_adverse_effects,Spiny lobster,Glycine
+292,Digoxin,increase_adverse_effects,Spirulina,Glycine
+346,Digoxin,increase_adverse_effects,Spot croaker,Glycine
+459,Digoxin,increase_adverse_effects,Spread,Glycine
+329,Digoxin,increase_adverse_effects,Squid,Glycine
+22,Digoxin,increase_adverse_effects,Star fruit,Glycine
+439,Digoxin,increase_adverse_effects,Stew,Glycine
+63,Digoxin,increase_adverse_effects,Strawberry,Glycine
+293,Digoxin,increase_adverse_effects,Strawberry guava,Glycine
+173,Digoxin,increase_adverse_effects,Striped bass,Glycine
+249,Digoxin,increase_adverse_effects,Striped mullet,Glycine
+510,Digoxin,increase_adverse_effects,Stuffing,Glycine
+483,Digoxin,increase_adverse_effects,Succotash,Glycine
+521,Digoxin,increase_adverse_effects,Sunburst squash (pattypan squash),Glycine
+65,Digoxin,increase_adverse_effects,Sunflower,Glycine
+67,Digoxin,increase_adverse_effects,Swamp cabbage,Glycine
+26,Digoxin,increase_adverse_effects,Swede,Glycine
+80,Digoxin,increase_adverse_effects,Sweet basil,Glycine
+100,Digoxin,increase_adverse_effects,Sweet cherry,Glycine
+432,Digoxin,increase_adverse_effects,Sweet custard,Glycine
+48,Digoxin,increase_adverse_effects,Sweet orange,Glycine
+68,Digoxin,increase_adverse_effects,Sweet potato,Glycine
+297,Digoxin,increase_adverse_effects,Swordfish,Glycine
+402,Digoxin,increase_adverse_effects,Syrup,Glycine
+425,Digoxin,increase_adverse_effects,Taco,Glycine
+544,Digoxin,increase_adverse_effects,Taco shell,Glycine
+403,Digoxin,increase_adverse_effects,Tallow,Glycine
+484,Digoxin,increase_adverse_effects,Tamale,Glycine
+455,Digoxin,increase_adverse_effects,Tapioca pearl,Glycine
+298,Digoxin,increase_adverse_effects,Taro,Glycine
+19,Digoxin,increase_adverse_effects,Tarragon,Glycine
+34,Digoxin,increase_adverse_effects,Tea,Glycine
+299,Digoxin,increase_adverse_effects,Teff,Glycine
+364,Digoxin,increase_adverse_effects,Thunnus,Glycine
+300,Digoxin,increase_adverse_effects,Tilefish,Glycine
+416,Digoxin,increase_adverse_effects,Tofu,Glycine
+431,Digoxin,increase_adverse_effects,Topping,Glycine
+426,Digoxin,increase_adverse_effects,Tortilla,Glycine
+437,Digoxin,increase_adverse_effects,Tortilla chip,Glycine
+456,Digoxin,increase_adverse_effects,Tostada,Glycine
+500,Digoxin,increase_adverse_effects,Trail mix,Glycine
+146,Digoxin,increase_adverse_effects,Triticale,Glycine
+359,Digoxin,increase_adverse_effects,True oyster,Glycine
+362,Digoxin,increase_adverse_effects,True sole,Glycine
+217,Digoxin,increase_adverse_effects,Turbot,Glycine
+302,Digoxin,increase_adverse_effects,Turkey,Glycine
+32,Digoxin,increase_adverse_effects,Turnip,Glycine
+401,Digoxin,increase_adverse_effects,Unclassified food or beverage,Glycine
+127,Digoxin,increase_adverse_effects,"Vaccinium (Blueberry, Cranberry, Huckleberry)",Glycine
+471,Digoxin,increase_adverse_effects,Vegetarian food,Glycine
+447,Digoxin,increase_adverse_effects,Waffle,Glycine
+342,Digoxin,increase_adverse_effects,Wakame,Glycine
+304,Digoxin,increase_adverse_effects,Walleye,Glycine
+365,Digoxin,increase_adverse_effects,Walnut,Glycine
+109,Digoxin,increase_adverse_effects,Watercress,Glycine
+45,Digoxin,increase_adverse_effects,Watermelon,Glycine
+142,Digoxin,increase_adverse_effects,Welsh onion,Glycine
+347,Digoxin,increase_adverse_effects,Wheat,Glycine
+490,Digoxin,increase_adverse_effects,Wheat bread,Glycine
+306,Digoxin,increase_adverse_effects,Whelk,Glycine
+389,Digoxin,increase_adverse_effects,Whey,Glycine
+542,Digoxin,increase_adverse_effects,White bread,Glycine
+532,Digoxin,increase_adverse_effects,White cabbage,Glycine
+244,Digoxin,increase_adverse_effects,White lupine,Glycine
+250,Digoxin,increase_adverse_effects,White mustard,Glycine
+295,Digoxin,increase_adverse_effects,White sucker,Glycine
+307,Digoxin,increase_adverse_effects,Whitefish,Glycine
+308,Digoxin,increase_adverse_effects,Whiting,Glycine
+57,Digoxin,increase_adverse_effects,Wild carrot,Glycine
+15,Digoxin,increase_adverse_effects,Wild celery,Glycine
+238,Digoxin,increase_adverse_effects,Wild leek,Glycine
+309,Digoxin,increase_adverse_effects,Wild rice,Glycine
+310,Digoxin,increase_adverse_effects,Winged bean,Glycine
+162,Digoxin,increase_adverse_effects,Winter squash,Glycine
+499,Digoxin,increase_adverse_effects,Wonton wrapper,Glycine
+311,Digoxin,increase_adverse_effects,Yam,Glycine
+335,Digoxin,increase_adverse_effects,Yardlong bean,Glycine
+525,Digoxin,increase_adverse_effects,Yellow bell pepper,Glycine
+529,Digoxin,increase_adverse_effects,Yellow wax bean,Glycine
+523,Digoxin,increase_adverse_effects,Yellow zucchini,Glycine
+313,Digoxin,increase_adverse_effects,Yellowfin tuna,Glycine
+314,Digoxin,increase_adverse_effects,Yellowtail amberjack,Glycine
+376,Digoxin,increase_adverse_effects,Ymer,Glycine
+370,Digoxin,increase_adverse_effects,Yogurt,Glycine
+777,Dimercaprol,increase_nephrotoxicity,Arabica coffee,Iron
+783,Dimercaprol,increase_nephrotoxicity,Black elderberry,Iron
+790,Dimercaprol,increase_nephrotoxicity,Cabbage,Iron
+776,Dimercaprol,increase_nephrotoxicity,Ceylon cinnamon,Iron
+785,Dimercaprol,increase_nephrotoxicity,Cocoa bean,Iron
+778,Dimercaprol,increase_nephrotoxicity,Common hazelnut,Iron
+780,Dimercaprol,increase_nephrotoxicity,Cornmint,Iron
+781,Dimercaprol,increase_nephrotoxicity,Evening primrose,Iron
+773,Dimercaprol,increase_nephrotoxicity,Garden onion,Iron
+784,Dimercaprol,increase_nephrotoxicity,Garden tomato (var.),Iron
+786,Dimercaprol,increase_nephrotoxicity,Highbush blueberry,Iron
+774,Dimercaprol,increase_nephrotoxicity,Mugwort,Iron
+793,Dimercaprol,increase_nephrotoxicity,Nanking cherry,Iron
+791,Dimercaprol,increase_nephrotoxicity,Orange bell pepper,Iron
+787,Dimercaprol,increase_nephrotoxicity,Pepper (C. frutescens),Iron
+775,Dimercaprol,increase_nephrotoxicity,Roman camomile,Iron
+792,Dimercaprol,increase_nephrotoxicity,Saskatoon berry,Iron
+782,Dimercaprol,increase_nephrotoxicity,Scarlet bean,Iron
+788,Dimercaprol,increase_nephrotoxicity,Shea tree,Iron
+789,Dimercaprol,increase_nephrotoxicity,Soft-necked garlic,Iron
+779,Dimercaprol,increase_nephrotoxicity,Wild carrot,Iron
+635,Flucloxacillin,increase_serum_concentration,Adzuki bean,Progesterone
+630,Flucloxacillin,increase_serum_concentration,Apple,Progesterone
+632,Flucloxacillin,increase_serum_concentration,Common pea,Progesterone
+629,Flucloxacillin,increase_serum_concentration,Garden onion,Progesterone
+633,Flucloxacillin,increase_serum_concentration,Garden tomato (var.),Progesterone
+636,Flucloxacillin,increase_serum_concentration,Mung bean,Progesterone
+634,Flucloxacillin,increase_serum_concentration,Potato,Progesterone
+631,Flucloxacillin,increase_serum_concentration,Rice,Progesterone
+643,Glycochenodeoxycholic Acid,increase_serum_concentration,Adzuki bean,Progesterone
+638,Glycochenodeoxycholic Acid,increase_serum_concentration,Apple,Progesterone
+640,Glycochenodeoxycholic Acid,increase_serum_concentration,Common pea,Progesterone
+637,Glycochenodeoxycholic Acid,increase_serum_concentration,Garden onion,Progesterone
+641,Glycochenodeoxycholic Acid,increase_serum_concentration,Garden tomato (var.),Progesterone
+644,Glycochenodeoxycholic Acid,increase_serum_concentration,Mung bean,Progesterone
+642,Glycochenodeoxycholic Acid,increase_serum_concentration,Potato,Progesterone
+639,Glycochenodeoxycholic Acid,increase_serum_concentration,Rice,Progesterone
+800,Hyaluronidase,increase_serum_concentration,Arabica coffee,Phenol
+795,Hyaluronidase,increase_serum_concentration,Asparagus,Phenol
+715,Hyaluronidase,increase_adverse_effects,Avocado,Dopamine
+809,Hyaluronidase,increase_serum_concentration,Bilberry,Phenol
+798,Hyaluronidase,increase_serum_concentration,Ceylon cinnamon,Phenol
+719,Hyaluronidase,increase_adverse_effects,Cocoa bean,Dopamine
+810,Hyaluronidase,increase_serum_concentration,Cocoa powder,Phenol
+799,Hyaluronidase,increase_serum_concentration,Coffee,Phenol
+714,Hyaluronidase,increase_adverse_effects,Custard apple,Dopamine
+720,Hyaluronidase,increase_adverse_effects,French plantain,Dopamine
+717,Hyaluronidase,increase_adverse_effects,Garden tomato,Dopamine
+806,Hyaluronidase,increase_serum_concentration,Garden tomato (var.),Phenol
+811,Hyaluronidase,increase_serum_concentration,Green bell pepper,Phenol
+808,Hyaluronidase,increase_serum_concentration,Highbush blueberry,Phenol
+802,Hyaluronidase,increase_serum_concentration,Mulberry,Phenol
+721,Hyaluronidase,increase_adverse_effects,Opium poppy,Dopamine
+813,Hyaluronidase,increase_serum_concentration,Orange bell pepper,Phenol
+796,Hyaluronidase,increase_serum_concentration,Pepper,Phenol
+718,Hyaluronidase,increase_adverse_effects,Potato,Dopamine
+716,Hyaluronidase,increase_adverse_effects,Purslane,Dopamine
+814,Hyaluronidase,increase_serum_concentration,Red bell pepper,Phenol
+801,Hyaluronidase,increase_serum_concentration,Robusta coffee,Phenol
+797,Hyaluronidase,increase_serum_concentration,Safflower,Phenol
+805,Hyaluronidase,increase_serum_concentration,Sesame,Phenol
+803,Hyaluronidase,increase_serum_concentration,Sweet marjoram,Phenol
+807,Hyaluronidase,increase_serum_concentration,Tamarind,Phenol
+794,Hyaluronidase,increase_serum_concentration,Tarragon,Phenol
+804,Hyaluronidase,increase_serum_concentration,Winter savory,Phenol
+812,Hyaluronidase,increase_serum_concentration,Yellow bell pepper,Phenol
+672,Ivabradine,increase_qtc_prolongation,Burdock,Atropine
+683,Ivabradine,increase_qtc_prolongation,Common verbena,Adenosine
+682,Ivabradine,increase_qtc_prolongation,Common wheat,Adenosine
+684,Ivabradine,increase_qtc_prolongation,Corn,Adenosine
+679,Ivabradine,increase_qtc_prolongation,Cucumber,Adenosine
+674,Ivabradine,increase_qtc_prolongation,Garden onion,Adenosine
+681,Ivabradine,increase_qtc_prolongation,Garden tomato (var.),Adenosine
+676,Ivabradine,increase_qtc_prolongation,Lemon,Adenosine
+678,Ivabradine,increase_qtc_prolongation,Muskmelon,Adenosine
+677,Ivabradine,increase_qtc_prolongation,Saffron,Adenosine
+685,Ivabradine,increase_qtc_prolongation,Soft-necked garlic,Adenosine
+680,Ivabradine,increase_qtc_prolongation,Soy bean,Adenosine
+675,Ivabradine,increase_qtc_prolongation,Wild celery,Adenosine
+1073,Magnesium silicate,increase_serum_concentration,Alaska pollock,Vitamin D
+1078,Magnesium silicate,increase_serum_concentration,Albacore tuna,Vitamin D
+1047,Magnesium silicate,increase_serum_concentration,American lobster,Vitamin D
+1065,Magnesium silicate,increase_serum_concentration,American shad,Vitamin D
+1103,Magnesium silicate,increase_serum_concentration,Anatidae,Vitamin D
+1096,Magnesium silicate,increase_serum_concentration,Anchovy,Vitamin D
+1104,Magnesium silicate,increase_serum_concentration,Anguilliformes,Vitamin D
+1036,Magnesium silicate,increase_serum_concentration,Atlantic cod,Vitamin D
+1038,Magnesium silicate,increase_serum_concentration,Atlantic croaker,Vitamin D
+1080,Magnesium silicate,increase_serum_concentration,Atlantic halibut,Vitamin D
+1024,Magnesium silicate,increase_serum_concentration,Atlantic herring,Vitamin D
+1025,Magnesium silicate,increase_serum_concentration,Atlantic mackerel,Vitamin D
+1027,Magnesium silicate,increase_serum_concentration,Atlantic pollock,Vitamin D
+1028,Magnesium silicate,increase_serum_concentration,Atlantic wolffish,Vitamin D
+1137,Magnesium silicate,increase_serum_concentration,Baby food,Vitamin D
+1064,Magnesium silicate,increase_serum_concentration,Bearded seal,Vitamin D
+1029,Magnesium silicate,increase_serum_concentration,Beluga whale,Vitamin D
+1023,Magnesium silicate,increase_serum_concentration,Biscuit,Vitamin D
+1084,Magnesium silicate,increase_serum_concentration,"Bivalvia (Clam, Mussel, Oyster)",Vitamin D
+1021,Magnesium silicate,increase_serum_concentration,Breakfast cereal,Vitamin D
+1179,Magnesium silicate,increase_serum_concentration,Breakfast sandwich,Vitamin D
+1031,Magnesium silicate,increase_serum_concentration,Burbot,Vitamin D
+1155,Magnesium silicate,increase_serum_concentration,Burrito,Vitamin D
+1130,Magnesium silicate,increase_serum_concentration,Butter,Vitamin D
+1180,Magnesium silicate,increase_serum_concentration,Butterfat,Vitamin D
+1148,Magnesium silicate,increase_serum_concentration,Buttermilk,Vitamin D
+1123,Magnesium silicate,increase_serum_concentration,Cake,Vitamin D
+1199,Magnesium silicate,increase_serum_concentration,Candy bar,Vitamin D
+1097,Magnesium silicate,increase_serum_concentration,Carp bream,Vitamin D
+1115,Magnesium silicate,increase_serum_concentration,Catfish,Vitamin D
+1072,Magnesium silicate,increase_serum_concentration,"Cattle (Beef, Veal)",Vitamin D
+1033,Magnesium silicate,increase_serum_concentration,Channel catfish,Vitamin D
+1098,Magnesium silicate,increase_serum_concentration,Chanterelle,Vitamin D
+1100,Magnesium silicate,increase_serum_concentration,Charr,Vitamin D
+1118,Magnesium silicate,increase_serum_concentration,Cheese,Vitamin D
+1157,Magnesium silicate,increase_serum_concentration,Chili,Vitamin D
+1058,Magnesium silicate,increase_serum_concentration,Chinook salmon,Vitamin D
+1055,Magnesium silicate,increase_serum_concentration,Chum salmon,Vitamin D
+1152,Magnesium silicate,increase_serum_concentration,Cichlidae (Tilapia),Vitamin D
+1034,Magnesium silicate,increase_serum_concentration,Cisco,Vitamin D
+1081,Magnesium silicate,increase_serum_concentration,"Clupeinae (Herring, Sardine, Sprat)",Vitamin D
+1143,Magnesium silicate,increase_serum_concentration,Cocoa powder,Vitamin D
+1056,Magnesium silicate,increase_serum_concentration,Coho salmon,Vitamin D
+1182,Magnesium silicate,increase_serum_concentration,Cold cut,Vitamin D
+1117,Magnesium silicate,increase_serum_concentration,"Columbidae (Dove, Pigeon)",Vitamin D
+1032,Magnesium silicate,increase_serum_concentration,Common carp,Vitamin D
+1101,Magnesium silicate,increase_serum_concentration,Common dab,Vitamin D
+1090,Magnesium silicate,increase_serum_concentration,Common mushroom,Vitamin D
+1037,Magnesium silicate,increase_serum_concentration,Common octopus,Vitamin D
+1200,Magnesium silicate,increase_serum_concentration,Condensed milk,Vitamin D
+1165,Magnesium silicate,increase_serum_concentration,Corn chip,Vitamin D
+1204,Magnesium silicate,increase_serum_concentration,"Cow milk, pasteurized, vitamin A + D added, 0% fat",Vitamin D
+1205,Magnesium silicate,increase_serum_concentration,"Cow milk, pasteurized, vitamin A + D added, 1% fat",Vitamin D
+1206,Magnesium silicate,increase_serum_concentration,"Cow milk, pasteurized, vitamin A + D added, 2% fat",Vitamin D
+1207,Magnesium silicate,increase_serum_concentration,"Cow milk, pasteurized, vitamin D added, 3.25% fat",Vitamin D
+1186,Magnesium silicate,increase_serum_concentration,Cracker,Vitamin D
+1086,Magnesium silicate,increase_serum_concentration,Crayfish,Vitamin D
+1131,Magnesium silicate,increase_serum_concentration,Cream,Vitamin D
+1126,Magnesium silicate,increase_serum_concentration,Crisp bread,Vitamin D
+1088,Magnesium silicate,increase_serum_concentration,Domestic pig,Vitamin D
+1145,Magnesium silicate,increase_serum_concentration,Dried milk,Vitamin D
+1195,Magnesium silicate,increase_serum_concentration,Dripping,Vitamin D
+1161,Magnesium silicate,increase_serum_concentration,Dulce de leche,Vitamin D
+1039,Magnesium silicate,increase_serum_concentration,Eastern oyster,Vitamin D
+1164,Magnesium silicate,increase_serum_concentration,Egg roll,Vitamin D
+1176,Magnesium silicate,increase_serum_concentration,Egg substitute,Vitamin D
+1120,Magnesium silicate,increase_serum_concentration,Eggs,Vitamin D
+1092,Magnesium silicate,increase_serum_concentration,Enokitake,Vitamin D
+1041,Magnesium silicate,increase_serum_concentration,European anchovy,Vitamin D
+1190,Magnesium silicate,increase_serum_concentration,Evaporated milk,Vitamin D
+1087,Magnesium silicate,increase_serum_concentration,Flatfish,Vitamin D
+1042,Magnesium silicate,increase_serum_concentration,Florida pompano,Vitamin D
+1040,Magnesium silicate,increase_serum_concentration,Freshwater eel,Vitamin D
+1193,Magnesium silicate,increase_serum_concentration,Frozen yogurt,Vitamin D
+1192,Magnesium silicate,increase_serum_concentration,Fruit-flavor drink,Vitamin D
+1079,Magnesium silicate,increase_serum_concentration,Gadus (Common cod),Vitamin D
+1106,Magnesium silicate,increase_serum_concentration,Garfish,Vitamin D
+1068,Magnesium silicate,increase_serum_concentration,Greater sturgeon,Vitamin D
+1043,Magnesium silicate,increase_serum_concentration,Greenland halibut/turbot,Vitamin D
+1044,Magnesium silicate,increase_serum_concentration,Haddock,Vitamin D
+1156,Magnesium silicate,increase_serum_concentration,Hamburger,Vitamin D
+1045,Magnesium silicate,increase_serum_concentration,Hippoglossus (Common halibut),Vitamin D
+1144,Magnesium silicate,increase_serum_concentration,Hot chocolate,Vitamin D
+1122,Magnesium silicate,increase_serum_concentration,Ice cream,Vitamin D
+1185,Magnesium silicate,increase_serum_concentration,Ice cream cone,Vitamin D
+1153,Magnesium silicate,increase_serum_concentration,Icing,Vitamin D
+1166,Magnesium silicate,increase_serum_concentration,Junket,Vitamin D
+1147,Magnesium silicate,increase_serum_concentration,Kefir,Vitamin D
+1107,Magnesium silicate,increase_serum_concentration,Lake trout,Vitamin D
+1141,Magnesium silicate,increase_serum_concentration,Lard,Vitamin D
+1108,Magnesium silicate,increase_serum_concentration,Lumpsucker,Vitamin D
+1094,Magnesium silicate,increase_serum_concentration,Maitake,Vitamin D
+1201,Magnesium silicate,increase_serum_concentration,Margarine,Vitamin D
+1202,Magnesium silicate,increase_serum_concentration,Margarine-like spread,Vitamin D
+1173,Magnesium silicate,increase_serum_concentration,Meatloaf,Vitamin D
+1119,Magnesium silicate,increase_serum_concentration,Milk (Cow),Vitamin D
+1135,Magnesium silicate,increase_serum_concentration,Milk (Human),Vitamin D
+1146,Magnesium silicate,increase_serum_concentration,Milk (Other mammals),Vitamin D
+1203,Magnesium silicate,increase_serum_concentration,Milk substitute,Vitamin D
+1194,Magnesium silicate,increase_serum_concentration,Milkshake,Vitamin D
+1168,Magnesium silicate,increase_serum_concentration,Morchella (Morel),Vitamin D
+1030,Magnesium silicate,increase_serum_concentration,Northern bluefin tuna,Vitamin D
+1051,Magnesium silicate,increase_serum_concentration,Northern pike,Vitamin D
+1177,Magnesium silicate,increase_serum_concentration,Nutritional drink,Vitamin D
+1142,Magnesium silicate,increase_serum_concentration,Other animal fat,Vitamin D
+1136,Magnesium silicate,increase_serum_concentration,Other beverage,Vitamin D
+1020,Magnesium silicate,increase_serum_concentration,Other bread,Vitamin D
+1196,Magnesium silicate,increase_serum_concentration,Other dish,Vitamin D
+1149,Magnesium silicate,increase_serum_concentration,Other fermented milk,Vitamin D
+1134,Magnesium silicate,increase_serum_concentration,Other fish product,Vitamin D
+1167,Magnesium silicate,increase_serum_concentration,Other frozen dessert,Vitamin D
+1189,Magnesium silicate,increase_serum_concentration,Other pasta dish,Vitamin D
+1178,Magnesium silicate,increase_serum_concentration,Other sandwich,Vitamin D
+1125,Magnesium silicate,increase_serum_concentration,Other snack food,Vitamin D
+1093,Magnesium silicate,increase_serum_concentration,Oyster mushroom,Vitamin D
+1035,Magnesium silicate,increase_serum_concentration,Pacific cod,Vitamin D
+1046,Magnesium silicate,increase_serum_concentration,Pacific jack mackerel,Vitamin D
+1050,Magnesium silicate,increase_serum_concentration,Pacific rockfish,Vitamin D
+1060,Magnesium silicate,increase_serum_concentration,Pacific sardine,Vitamin D
+1026,Magnesium silicate,increase_serum_concentration,Painted comber,Vitamin D
+1169,Magnesium silicate,increase_serum_concentration,Pancake,Vitamin D
+1022,Magnesium silicate,increase_serum_concentration,Pasta,Vitamin D
+1127,Magnesium silicate,increase_serum_concentration,Pastry,Vitamin D
+1083,Magnesium silicate,increase_serum_concentration,Perciformes,Vitamin D
+1082,Magnesium silicate,increase_serum_concentration,Percoidei (Bass and others),Vitamin D
+1184,Magnesium silicate,increase_serum_concentration,Pie,Vitamin D
+1183,Magnesium silicate,increase_serum_concentration,Pie crust,Vitamin D
+1111,Magnesium silicate,increase_serum_concentration,Pikeperch,Vitamin D
+1054,Magnesium silicate,increase_serum_concentration,Pink salmon,Vitamin D
+1112,Magnesium silicate,increase_serum_concentration,"Pleuronectidae (Dab, Halibut, Plaice)",Vitamin D
+1077,Magnesium silicate,increase_serum_concentration,Pollock,Vitamin D
+1197,Magnesium silicate,increase_serum_concentration,Pot pie,Vitamin D
+1019,Magnesium silicate,increase_serum_concentration,Potato,Vitamin D
+1191,Magnesium silicate,increase_serum_concentration,Potato bread,Vitamin D
+1159,Magnesium silicate,increase_serum_concentration,Processed cheese,Vitamin D
+1170,Magnesium silicate,increase_serum_concentration,Pudding,Vitamin D
+1089,Magnesium silicate,increase_serum_concentration,Quail,Vitamin D
+1174,Magnesium silicate,increase_serum_concentration,Quesadilla,Vitamin D
+1052,Magnesium silicate,increase_serum_concentration,Rainbow smelt,Vitamin D
+1053,Magnesium silicate,increase_serum_concentration,Rainbow trout,Vitamin D
+1187,Magnesium silicate,increase_serum_concentration,Ravioli,Vitamin D
+1140,Magnesium silicate,increase_serum_concentration,Remoulade,Vitamin D
+1151,Magnesium silicate,increase_serum_concentration,Roe,Vitamin D
+1160,Magnesium silicate,increase_serum_concentration,Salad,Vitamin D
+1128,Magnesium silicate,increase_serum_concentration,Salad dressing,Vitamin D
+1070,Magnesium silicate,increase_serum_concentration,"Salmonidae (Salmon, Trout)",Vitamin D
+1129,Magnesium silicate,increase_serum_concentration,Sauce,Vitamin D
+1132,Magnesium silicate,increase_serum_concentration,Sausage,Vitamin D
+1061,Magnesium silicate,increase_serum_concentration,Scallop,Vitamin D
+1109,Magnesium silicate,increase_serum_concentration,"Scombridae (Bonito, Mackerel, Tuna)",Vitamin D
+1188,Magnesium silicate,increase_serum_concentration,Scrapple,Vitamin D
+1062,Magnesium silicate,increase_serum_concentration,Scup,Vitamin D
+1066,Magnesium silicate,increase_serum_concentration,Shark,Vitamin D
+1091,Magnesium silicate,increase_serum_concentration,Shiitake,Vitamin D
+1085,Magnesium silicate,increase_serum_concentration,Shrimp,Vitamin D
+1154,Magnesium silicate,increase_serum_concentration,Snack bar,Vitamin D
+1067,Magnesium silicate,increase_serum_concentration,Snapper,Vitamin D
+1057,Magnesium silicate,increase_serum_concentration,Sockeye salmon,Vitamin D
+1138,Magnesium silicate,increase_serum_concentration,Soup,Vitamin D
+1172,Magnesium silicate,increase_serum_concentration,Soy milk,Vitamin D
+1181,Magnesium silicate,increase_serum_concentration,Soy yogurt,Vitamin D
+1059,Magnesium silicate,increase_serum_concentration,Spanish mackerel,Vitamin D
+1102,Magnesium silicate,increase_serum_concentration,Spiny dogfish,Vitamin D
+1049,Magnesium silicate,increase_serum_concentration,Spotted seal,Vitamin D
+1175,Magnesium silicate,increase_serum_concentration,Spread,Vitamin D
+1063,Magnesium silicate,increase_serum_concentration,Steller sea lion,Vitamin D
+1048,Magnesium silicate,increase_serum_concentration,Striped mullet,Vitamin D
+1198,Magnesium silicate,increase_serum_concentration,Stuffing,Vitamin D
+1099,Magnesium silicate,increase_serum_concentration,Sturgeon,Vitamin D
+1163,Magnesium silicate,increase_serum_concentration,Sweet custard,Vitamin D
+1018,Magnesium silicate,increase_serum_concentration,Sweet orange,Vitamin D
+1069,Magnesium silicate,increase_serum_concentration,Swordfish,Vitamin D
+1158,Magnesium silicate,increase_serum_concentration,Taco,Vitamin D
+1139,Magnesium silicate,increase_serum_concentration,Tallow,Vitamin D
+1116,Magnesium silicate,increase_serum_concentration,Thunnus,Vitamin D
+1150,Magnesium silicate,increase_serum_concentration,Tofu,Vitamin D
+1162,Magnesium silicate,increase_serum_concentration,Topping,Vitamin D
+1105,Magnesium silicate,increase_serum_concentration,True frog,Vitamin D
+1110,Magnesium silicate,increase_serum_concentration,True oyster,Vitamin D
+1113,Magnesium silicate,increase_serum_concentration,True seal,Vitamin D
+1114,Magnesium silicate,increase_serum_concentration,True sole,Vitamin D
+1071,Magnesium silicate,increase_serum_concentration,Turkey,Vitamin D
+1171,Magnesium silicate,increase_serum_concentration,Waffle,Vitamin D
+1095,Magnesium silicate,increase_serum_concentration,Wheat,Vitamin D
+1133,Magnesium silicate,increase_serum_concentration,Whey,Vitamin D
+1208,Magnesium silicate,increase_serum_concentration,White bread,Vitamin D
+1074,Magnesium silicate,increase_serum_concentration,Whitefish,Vitamin D
+1075,Magnesium silicate,increase_serum_concentration,Whiting,Vitamin D
+1076,Magnesium silicate,increase_serum_concentration,Yellowfin tuna,Vitamin D
+1124,Magnesium silicate,increase_serum_concentration,Ymer,Vitamin D
+1121,Magnesium silicate,increase_serum_concentration,Yogurt,Vitamin D
+882,Mineral oil,decrease_serum_concentration,Alaska pollock,Vitamin D
+887,Mineral oil,decrease_serum_concentration,Albacore tuna,Vitamin D
+856,Mineral oil,decrease_serum_concentration,American lobster,Vitamin D
+874,Mineral oil,decrease_serum_concentration,American shad,Vitamin D
+912,Mineral oil,decrease_serum_concentration,Anatidae,Vitamin D
+905,Mineral oil,decrease_serum_concentration,Anchovy,Vitamin D
+913,Mineral oil,decrease_serum_concentration,Anguilliformes,Vitamin D
+845,Mineral oil,decrease_serum_concentration,Atlantic cod,Vitamin D
+847,Mineral oil,decrease_serum_concentration,Atlantic croaker,Vitamin D
+889,Mineral oil,decrease_serum_concentration,Atlantic halibut,Vitamin D
+833,Mineral oil,decrease_serum_concentration,Atlantic herring,Vitamin D
+834,Mineral oil,decrease_serum_concentration,Atlantic mackerel,Vitamin D
+836,Mineral oil,decrease_serum_concentration,Atlantic pollock,Vitamin D
+837,Mineral oil,decrease_serum_concentration,Atlantic wolffish,Vitamin D
+946,Mineral oil,decrease_serum_concentration,Baby food,Vitamin D
+873,Mineral oil,decrease_serum_concentration,Bearded seal,Vitamin D
+838,Mineral oil,decrease_serum_concentration,Beluga whale,Vitamin D
+832,Mineral oil,decrease_serum_concentration,Biscuit,Vitamin D
+893,Mineral oil,decrease_serum_concentration,"Bivalvia (Clam, Mussel, Oyster)",Vitamin D
+830,Mineral oil,decrease_serum_concentration,Breakfast cereal,Vitamin D
+988,Mineral oil,decrease_serum_concentration,Breakfast sandwich,Vitamin D
+840,Mineral oil,decrease_serum_concentration,Burbot,Vitamin D
+964,Mineral oil,decrease_serum_concentration,Burrito,Vitamin D
+939,Mineral oil,decrease_serum_concentration,Butter,Vitamin D
+989,Mineral oil,decrease_serum_concentration,Butterfat,Vitamin D
+957,Mineral oil,decrease_serum_concentration,Buttermilk,Vitamin D
+932,Mineral oil,decrease_serum_concentration,Cake,Vitamin D
+1008,Mineral oil,decrease_serum_concentration,Candy bar,Vitamin D
+906,Mineral oil,decrease_serum_concentration,Carp bream,Vitamin D
+924,Mineral oil,decrease_serum_concentration,Catfish,Vitamin D
+881,Mineral oil,decrease_serum_concentration,"Cattle (Beef, Veal)",Vitamin D
+842,Mineral oil,decrease_serum_concentration,Channel catfish,Vitamin D
+907,Mineral oil,decrease_serum_concentration,Chanterelle,Vitamin D
+909,Mineral oil,decrease_serum_concentration,Charr,Vitamin D
+927,Mineral oil,decrease_serum_concentration,Cheese,Vitamin D
+966,Mineral oil,decrease_serum_concentration,Chili,Vitamin D
+867,Mineral oil,decrease_serum_concentration,Chinook salmon,Vitamin D
+864,Mineral oil,decrease_serum_concentration,Chum salmon,Vitamin D
+961,Mineral oil,decrease_serum_concentration,Cichlidae (Tilapia),Vitamin D
+843,Mineral oil,decrease_serum_concentration,Cisco,Vitamin D
+890,Mineral oil,decrease_serum_concentration,"Clupeinae (Herring, Sardine, Sprat)",Vitamin D
+952,Mineral oil,decrease_serum_concentration,Cocoa powder,Vitamin D
+865,Mineral oil,decrease_serum_concentration,Coho salmon,Vitamin D
+991,Mineral oil,decrease_serum_concentration,Cold cut,Vitamin D
+926,Mineral oil,decrease_serum_concentration,"Columbidae (Dove, Pigeon)",Vitamin D
+841,Mineral oil,decrease_serum_concentration,Common carp,Vitamin D
+910,Mineral oil,decrease_serum_concentration,Common dab,Vitamin D
+899,Mineral oil,decrease_serum_concentration,Common mushroom,Vitamin D
+846,Mineral oil,decrease_serum_concentration,Common octopus,Vitamin D
+1009,Mineral oil,decrease_serum_concentration,Condensed milk,Vitamin D
+974,Mineral oil,decrease_serum_concentration,Corn chip,Vitamin D
+1013,Mineral oil,decrease_serum_concentration,"Cow milk, pasteurized, vitamin A + D added, 0% fat",Vitamin D
+1014,Mineral oil,decrease_serum_concentration,"Cow milk, pasteurized, vitamin A + D added, 1% fat",Vitamin D
+1015,Mineral oil,decrease_serum_concentration,"Cow milk, pasteurized, vitamin A + D added, 2% fat",Vitamin D
+1016,Mineral oil,decrease_serum_concentration,"Cow milk, pasteurized, vitamin D added, 3.25% fat",Vitamin D
+995,Mineral oil,decrease_serum_concentration,Cracker,Vitamin D
+895,Mineral oil,decrease_serum_concentration,Crayfish,Vitamin D
+940,Mineral oil,decrease_serum_concentration,Cream,Vitamin D
+935,Mineral oil,decrease_serum_concentration,Crisp bread,Vitamin D
+897,Mineral oil,decrease_serum_concentration,Domestic pig,Vitamin D
+954,Mineral oil,decrease_serum_concentration,Dried milk,Vitamin D
+1004,Mineral oil,decrease_serum_concentration,Dripping,Vitamin D
+970,Mineral oil,decrease_serum_concentration,Dulce de leche,Vitamin D
+848,Mineral oil,decrease_serum_concentration,Eastern oyster,Vitamin D
+973,Mineral oil,decrease_serum_concentration,Egg roll,Vitamin D
+985,Mineral oil,decrease_serum_concentration,Egg substitute,Vitamin D
+929,Mineral oil,decrease_serum_concentration,Eggs,Vitamin D
+901,Mineral oil,decrease_serum_concentration,Enokitake,Vitamin D
+850,Mineral oil,decrease_serum_concentration,European anchovy,Vitamin D
+999,Mineral oil,decrease_serum_concentration,Evaporated milk,Vitamin D
+896,Mineral oil,decrease_serum_concentration,Flatfish,Vitamin D
+851,Mineral oil,decrease_serum_concentration,Florida pompano,Vitamin D
+849,Mineral oil,decrease_serum_concentration,Freshwater eel,Vitamin D
+1002,Mineral oil,decrease_serum_concentration,Frozen yogurt,Vitamin D
+1001,Mineral oil,decrease_serum_concentration,Fruit-flavor drink,Vitamin D
+888,Mineral oil,decrease_serum_concentration,Gadus (Common cod),Vitamin D
+915,Mineral oil,decrease_serum_concentration,Garfish,Vitamin D
+877,Mineral oil,decrease_serum_concentration,Greater sturgeon,Vitamin D
+852,Mineral oil,decrease_serum_concentration,Greenland halibut/turbot,Vitamin D
+853,Mineral oil,decrease_serum_concentration,Haddock,Vitamin D
+965,Mineral oil,decrease_serum_concentration,Hamburger,Vitamin D
+854,Mineral oil,decrease_serum_concentration,Hippoglossus (Common halibut),Vitamin D
+953,Mineral oil,decrease_serum_concentration,Hot chocolate,Vitamin D
+931,Mineral oil,decrease_serum_concentration,Ice cream,Vitamin D
+994,Mineral oil,decrease_serum_concentration,Ice cream cone,Vitamin D
+962,Mineral oil,decrease_serum_concentration,Icing,Vitamin D
+975,Mineral oil,decrease_serum_concentration,Junket,Vitamin D
+956,Mineral oil,decrease_serum_concentration,Kefir,Vitamin D
+916,Mineral oil,decrease_serum_concentration,Lake trout,Vitamin D
+950,Mineral oil,decrease_serum_concentration,Lard,Vitamin D
+917,Mineral oil,decrease_serum_concentration,Lumpsucker,Vitamin D
+903,Mineral oil,decrease_serum_concentration,Maitake,Vitamin D
+1010,Mineral oil,decrease_serum_concentration,Margarine,Vitamin D
+1011,Mineral oil,decrease_serum_concentration,Margarine-like spread,Vitamin D
+982,Mineral oil,decrease_serum_concentration,Meatloaf,Vitamin D
+928,Mineral oil,decrease_serum_concentration,Milk (Cow),Vitamin D
+944,Mineral oil,decrease_serum_concentration,Milk (Human),Vitamin D
+955,Mineral oil,decrease_serum_concentration,Milk (Other mammals),Vitamin D
+1012,Mineral oil,decrease_serum_concentration,Milk substitute,Vitamin D
+1003,Mineral oil,decrease_serum_concentration,Milkshake,Vitamin D
+977,Mineral oil,decrease_serum_concentration,Morchella (Morel),Vitamin D
+839,Mineral oil,decrease_serum_concentration,Northern bluefin tuna,Vitamin D
+860,Mineral oil,decrease_serum_concentration,Northern pike,Vitamin D
+986,Mineral oil,decrease_serum_concentration,Nutritional drink,Vitamin D
+951,Mineral oil,decrease_serum_concentration,Other animal fat,Vitamin D
+945,Mineral oil,decrease_serum_concentration,Other beverage,Vitamin D
+829,Mineral oil,decrease_serum_concentration,Other bread,Vitamin D
+1005,Mineral oil,decrease_serum_concentration,Other dish,Vitamin D
+958,Mineral oil,decrease_serum_concentration,Other fermented milk,Vitamin D
+943,Mineral oil,decrease_serum_concentration,Other fish product,Vitamin D
+976,Mineral oil,decrease_serum_concentration,Other frozen dessert,Vitamin D
+998,Mineral oil,decrease_serum_concentration,Other pasta dish,Vitamin D
+987,Mineral oil,decrease_serum_concentration,Other sandwich,Vitamin D
+934,Mineral oil,decrease_serum_concentration,Other snack food,Vitamin D
+902,Mineral oil,decrease_serum_concentration,Oyster mushroom,Vitamin D
+844,Mineral oil,decrease_serum_concentration,Pacific cod,Vitamin D
+855,Mineral oil,decrease_serum_concentration,Pacific jack mackerel,Vitamin D
+859,Mineral oil,decrease_serum_concentration,Pacific rockfish,Vitamin D
+869,Mineral oil,decrease_serum_concentration,Pacific sardine,Vitamin D
+835,Mineral oil,decrease_serum_concentration,Painted comber,Vitamin D
+978,Mineral oil,decrease_serum_concentration,Pancake,Vitamin D
+831,Mineral oil,decrease_serum_concentration,Pasta,Vitamin D
+936,Mineral oil,decrease_serum_concentration,Pastry,Vitamin D
+892,Mineral oil,decrease_serum_concentration,Perciformes,Vitamin D
+891,Mineral oil,decrease_serum_concentration,Percoidei (Bass and others),Vitamin D
+993,Mineral oil,decrease_serum_concentration,Pie,Vitamin D
+992,Mineral oil,decrease_serum_concentration,Pie crust,Vitamin D
+920,Mineral oil,decrease_serum_concentration,Pikeperch,Vitamin D
+863,Mineral oil,decrease_serum_concentration,Pink salmon,Vitamin D
+921,Mineral oil,decrease_serum_concentration,"Pleuronectidae (Dab, Halibut, Plaice)",Vitamin D
+886,Mineral oil,decrease_serum_concentration,Pollock,Vitamin D
+1006,Mineral oil,decrease_serum_concentration,Pot pie,Vitamin D
+828,Mineral oil,decrease_serum_concentration,Potato,Vitamin D
+1000,Mineral oil,decrease_serum_concentration,Potato bread,Vitamin D
+968,Mineral oil,decrease_serum_concentration,Processed cheese,Vitamin D
+979,Mineral oil,decrease_serum_concentration,Pudding,Vitamin D
+898,Mineral oil,decrease_serum_concentration,Quail,Vitamin D
+983,Mineral oil,decrease_serum_concentration,Quesadilla,Vitamin D
+861,Mineral oil,decrease_serum_concentration,Rainbow smelt,Vitamin D
+862,Mineral oil,decrease_serum_concentration,Rainbow trout,Vitamin D
+996,Mineral oil,decrease_serum_concentration,Ravioli,Vitamin D
+949,Mineral oil,decrease_serum_concentration,Remoulade,Vitamin D
+960,Mineral oil,decrease_serum_concentration,Roe,Vitamin D
+969,Mineral oil,decrease_serum_concentration,Salad,Vitamin D
+937,Mineral oil,decrease_serum_concentration,Salad dressing,Vitamin D
+879,Mineral oil,decrease_serum_concentration,"Salmonidae (Salmon, Trout)",Vitamin D
+938,Mineral oil,decrease_serum_concentration,Sauce,Vitamin D
+941,Mineral oil,decrease_serum_concentration,Sausage,Vitamin D
+870,Mineral oil,decrease_serum_concentration,Scallop,Vitamin D
+918,Mineral oil,decrease_serum_concentration,"Scombridae (Bonito, Mackerel, Tuna)",Vitamin D
+997,Mineral oil,decrease_serum_concentration,Scrapple,Vitamin D
+871,Mineral oil,decrease_serum_concentration,Scup,Vitamin D
+875,Mineral oil,decrease_serum_concentration,Shark,Vitamin D
+900,Mineral oil,decrease_serum_concentration,Shiitake,Vitamin D
+894,Mineral oil,decrease_serum_concentration,Shrimp,Vitamin D
+963,Mineral oil,decrease_serum_concentration,Snack bar,Vitamin D
+876,Mineral oil,decrease_serum_concentration,Snapper,Vitamin D
+866,Mineral oil,decrease_serum_concentration,Sockeye salmon,Vitamin D
+947,Mineral oil,decrease_serum_concentration,Soup,Vitamin D
+981,Mineral oil,decrease_serum_concentration,Soy milk,Vitamin D
+990,Mineral oil,decrease_serum_concentration,Soy yogurt,Vitamin D
+868,Mineral oil,decrease_serum_concentration,Spanish mackerel,Vitamin D
+911,Mineral oil,decrease_serum_concentration,Spiny dogfish,Vitamin D
+858,Mineral oil,decrease_serum_concentration,Spotted seal,Vitamin D
+984,Mineral oil,decrease_serum_concentration,Spread,Vitamin D
+872,Mineral oil,decrease_serum_concentration,Steller sea lion,Vitamin D
+857,Mineral oil,decrease_serum_concentration,Striped mullet,Vitamin D
+1007,Mineral oil,decrease_serum_concentration,Stuffing,Vitamin D
+908,Mineral oil,decrease_serum_concentration,Sturgeon,Vitamin D
+972,Mineral oil,decrease_serum_concentration,Sweet custard,Vitamin D
+827,Mineral oil,decrease_serum_concentration,Sweet orange,Vitamin D
+878,Mineral oil,decrease_serum_concentration,Swordfish,Vitamin D
+967,Mineral oil,decrease_serum_concentration,Taco,Vitamin D
+948,Mineral oil,decrease_serum_concentration,Tallow,Vitamin D
+925,Mineral oil,decrease_serum_concentration,Thunnus,Vitamin D
+959,Mineral oil,decrease_serum_concentration,Tofu,Vitamin D
+971,Mineral oil,decrease_serum_concentration,Topping,Vitamin D
+914,Mineral oil,decrease_serum_concentration,True frog,Vitamin D
+919,Mineral oil,decrease_serum_concentration,True oyster,Vitamin D
+922,Mineral oil,decrease_serum_concentration,True seal,Vitamin D
+923,Mineral oil,decrease_serum_concentration,True sole,Vitamin D
+880,Mineral oil,decrease_serum_concentration,Turkey,Vitamin D
+980,Mineral oil,decrease_serum_concentration,Waffle,Vitamin D
+904,Mineral oil,decrease_serum_concentration,Wheat,Vitamin D
+942,Mineral oil,decrease_serum_concentration,Whey,Vitamin D
+1017,Mineral oil,decrease_serum_concentration,White bread,Vitamin D
+883,Mineral oil,decrease_serum_concentration,Whitefish,Vitamin D
+884,Mineral oil,decrease_serum_concentration,Whiting,Vitamin D
+885,Mineral oil,decrease_serum_concentration,Yellowfin tuna,Vitamin D
+933,Mineral oil,decrease_serum_concentration,Ymer,Vitamin D
+930,Mineral oil,decrease_serum_concentration,Yogurt,Vitamin D
+623,Modafinil,increase_metabolism,Arabica coffee,Theophylline
+625,Modafinil,increase_metabolism,Black tea,Theophylline
+624,Modafinil,increase_metabolism,Cocoa bean,Theophylline
+626,Modafinil,increase_metabolism,Green tea,Theophylline
+628,Modafinil,increase_metabolism,Herbal tea,Theophylline
+621,Modafinil,increase_metabolism,Lemon,Theophylline
+622,Modafinil,increase_metabolism,Pummelo,Theophylline
+627,Modafinil,increase_metabolism,Red tea,Theophylline
+620,Modafinil,increase_metabolism,Tea,Theophylline
+561,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Common verbena,Adenosine
+560,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Common wheat,Adenosine
+562,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Corn,Adenosine
+557,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Cucumber,Adenosine
+552,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Garden onion,Adenosine
+559,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Garden tomato (var.),Adenosine
+554,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Lemon,Adenosine
+556,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Muskmelon,Adenosine
+555,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Saffron,Adenosine
+563,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Soft-necked garlic,Adenosine
+558,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Soy bean,Adenosine
+553,Nicotine,increase_atrioventricular_blocking_(av_block)_activities,Wild celery,Adenosine
+821,Peginterferon alfa-2b,increase_serum_concentration,Ginger,Capsaicin
+823,Peginterferon alfa-2b,increase_serum_concentration,Green bell pepper,Capsaicin
+825,Peginterferon alfa-2b,increase_serum_concentration,Orange bell pepper,Capsaicin
+820,Peginterferon alfa-2b,increase_serum_concentration,Pepper,Capsaicin
+822,Peginterferon alfa-2b,increase_serum_concentration,Pepper (C. frutescens),Capsaicin
+826,Peginterferon alfa-2b,increase_serum_concentration,Red bell pepper,Capsaicin
+824,Peginterferon alfa-2b,increase_serum_concentration,Yellow bell pepper,Capsaicin
+735,Sparfloxacin,decrease_serum_concentration,Arabica coffee,Calcium
+741,Sparfloxacin,decrease_serum_concentration,Black elderberry,Calcium
+748,Sparfloxacin,decrease_serum_concentration,Cabbage,Calcium
+734,Sparfloxacin,decrease_serum_concentration,Ceylon cinnamon,Calcium
+743,Sparfloxacin,decrease_serum_concentration,Cocoa bean,Calcium
+736,Sparfloxacin,decrease_serum_concentration,Common hazelnut,Calcium
+738,Sparfloxacin,decrease_serum_concentration,Cornmint,Calcium
+739,Sparfloxacin,decrease_serum_concentration,Evening primrose,Calcium
+731,Sparfloxacin,decrease_serum_concentration,Garden onion,Calcium
+742,Sparfloxacin,decrease_serum_concentration,Garden tomato (var.),Calcium
+744,Sparfloxacin,decrease_serum_concentration,Highbush blueberry,Calcium
+732,Sparfloxacin,decrease_serum_concentration,Mugwort,Calcium
+751,Sparfloxacin,decrease_serum_concentration,Nanking cherry,Calcium
+749,Sparfloxacin,decrease_serum_concentration,Orange bell pepper,Calcium
+745,Sparfloxacin,decrease_serum_concentration,Pepper (C. frutescens),Calcium
+733,Sparfloxacin,decrease_serum_concentration,Roman camomile,Calcium
+750,Sparfloxacin,decrease_serum_concentration,Saskatoon berry,Calcium
+740,Sparfloxacin,decrease_serum_concentration,Scarlet bean,Calcium
+746,Sparfloxacin,decrease_serum_concentration,Shea tree,Calcium
+747,Sparfloxacin,decrease_serum_concentration,Soft-necked garlic,Calcium
+737,Sparfloxacin,decrease_serum_concentration,Wild carrot,Calcium
+3,Spermine,increase_adverse_effects,Common walnut,Nicotine
+2,Spermine,increase_adverse_effects,Papaya,Nicotine
+4,Spermine,increase_adverse_effects,Potato,Nicotine
+1,Spermine,increase_adverse_effects,Wild celery,Nicotine
+756,Temafloxacin,decrease_serum_concentration,Arabica coffee,Calcium
+762,Temafloxacin,decrease_serum_concentration,Black elderberry,Calcium
+769,Temafloxacin,decrease_serum_concentration,Cabbage,Calcium
+755,Temafloxacin,decrease_serum_concentration,Ceylon cinnamon,Calcium
+764,Temafloxacin,decrease_serum_concentration,Cocoa bean,Calcium
+757,Temafloxacin,decrease_serum_concentration,Common hazelnut,Calcium
+759,Temafloxacin,decrease_serum_concentration,Cornmint,Calcium
+760,Temafloxacin,decrease_serum_concentration,Evening primrose,Calcium
+752,Temafloxacin,decrease_serum_concentration,Garden onion,Calcium
+763,Temafloxacin,decrease_serum_concentration,Garden tomato (var.),Calcium
+765,Temafloxacin,decrease_serum_concentration,Highbush blueberry,Calcium
+753,Temafloxacin,decrease_serum_concentration,Mugwort,Calcium
+772,Temafloxacin,decrease_serum_concentration,Nanking cherry,Calcium
+770,Temafloxacin,decrease_serum_concentration,Orange bell pepper,Calcium
+766,Temafloxacin,decrease_serum_concentration,Pepper (C. frutescens),Calcium
+754,Temafloxacin,decrease_serum_concentration,Roman camomile,Calcium
+771,Temafloxacin,decrease_serum_concentration,Saskatoon berry,Calcium
+761,Temafloxacin,decrease_serum_concentration,Scarlet bean,Calcium
+767,Temafloxacin,decrease_serum_concentration,Shea tree,Calcium
+768,Temafloxacin,decrease_serum_concentration,Soft-necked garlic,Calcium
+758,Temafloxacin,decrease_serum_concentration,Wild carrot,Calcium
+545,Tipiracil,decrease_excretion_rate,Orange bell pepper,Thiamine
