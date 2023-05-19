@@ -56,6 +56,20 @@ class KG_model:
         self.batch_size = args.batch_size
         self.embedding_dim = args.embedding_dim
         self.margin = args.loss_margin
+        self.negative_sampler = args.neg_sampler
+        self.num_neg_per_pos = args.num_neg_per_pos
+
+    # use if I call the model from jupyter notebook, where I don't have args
+    def set_params2(self, params):
+        self.num_epochs = params['epochs']
+        self.optimizer = params['optimizer']
+        self.learning_rate = params['learning_rate']
+        self.evaluator = RankBasedEvaluator
+        self.loss = params['loss']
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')    
+        self.batch_size = params['batch']
+        self.embedding_dim = params['embedding_dim']
+        self.margin = params['margin']
 
     def __str__(self):  
         print(f'Training {self.model_name} - {self.specification} for {self.num_epochs} epochs on {self.device}.')
@@ -76,6 +90,10 @@ class KG_model:
             optimizer = self.optimizer,
             optimizer_kwargs = dict(
                 lr = self.learning_rate
+            ),
+            negative_sampler = self.negative_sampler,
+            negative_sampler_kwargs = dict(
+                num_negs_per_pos = self.num_neg_per_pos
             ),
             evaluator = self.evaluator,
             device = self.device,
@@ -106,8 +124,6 @@ class KG_model:
                 pred_filtered = pred.filter_triples(self.train_tf)
                 pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
 
-    #         print('Leuprolide - decrease_adverse_effects:')
-    #         print(pred.head(10))
             predicted_tails_df = pred.head(20)
             predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
             
@@ -159,7 +175,7 @@ def main(args):
     common_drugs = common_drugs['DrugBank_id'].values
     
     for d in common_drugs:
-        kg.predict_tail(d, 'increase_adverse_effects', filter_known=True)
+        kg.predict_tail(d, 'negative', filter_known=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='KG training')
@@ -172,6 +188,8 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--loss', type=str, default='MarginRankingLoss')
     parser.add_argument('-b', '--batch_size', type=int, default=64)
     parser.add_argument('-lm', '--loss_margin', type=float, default=1.0)
+    parser.add_argument('-neg', '--neg_sampler', type=str, default='basic')
+    parser.add_argument('-nn', '--num_neg_per_pos', type=int, default='1')
     
 
     args = parser.parse_args()
