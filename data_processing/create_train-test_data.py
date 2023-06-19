@@ -3,6 +3,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from os import listdir
+import itertools
 
 def read_interactions_data(data_dir):
     ddi_df = pd.read_csv(data_dir + 'ddi.tsv', sep='\t', index_col=[0])
@@ -15,6 +16,11 @@ def simplify_interactions(interaction_df, interaction_label_file):
     labels = pd.read_csv(interaction_label_file, sep=';')
     label_map = labels.set_index('relation').to_dict()['positive/negative']
     interaction_df.interaction = interaction_df.interaction.map(label_map)
+    
+    return interaction_df
+
+def simplify_interactions2(interaction_df):
+    interaction_df.interaction = list(itertools.repeat('interacts', interaction_df.shape[0]))
     
     return interaction_df
 
@@ -161,13 +167,16 @@ def main():
     
     ddi_df, drug_supplement_df, dfi_df = read_interactions_data(data_dir)
     
-    # simplify interaction names -> just positive/negative interactions
-    ddi_df_simple = simplify_interactions(ddi_df, interaction_label_file)
-    dfi_df_simple = simplify_interactions(dfi_df, interaction_label_file)
+#     # simplify interaction names -> just positive/negative interactions
+#     ddi_df_simple = simplify_interactions(ddi_df, interaction_label_file)
+#     dfi_df_simple = simplify_interactions(dfi_df, interaction_label_file)
     
+    # simplify interaction names -> just interaction
+    ddi_df_simple = simplify_interactions2(ddi_df)
+    dfi_df_simple = simplify_interactions2(dfi_df)
     
     train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, use_interactions_data)
-    train = add_other_info_to_train(data_dir, train, use_interactions_data)
+#     train = add_other_info_to_train(data_dir, train, use_interactions_data)
     
     train = train.astype(str)
     valid = valid.astype(str)

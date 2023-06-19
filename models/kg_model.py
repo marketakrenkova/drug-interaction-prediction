@@ -124,7 +124,7 @@ class KG_model:
                 pred_filtered = pred.filter_triples(self.train_tf)
                 pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
 
-            predicted_tails_df = pred.head(20)
+            predicted_tails_df = pred.head(100)
             predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
             
         except:
@@ -175,7 +175,7 @@ def main(args):
     common_drugs = common_drugs['DrugBank_id'].values
     
     for d in common_drugs:
-        kg.predict_tail(d, 'negative', filter_known=True)
+        kg.predict_tail(d, 'interacts', filter_known=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='KG training')
