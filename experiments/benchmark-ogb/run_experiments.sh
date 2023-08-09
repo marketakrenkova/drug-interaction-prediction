@@ -26,13 +26,13 @@
 # --------------------------------------------
 # BioKG dataset
 
-# cd experiment-biokg-1
-# pykeen experiments ablation config.json -d results
-# cd ..
+cd experiment-biokg-1
+pykeen experiments ablation config.json -d results
+cd ..
 
-#cd experiment-biokg-2
-#pykeen experiments ablation config.json -d results
-#cd ..
+cd experiment-biokg-2
+pykeen experiments ablation config.json -d results
+cd ..
 
 cd experiment-biokg-3
 pykeen experiments ablation config.json -d results

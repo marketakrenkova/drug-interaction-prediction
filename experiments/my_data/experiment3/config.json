@@ -28,7 +28,7 @@
         "model_to_training_loop_to_training_kwargs": {
             "HolE": {
                 "slcwa": {
-                    "num_epochs": 50,
+                    "num_epochs": 30,
 		            "batch_size": 512
                 }
             }

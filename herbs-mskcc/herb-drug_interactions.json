@@ -1,0 +1,1431 @@
+{
+    "5-HTP": {
+        "drugs": [
+            "Antidepressants/anxiolytics (tricyclics, MAOIs, and SSRIs)",
+            "Monamine oxdiase inhibitors",
+            "Linezolid (Zyvox, an antibiotic MAOI)",
+            "Carbidopa (Lodosyn, a dopamine promoter)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/5-htp-01"
+    },
+    "714X": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/714x"
+    },
+    "Acai Berry": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/acai-berry"
+    },
+    "Agaricus": {
+        "drugs": [
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/agaricus"
+    },
+    "AHCC": {
+        "drugs": [
+            "CYP450 substrates",
+            "Aromatase inhibitors"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ahcc"
+    },
+    "Aloe Vera": {
+        "drugs": [
+            "Cytochrome P450 substrates",
+            "Sevoflurane"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/aloe-vera"
+    },
+    "Alpha-Lipoic Acid": {
+        "drugs": [
+            "Hypoglycemic agents"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/alpha-lipoic-acid"
+    },
+    "Andrographis": {
+        "drugs": [
+            "CYP450 substrates",
+            "Anticoagulants, antiplatelets",
+            "Chemotherapy drugs",
+            "Blood pressure-lowering drugs",
+            "UDP-glucoronosyltransferase",
+            "Aminophylline"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/andrographis"
+    },
+    "Arginine": {
+        "drugs": [
+            "Antihypertensives"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/arginine"
+    },
+    "ArginMax": {
+        "drugs": [
+            "Anticoagulants",
+            "Antihypertensive and hypoglycemic drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/arginmax"
+    },
+    "Arnica": {
+        "drugs": [
+            "Antiplatelet agents",
+            "Warfarin or other anticoagulants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/arnica"
+    },
+    "Artemisia annua": {
+        "drugs": [
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/artemisia-annua"
+    },
+    "Ashwagandha": {
+        "drugs": [
+            "Anticonvulsants, barbiturates, and benzodiazepines",
+            "Cytochrome P450 2B6 substrates",
+            "Cytochrome P450 3A4 substrates",
+            "Cytochrome P450 3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ashwagandha"
+    },
+    "Astragalus": {
+        "drugs": [
+            "Immunosuppressants",
+            "Hormonal therapies",
+            "Anticoagulants",
+            "Diuretics",
+            "Antihypertensive drugs",
+            "P-glycoprotein substrates",
+            "Gemcitabine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/astragalus"
+    },
+    "Ayurveda": {
+        "drugs": [
+            "Phenytoin",
+            "CYP 450 enzymes"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ayurveda"
+    },
+    "Berberine": {
+        "drugs": [
+            "Bosutinib",
+            "Tacrolimus",
+            "Cyclosporin",
+            "Sulfonylureas",
+            "CYP450 substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/berberine"
+    },
+    "Beta-Carotene": {
+        "drugs": [
+            "Ethanol"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/beta-carotene"
+    },
+    "Bilberry Fruit": {
+        "drugs": [
+            "Anticoagulants / Antiplatelets",
+            "Aspirin and aspirin products",
+            "Non-steroidal anti-inflammatory drugs (NSAIDs)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/bilberry-fruit"
+    },
+    "Bitter Melon": {
+        "drugs": [
+            "P-gp substrates",
+            "CYP450 substrates",
+            "Insulin",
+            "Hypoglycemics",
+            "Chemotherapy drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/bitter-melon"
+    },
+    "Black Cohosh": {
+        "drugs": [
+            "Tamoxifen",
+            "Chemotherapy drugs",
+            "CYP450 3A4",
+            "Simvastatin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/black-cohosh"
+    },
+    "Bladder wrack": {
+        "drugs": [
+            "CYP450 substrates",
+            "Amiodarone"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/bladder-wrack"
+    },
+    "Blue-green Algae": {
+        "drugs": [
+            "Cytochrome P450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/blue-green-algae"
+    },
+    "Borage": {
+        "drugs": [
+            "Hepatotoxic drugs (eg, anabolic steroids, ketoconazole)",
+            "Anticoagulants (eg, warfarin)",
+            "NSAIDs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/borage"
+    },
+    "Boswellia": {
+        "drugs": [
+            "OATP1B3 (an anion transporter)",
+            "MRP2 (a multidrug resistant protein)",
+            "P-Glycoprotein (P-Gp)",
+            "Anticoagulant and/or antiplatelet drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/boswellia"
+    },
+    "Broccoli Sprouts": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/broccoli-sprouts"
+    },
+    "Bromelain": {
+        "drugs": [
+            "CYP450 2C9",
+            "Antibiotics/tetracyclines",
+            "Anticoagulants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/bromelain"
+    },
+    "Bupleurum": {
+        "drugs": [
+            "CYP2C9 substrates",
+            "CYP2E1, 2D6, and 3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/bupleurum"
+    },
+    "Calcium": {
+        "drugs": [
+            "Proton Pump Inhibitors",
+            "Cardiac glycosides",
+            "Quinolones",
+            "Tamoxifen",
+            "Tetracyclines",
+            "Levothyroxine (to treat hypothyroidism)",
+            "Estrogen therapy (for osteoporosis; positive interaction)",
+            "Iron, zinc, or magnesium"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/calcium"
+    },
+    "Camu-camu": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/camu-camu"
+    },
+    "Cannabis": {
+        "drugs": [
+            "Cytochrome P450 substrates",
+            "Cytochrome P450 substrates",
+            "Immunotherapy (nivolumab)",
+            "Warfarin",
+            "Fluoxetine",
+            "Disulfiram",
+            "Amphetamines, cocaine, atropine and sympathomimetic agents",
+            "Sedatives or hypnotics",
+            "P-glycoprotein substrates",
+            "Clobazam",
+            "Buprenorphine",
+            "Citalopram/Escitalopram"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cannabis"
+    },
+    "Capsaicin": {
+        "drugs": [
+            "ACE inhibitors",
+            "CYP450 2C19 substrates",
+            "CYP450 3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/capsaicin"
+    },
+    "Carnitine": {
+        "drugs": [
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/carnitine"
+    },
+    "Cascara": {
+        "drugs": [
+            "P-Glycoprotein (P-Gp)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cascara"
+    },
+    "Cat's Claw": {
+        "drugs": [
+            "Anticoagulants, antihypertensives",
+            "Antiretrovirals",
+            "CYP450 substrates",
+            "UGT substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cat-claw"
+    },
+    "Cayenne": {
+        "drugs": [
+            "Immunosuppressants (cyclosporin)",
+            "Antihypertensives",
+            "Antiplatelet drugs",
+            "CYP450 3A substrates",
+            "P-gp substrates",
+            "Theophylline",
+            "Oral coadministration of other drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cayenne"
+    },
+    "Cellfood": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cellfood"
+    },
+    "Cesium Chloride": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cesium-chloride"
+    },
+    "Chaga Mushroom": {
+        "drugs": [
+            "Antiplatelet or anticoagulant drugs",
+            "Hypoglycemic agents"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chaga-mushroom"
+    },
+    "Chamomile": {
+        "drugs": [
+            "Anticoagulants / Antiplatelets",
+            "Sedatives",
+            "CYP450 substrates",
+            "Cyclosporine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chamomile-german"
+    },
+    "Chasteberry": {
+        "drugs": [
+            "Antipsychotics (Phenothiazines, Dopamine D2-Antagonists)",
+            "Antiparkinson agents (Dopamine agonists)",
+            "CYP450 substrates",
+            "Hormonal therapies",
+            "Oral contraceptives"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chasteberry"
+    },
+    "Chia": {
+        "drugs": [
+            "Antihypertensive medications"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chia"
+    },
+    "Dandelion": {
+        "drugs": [
+            "Diuretics",
+            "Hypoglycemics",
+            "Cytochrome P450 (CYP) 1A2, 3A4 substrates",
+            "UDP-glucuronosyl transferase (UGT) substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/dandelion"
+    },
+    "Dehydroepiandrosterone": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/dehydroepiandrosterone"
+    },
+    "Devil's Claw": {
+        "drugs": [
+            "Cytochrome P450 enzymes",
+            "P-Glycoprotein (P-gP)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/devil-claw"
+    },
+    "Di Bella Multitherapy": {
+        "drugs": [
+            "Opiates",
+            "Drugs that increase prolactin concentration (amitriptyline, butyrophenones, imipramine, methyldopa, phenothiazines, and reserpine)",
+            "Nifedipine",
+            "Fluvoxamine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/di-bella-multitherapy"
+    },
+    "Diindolylmethane": {
+        "drugs": [
+            "Tamoxifen"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/diindolylmethane"
+    },
+    "Dong Quai": {
+        "drugs": [
+            "Anticoagulants",
+            "Cytochrome P450 substrates",
+            "Lisinopril [angiotensin converting enzyme (ACE) inhibitor]",
+            "Dual antiplatelet therapy (DAPT) with aspirin (ASA) and clopidogrel (CLP)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/dong-quai"
+    },
+    "Echinacea": {
+        "drugs": [
+            "Cytochrome P450 substrates",
+            "Cytochrome P3A or CYP1A2 substrate drugs",
+            "Tamoxifen",
+            "Docetaxel",
+            "Etoposide",
+            "P-glycoprotein (P-gp) substrate drugs",
+            "Oseltamivir",
+            "Immunosuppressants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/echinacea"
+    },
+    "Elderberry": {
+        "drugs": [
+            "Antidiabetic drugs",
+            "Diuretics",
+            "Laxatives"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/elderberry-01"
+    },
+    "Ellagic acid": {
+        "drugs": [
+            "Cytochrome P450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ellagic-acid"
+    },
+    "Emblica officinalis": {
+        "drugs": [
+            "Clopidogrel",
+            "Ecosprin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/emblica-officinalis"
+    },
+    "Ephedra": {
+        "drugs": [
+            "CNS stimulants",
+            "Theophylline",
+            "Digoxin",
+            "Monoamine-oxidase inhibitors (MAO-I)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ephedra"
+    },
+    "Epimedium": {
+        "drugs": [
+            "Cytochrome P450 substrates",
+            "Aromatase Inhibitors"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/epimedium"
+    },
+    "Essiac": {
+        "drugs": [
+            "CYP450"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/essiac"
+    },
+    "Evening Primrose Oil": {
+        "drugs": [
+            "Anticoagulants/Antiplatelets",
+            "Blood pressure medications",
+            "Antiretrovirals"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/evening-primrose-oil"
+    },
+    "Fenugreek": {
+        "drugs": [
+            "Warfarin",
+            "SSRI antidepressants",
+            "Cyclophosphamide",
+            "Theophylline"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/fenugreek"
+    },
+    "Feverfew": {
+        "drugs": [
+            "Cytochrome P450 3A4 substrates",
+            "Anticoagulants/antiplatelets"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/feverfew"
+    },
+    "Folate": {
+        "drugs": [
+            "Anticonvulsants",
+            "Black or green tea"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/folate"
+    },
+    "Forskolin": {
+        "drugs": [
+            "Anti-hypertensives",
+            "Anticoagulants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/forskolin"
+    },
+    "Fucoidan": {
+        "drugs": [
+            "Anticoagulants such as warfarin and heparin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/fucoidan"
+    },
+    "Garcinia gummi-gutta": {
+        "drugs": [
+            "Insulin",
+            "Antidepressants",
+            "Leukotriene receptor antagonists",
+            "CYP2B6 substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/garcinia-gummi-gutta"
+    },
+    "Garlic": {
+        "drugs": [
+            "Warfarin",
+            "Protease inhibitors (darunavir, saquinavir)",
+            "Insulin",
+            "Cytochrome (CYP) P450 substrates",
+            "P-Glycoprotein substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/garlic"
+    },
+    "GCP": {
+        "drugs": [
+            "Tamoxifen"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/gcp"
+    },
+    "Ginger": {
+        "drugs": [
+            "NSAIDs",
+            "Anticoagulants / antiplatelets",
+            "Hypoglycemics / insulin",
+            "Tacrolimus",
+            "Cyclosporine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ginger"
+    },
+    "Ginkgo": {
+        "drugs": [
+            "Cytochrome P450 substrates",
+            "P-glycoprotein substrates",
+            "UGT (Uridine 5\u2019-diphospho-glucuronosyltransferase) substrates",
+            "MATE1 substrates",
+            "Anticoagulants / Antiplatelets",
+            "Nonsteroidal anti-inflammatory drugs (NSAIDS)",
+            "Antipsychotics / Prochlorperazine",
+            "Insulin",
+            "Trazodone",
+            "Efavirenz",
+            "Midazolam",
+            "Amlodipine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ginkgo"
+    },
+    "Ginseng (American)": {
+        "drugs": [
+            "Warfarin",
+            "CYP3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ginseng-american"
+    },
+    "Ginseng (Asian)": {
+        "drugs": [
+            "Insulin and sulfonylureas",
+            "Antiplatelets",
+            "Anticoagulants",
+            "MAOIs",
+            "Imatinib",
+            "CYP3A4 substrates",
+            "Raltegravir"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/ginseng-asian"
+    },
+    "Glehnia": {
+        "drugs": [
+            "CYP3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/glehnia"
+    },
+    "Glucosamine": {
+        "drugs": [
+            "Warfarin",
+            "Anticoagulants/Antiplatelets"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/glucosamine"
+    },
+    "Glutamine": {
+        "drugs": [
+            "Lactulose",
+            "Methotrexate"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/glutamine"
+    },
+    "Goldenseal": {
+        "drugs": [
+            "Bosutinib",
+            "Metformin",
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/goldenseal"
+    },
+    "Gotu Kola": {
+        "drugs": [
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/gotu-kola"
+    },
+    "Grape Seed": {
+        "drugs": [
+            "Anticoagulants / antiplatelets",
+            "CYP3A4 substrates",
+            "UGT substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/grape-seed"
+    },
+    "Graviola": {
+        "drugs": [
+            "Antidiabetics",
+            "Antihypertensives"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/graviola"
+    },
+    "Green Tea": {
+        "drugs": [
+            "Adenosine",
+            "Anticoagulants / Antiplatelets",
+            "Atropine",
+            "Iron supplements",
+            "Codeine",
+            "Bortezomib",
+            "Tamoxifen",
+            "Verapamil",
+            "Irinotecan",
+            "Cytochrome P450 3A4 substrates",
+            "UGT (Uridine 5\u2019-diphospho-glucuronosyltransferase) substrates",
+            "Acetaminophen",
+            "Nadolol",
+            "Palbociclib",
+            "Ticagrelor",
+            "Atorvastatin",
+            "Rosuvastatin",
+            "Ziprasidone"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/green-tea"
+    },
+    "Guarana": {
+        "drugs": [
+            "Anticoagulant or antiplatelet drugs",
+            "Amiodarone"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/guarana"
+    },
+    "Guggul": {
+        "drugs": [
+            "CYP3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/guggul"
+    },
+    "Hawthorn": {
+        "drugs": [
+            "Antiplatelets, anticoagulants",
+            "Digoxin",
+            "CYP3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/hawthorn"
+    },
+    "HMB": {
+        "drugs": [
+            "mTOR inhibitors"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/hmb"
+    },
+    "Homeopathy": {
+        "drugs": [
+            "Escitalopram"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/homeopathy"
+    },
+    "Hoodia": {
+        "drugs": [
+            "Cytochrome P450 3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/hoodia"
+    },
+    "Hops": {
+        "drugs": [
+            "Cytochrome P450 substrates",
+            "Paracetamol (acetaminophen)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/hops"
+    },
+    "Horse Chestnut": {
+        "drugs": [
+            "Anticoagulants / antiplatelets",
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/horse-chestnut"
+    },
+    "Hoxsey Herbal Therapy": {
+        "drugs": [
+            "Potassium iodide has been found to interact with the following medications",
+            "Lithium",
+            "Anticoagulants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/hoxsey-herbal-therapy"
+    },
+    "Huanglian": {
+        "drugs": [
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/huanglian"
+    },
+    "Huperzia serrata": {
+        "drugs": [
+            "CYP450 substrates",
+            "Acetylcholinesterase inhibitors (donepezil, galantamine, rivastigmine)",
+            "Dopamine D2 receptor blockers",
+            "Calcium channel blockers",
+            "Beta adrenergic receptor antagonists"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/huperzia-serrata"
+    },
+    "Indirubin": {
+        "drugs": [
+            "CYP450 3A4 substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/indirubin"
+    },
+    "Indole-3-Carbinol": {
+        "drugs": [
+            "Cytochrome P450 1A2 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/indole-3-carbinol"
+    },
+    "Inositol Hexaphosphate": {
+        "drugs": [
+            "Mineral supplements",
+            "Anticoagulants/antiplatelets"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/inositol-hexaphosphate"
+    },
+    "Insulin Potentiation Therapy": {
+        "drugs": [
+            "Hypoglycemic agents"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/insulin-potentiation-therapy"
+    },
+    "Irvingia gabonensis": {
+        "drugs": [
+            "Antidiabetic drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/irvingia-gabonensis"
+    },
+    "Isatis Leaf": {
+        "drugs": [
+            "CYP450 3A4 substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/isatis-leaf"
+    },
+    "Isatis Root": {
+        "drugs": [
+            "CYP450 3A4 substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/isatis-root"
+    },
+    "Juice Plus": {
+        "drugs": [
+            "Chemotherapy drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/juice-plus"
+    },
+    "Kava": {
+        "drugs": [
+            "1A1",
+            "1A2",
+            "2D6",
+            "2E1",
+            "3A4",
+            "2C8, 2C9, 2C19, 4A9, 4A11"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/kava"
+    },
+    "Kombucha": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/kombucha"
+    },
+    "Kratom": {
+        "drugs": [
+            "CYP450 substrates",
+            "UGT substrates",
+            "P-glycoprotein substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/kratom"
+    },
+    "Kudzu": {
+        "drugs": [
+            "Tamoxifen",
+            "Methotrexate",
+            "Antidiabetic drugs",
+            "CYP2D6 substrate drugs",
+            "CYP1A2 substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/kudzu"
+    },
+    "L-Theanine": {
+        "drugs": [
+            "Midazolam"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/l-theanine"
+    },
+    "Lavender": {
+        "drugs": [
+            "Sedatives",
+            "CNS depressants, anticonvulsants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/lavender"
+    },
+    "Lemongrass": {
+        "drugs": [
+            "Glutathione-S-transferase (GST) substrates",
+            "Cytochrome P450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/lemongrass"
+    },
+    "Lentinan": {
+        "drugs": [
+            "Zidovudine (AZT)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/lentinan"
+    },
+    "Leucine": {
+        "drugs": [
+            "Insulin and other antidiabetic medications",
+            "Vitamins B3 and B6",
+            "PDE5 inhibitors (sildenafil)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/leucine"
+    },
+    "Licorice": {
+        "drugs": [
+            "Cardiac glycosides",
+            "Diuretics",
+            "Insulin",
+            "Anticoagulants",
+            "Cyclosporine",
+            "Cortisol acetate",
+            "Metformin",
+            "Antihypertensives",
+            "MAO-inhibitors",
+            "P-glycoprotein substrates",
+            "CYP450 substrates",
+            "Phenprocoumon"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/licorice"
+    },
+    "Lobelia": {
+        "drugs": [
+            "Nicotine-containing products"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/lobelia"
+    },
+    "Low-dose naltrexone": {
+        "drugs": [
+            "Chemotherapy drugs",
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/low-dose-naltrexone"
+    },
+    "Lycium": {
+        "drugs": [
+            "Warfarin",
+            "CYP3A4 substrates",
+            "CYP 2C9 and 2C19 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/lycium"
+    },
+    "Lycopene": {
+        "drugs": [
+            "CYP 2E1"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/lycopene"
+    },
+    "Ma Zi Ren Wan": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/mazirenwan"
+    },
+    "Magnesium": {
+        "drugs": [
+            "Aminoglycosides",
+            "Antibiotics",
+            "Anticoagulants",
+            "Antidiabetics",
+            "Antifungals",
+            "Antimicrobials (pentamidine)",
+            "Antivirals (ribavirin)",
+            "Bisphosphonates",
+            "Calcineurin inhibitors",
+            "Calcium channel blockers",
+            "Cisplatin-based chemotherapy",
+            "Dasatinib",
+            "Digoxin",
+            "Diuretics",
+            "Monoclonal antibodies (cetuximab, panitumumab)",
+            "Neuromuscular blockers",
+            "Nonsteroidal anti-inflammatory drugs",
+            "Proton pump inhibitors",
+            "Synthetic thyroid hormone"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/magnesium"
+    },
+    "Magnolia officinalis": {
+        "drugs": [
+            "CYP450 substrates",
+            "UDP-glucuronosyltransferase",
+            "P-Glycoprotein substrates",
+            "Antiplatelet agents",
+            "Antidiabetic agents",
+            "Benzodiazepines"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/magnolia-officinalis"
+    },
+    "Maitake": {
+        "drugs": [
+            "Warfarin",
+            "Hypoglycemic medications"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/maitake"
+    },
+    "Mangosteen": {
+        "drugs": [
+            "Chemotherapy",
+            "Calcineurin inhibitors (cyclosporine, tacrolimus)",
+            "Cytochrome P450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/mangosteen"
+    },
+    "Mate": {
+        "drugs": [
+            "Chemotherapy",
+            "Stimulant, cardiac, hypertension, or antidepressant drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/mate"
+    },
+    "Melatonin": {
+        "drugs": [
+            "Nifedipine",
+            "CYP1A2 substrates",
+            "Anticoagulants",
+            "Rhubarb"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/melatonin"
+    },
+    "MGN-3": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/mgn-3"
+    },
+    "Milk Thistle": {
+        "drugs": [
+            "Cytochrome P450 3A4 substrates",
+            "UGT (Uridine 5\u2019-diphospho-glucuronosyltransferase) substrates",
+            "Sirolimus",
+            "Haloperidol or Risperidone",
+            "Aripiprazole",
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/milk-thistle"
+    },
+    "Mistletoe (European)": {
+        "drugs": [
+            "Cytochrome P450 3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/mistletoe-european"
+    },
+    "Moringa oleifera": {
+        "drugs": [
+            "Cytochrome P450 substrates, including CYP3A4",
+            "Sitagliptin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/moringa-oleifera"
+    },
+    "Myrrh": {
+        "drugs": [
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/myrrh"
+    },
+    "N-Acetylcysteine": {
+        "drugs": [
+            "Nitroglycerin",
+            "Antidepressants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/n-acetylcysteine"
+    },
+    "Nattokinase": {
+        "drugs": [
+            "Aspirin",
+            "Anticoagulant/antiplatelet/fibrinolytic drugs",
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/nattokinase"
+    },
+    "Nettle": {
+        "drugs": [
+            "CYP450 substrates",
+            "Diuretics",
+            "Hypotensives"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/nettle"
+    },
+    "Nicotinamide": {
+        "drugs": [
+            "Carbamazepine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/nicotinamide"
+    },
+    "Nigella sativa": {
+        "drugs": [
+            "Cytochrome P450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/nigella-sativa"
+    },
+    "Noni": {
+        "drugs": [
+            "Chemotherapy or radiation therapy",
+            "Coumadin",
+            "Antiepileptic drugs (phenytoin)",
+            "Potassium-sparing diuretics, angiotensin converting enzyme (ACE) inhibitors, or angiotensin receptor blockers",
+            "Prokinetic drugs",
+            "UGT (Uridine 5\u2019-diphospho-glucuronosyltransferase) substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/noni"
+    },
+    "Oleandrin": {
+        "drugs": [
+            "Digoxin",
+            "P-glycoprotein (P-gp) substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/oleandrin"
+    },
+    "Olive Leaf": {
+        "drugs": [
+            "Antihypertensive drugs",
+            "Insulin and antidiabetic drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/olive-leaf"
+    },
+    "Omega-3": {
+        "drugs": [
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/omega-3"
+    },
+    "Papaya Leaf": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/papaya-leaf"
+    },
+    "Passionflower": {
+        "drugs": [
+            "Pentobarbital",
+            "Benzodiazepines",
+            "Drugs that prolong the QT interval (eg, azithromycin, dasatinib, fingolimod)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/passionflower"
+    },
+    "Pau D'arco": {
+        "drugs": [
+            "Anticoagulant/antiplatelet drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/pau-d-arco"
+    },
+    "Pectin": {
+        "drugs": [
+            "Lovastatin",
+            "Carotenoid and alpha-tocopherol supplements"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/pectin"
+    },
+    "Pelargonium sidoides": {
+        "drugs": [
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/pelargonium-sidoides"
+    },
+    "Pennyroyal": {
+        "drugs": [
+            "CYP450 substrate drugs",
+            "Iron supplements"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/pennyroyal"
+    },
+    "Peppermint": {
+        "drugs": [
+            "Felodipine",
+            "Cyclosporine",
+            "Cytochrome P450 substrates",
+            "5-fluorouracil"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/peppermint"
+    },
+    "Petiveria alliacea": {
+        "drugs": [
+            "Antidiabetic drugs",
+            "Cytochrome P450 1A2, 2C19 and 3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/petiveria-alliacea"
+    },
+    "Pine Bark Extract": {
+        "drugs": [
+            "Anticoagulant and/or antiplatelet drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/pine-bark-extract"
+    },
+    "Pollen Extract": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/pollen-extract"
+    },
+    "Polydox": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/polydox"
+    },
+    "Pomegranate": {
+        "drugs": [
+            "CYP3A substrates",
+            "CYP2C9 substrates",
+            "Warfarin",
+            "Metformin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/pomegranate"
+    },
+    "Probiotics": {
+        "drugs": [
+            "Hepatic drug-metabolizing enzymes"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/probiotics-01"
+    },
+    "Propolis": {
+        "drugs": [
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/propolis"
+    },
+    "Proteolytic enzymes": {
+        "drugs": [
+            "Anticoagulants (warfarin)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/proteolytic-enzymes"
+    },
+    "Quercetin": {
+        "drugs": [
+            "Cytochrome P450 3A4 and 2C19 substrate drugs",
+            "Losartan"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/quercetin"
+    },
+    "Red Clover": {
+        "drugs": [
+            "Anticoagulants / Antiplatelets",
+            "CYP450 enzymes",
+            "Methotrexate"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/red-clover"
+    },
+    "Red Yeast Rice": {
+        "drugs": [
+            "Statin drugs",
+            "CYP450 3A4 and P-glycoprotein substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/red-yeast-rice"
+    },
+    "Reishi Mushroom": {
+        "drugs": [
+            "Anticoagulants / Antiplatelets",
+            "Immunosuppressants",
+            "Chemotherapeutic agents",
+            "Cytochrome P450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/reishi-mushroom"
+    },
+    "Resveratrol": {
+        "drugs": [
+            "Antiplatelets",
+            "CYP450 substrates",
+            "Carbamazepine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/resveratrol"
+    },
+    "Rhodiola": {
+        "drugs": [
+            "CYP3A4 substrates",
+            "CYP2C9 substrates",
+            "P-glycoprotein substrates",
+            "Antidepressants",
+            "Antihypertensives",
+            "CNS Stimulants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/rhodiola"
+    },
+    "Rhubarb": {
+        "drugs": [
+            "CYP450 substrates",
+            "Digoxin",
+            "Melatonin",
+            "Cyclosporine",
+            "Methotrexate"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/rhubarb"
+    },
+    "Rooibos Tea": {
+        "drugs": [
+            "CYP3A substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/rooibos-tea"
+    },
+    "Royal Jelly": {
+        "drugs": [
+            "Warfarin",
+            "Temozolomide"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/royal-jelly"
+    },
+    "Smilax glabra": {
+        "drugs": [
+            "CYP3A4 and 2D6"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/smilax-glabra"
+    },
+    "Sophora flavescens": {
+        "drugs": [
+            "Paclitaxel",
+            "Ampicillin/gentamicin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/sophora-flavescens"
+    },
+    "Soy": {
+        "drugs": [
+            "Tamoxifen",
+            "Aromatase inhibitors",
+            "Cytochrome P450 substrates",
+            "P-Glycoprotein",
+            "Uridine 5\u2019-diphospho-glucuronosyltransferase (UGT) substrates",
+            "Membrane organic anion-transporting polypeptides (OATPs)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/soy"
+    },
+    "Spilanthes acmella": {
+        "drugs": [
+            "CYP 2E1 substrates",
+            "Antiandrogen drugs (bicalutamide, flutamide, abiraterone)",
+            "Diuretics"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/spilanthes-acmella-jambu"
+    },
+    "St. John's Wort": {
+        "drugs": [
+            "CYP450 substrate drugs including those metabolized by 3A4 (57) and 2C9 (58) ",
+            "P-gp substrate drugs",
+            "UGT substrates",
+            "Dolutegravir"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/st-john-wort"
+    },
+    "Stevia": {
+        "drugs": [
+            "Verapamil",
+            "Antidiabetics"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/stevia"
+    },
+    "Sun Farms Vegetable Soup": {
+        "drugs": [
+            "Although no drug interactions have been reported, several ingredients of Sun Soup can interact with prescription drugs. Please see the following monographs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/sun-farms-vegetable-soup"
+    },
+    "Superoxide Dismutase": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/superoxide-dismutase"
+    },
+    "Sutherlandia frutescens": {
+        "drugs": [
+            "Isoniazid",
+            "Atazanavir",
+            "CYP450 substrates",
+            "P-gP substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/sutherlandia-frutescens"
+    },
+    "Taurine": {
+        "drugs": [
+            "Antihypertensives"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/taurine"
+    },
+    "Tian Xian": {
+        "drugs": [
+            "CYP450 substrates",
+            "See monographs below for more drug interactions"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/tian-xian"
+    },
+    "Tribulus terrestris": {
+        "drugs": [
+            "Diruetics",
+            "Antihypertensive drugs",
+            "Antidiabetics",
+            "Clopidogrel",
+            "P-glycoprotein (P-gp) substrate drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/tribulus-terrestris"
+    },
+    "Triphala": {
+        "drugs": [
+            "CYP450 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/triphala"
+    },
+    "Turmeric": {
+        "drugs": [
+            "Anticoagulants / Antiplatelets",
+            "Camptothecin",
+            "Mechlorethamine",
+            "Paclitaxel",
+            "Doxorubicin",
+            "Cyclophosphamide",
+            "Norfloxacin",
+            "Amphotericin B",
+            "Drugs metabolized by the CYP3A4 enzyme",
+            "Drugs metabolized by the CYP1A2 enzyme",
+            "Drugs metabolized by the CYP2A6 enzyme",
+            "Drugs metabolized by the CYP2D6 enzyme",
+            "Celiprolol and Midazolam",
+            "Verapamil",
+            "Tacrolimus",
+            "Acetaminophen",
+            "Ibuprofen",
+            "Aspirin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/turmeric"
+    },
+    "Usnic acid": {
+        "drugs": [
+            "Anticoagulants",
+            "CYP450 3A4 substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/usnic-acid"
+    },
+    "Valerian": {
+        "drugs": [
+            "Barbiturates",
+            "Benzodiazepines",
+            "Haloperidol",
+            "CYP450 substrates",
+            "P-glycoprotein substrates",
+            "Uridine 5\u2019-diphospho-glucuronosyltransferase substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/valerian"
+    },
+    "Vinpocetine": {
+        "drugs": [
+            "Anticoagulants/antiplatelet agents",
+            "Antihypertensive agents",
+            "P-glycoprotein substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/vinpocetine"
+    },
+    "Vitamin A": {
+        "drugs": [
+            "Alcohol",
+            "Warfarin",
+            "Orlistat",
+            "Retinoids (tretinoin, acitretin, bexarotene)"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/vitamin"
+    },
+    "Vitamin B12": {
+        "drugs": [
+            "Proton pump inhibitors or histamine type 2 (H2)-receptor antagonists",
+            "Biguanides (metformin)",
+            "Folic acid",
+            "Oral contraceptives"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/vitamin-b12"
+    },
+    "Vitamin B6": {
+        "drugs": [
+            "Altretamine",
+            "Oral contraceptives",
+            "Levodopa",
+            "Penicillamine"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/vitamin-b6"
+    },
+    "Vitamin C": {
+        "drugs": [
+            "Iron",
+            "Chemotherapy drugs",
+            "Bortezomib",
+            "Glutathione",
+            "Beta-blockers",
+            "Paracetamol"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/vitamin-c"
+    },
+    "Vitamin D": {
+        "drugs": [
+            "Aluminum hydroxide",
+            "Atorvastatin",
+            "Thiazide diuretics"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/vitamin-d"
+    },
+    "Vitamin E": {
+        "drugs": [
+            "Warfarin"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/vitamin-e"
+    },
+    "Willow Bark": {
+        "drugs": [
+            "Warfarin or other anticoagulants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/willow-bark"
+    },
+    "Xiao Yao San": {
+        "drugs": [],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/xiao-yao-san"
+    },
+    "Yohimbe": {
+        "drugs": [
+            "Antianxiety agents",
+            "Antidepressants",
+            "Antihypertensives",
+            "Bupropion",
+            "CYP2D6 substrate drugs",
+            "Opioids"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/yohimbe"
+    },
+    "Yunnan Baiyao": {
+        "drugs": [
+            "Anticoagulant or antiplatelet drugs",
+            "CYP3A substrates",
+            "CYP1A2, 2E1 substrates",
+            "Glutathione-S-transferase (GST) substrates"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/yunnan-baiyao"
+    },
+    "Zeolite": {
+        "drugs": [
+            "General",
+            "Antibiotics and ferrous drugs",
+            "Chemotherapy",
+            "Immunosuppressants"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/zeolite"
+    },
+    "Zinc": {
+        "drugs": [
+            "Fluoroquinolones like ciprofloxacin, levofloxacin, and gatifloxacin",
+            "Tetracyclines like doxycycline and minocycline",
+            "Penicillamine",
+            "Thrombopoietin receptor agonists"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/zinc"
+    },
+    "Zyflamend": {
+        "drugs": [
+            "Chemotherapy drugs (gemcitabine, taxol, doxorubicin, bicalutamide)",
+            "Other prescriptions drugs"
+        ],
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/zyflamend"
+    }
+}

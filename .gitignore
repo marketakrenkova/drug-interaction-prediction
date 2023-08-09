@@ -20,4 +20,5 @@ models/trained_gnn
 models/results
 predictions/
 results
+data_processing/lib/
 

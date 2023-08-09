@@ -6,10 +6,9 @@ import argparse
 
 import torch
 
-from pykeen.predict import predict_target, predict_triples, predict_all
+from pykeen.predict import predict_target, predict_triples
 from pykeen.pipeline import pipeline
 from pykeen.triples import TriplesFactory
-from pykeen.models import TransE, NodePiece
 from pykeen.evaluation import RankBasedEvaluator
 
 
@@ -25,13 +24,14 @@ def convert_to_triples_factory(data):
     return tf_data
 
 class DataLoader():
-    def __init__(self, data_dir):
+    def __init__(self, data_dir, data_name):
         self.data_dir = data_dir
+        self.data_name = data_name 
 
     def load(self):
-        train_df = pd.read_csv(self.data_dir + 'train.tsv', sep='\t', engine='python')    # index_col=[0]
-        valid_df = pd.read_csv(self.data_dir + 'valid.tsv', sep='\t', engine='python')  
-        test_df = pd.read_csv(self.data_dir + 'test.tsv', sep='\t', engine='python')  
+        train_df = pd.read_csv(self.data_dir + 'train_' + self.data_name + '.tsv', sep='\t', engine='python')    # index_col=[0]
+        valid_df = pd.read_csv(self.data_dir + 'valid_' + self.data_name + '.tsv', sep='\t', engine='python')  
+        test_df = pd.read_csv(self.data_dir + 'test_' + self.data_name + '.tsv', sep='\t', engine='python')  
    
         self.train = convert_to_triples_factory(train_df.astype(str))
         self.valid = convert_to_triples_factory(valid_df.astype(str))
@@ -124,7 +124,7 @@ class KG_model:
                 pred_filtered = pred.filter_triples(self.train_tf)
                 pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
 
-            predicted_tails_df = pred.head(20)
+            predicted_tails_df = pred.head(100)
             predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
             
         except:
@@ -152,9 +152,12 @@ class KG_model:
 # ----------------------------
 
 def main(args):
+    
+    PREDICT = False
 
     print('Reading data...')
-    data = DataLoader('../data/triplets/')
+    data = DataLoader('../data/triplets/', args.data_name)
+    # data = DataLoader('../data/dataset-ogb/ogbl_biokg-my_split/')
     data.load()
 
     kg = KG_model(args.model, data.train, data.valid, data.test, args.model_specification)
@@ -168,17 +171,20 @@ def main(args):
 
     kg.trained_model.save_to_directory(f'results/results-{args.model}_{args.model_specification}')
     
-#     kg.predict_tail('DB00007', 'decrease_adverse_effects', filter_known=True)
     kg.scores_for_test_triplets(data.test, k=100)
     
-    common_drugs = pd.read_csv('../data/common_drugs.csv', sep=';')
-    common_drugs = common_drugs['DrugBank_id'].values
+    if PREDICT:
+        common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
+        common_drugs = common_drugs.dropna()
+        print(common_drugs.head(10))
+        common_drugs = common_drugs['db_id'].values
     
-    for d in common_drugs:
-        kg.predict_tail(d, 'negative', filter_known=True)
+        for d in common_drugs:
+            kg.predict_tail(d, 'interacts', filter_known=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='KG training')
+    parser.add_argument('-d', '--data_name', type=str, default='')
     parser.add_argument('-m', '--model', type=str, default='TransE')
     parser.add_argument('-s', '--model_specification', type=str, default='')
     parser.add_argument('-emb', '--embedding_dim', type=int, default=32)

@@ -3,6 +3,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from os import listdir
+import itertools
+import sys
 
 def read_interactions_data(data_dir):
     ddi_df = pd.read_csv(data_dir + 'ddi.tsv', sep='\t', index_col=[0])
@@ -15,6 +17,11 @@ def simplify_interactions(interaction_df, interaction_label_file):
     labels = pd.read_csv(interaction_label_file, sep=';')
     label_map = labels.set_index('relation').to_dict()['positive/negative']
     interaction_df.interaction = interaction_df.interaction.map(label_map)
+    
+    return interaction_df
+
+def simplify_interactions2(interaction_df):
+    interaction_df.interaction = list(itertools.repeat('interacts', interaction_df.shape[0]))
     
     return interaction_df
 
@@ -137,13 +144,16 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
         if 'train' in file or 'valid' in file or 'test' in file or 'name' in file:
             continue
         # use food and drug supplements in KG iff use_interaction_data[i]=True
-        if not use_interaction_data[0] and file == 'ds_ingredients.tsv': # drug supplements
+#         if not use_interaction_data[0] and file == 'ds_ingredients.tsv': # drug supplements
+        if file == 'ds_ingredients.tsv':
+            continue
+        if file == 'hetionet.tsv': # biokg_subgraph
             continue
         if not use_interaction_data[1] and 'compound' in file: # foods
             continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])
-
+        
         df = df.set_axis(['head', 'relation', 'tail'], axis=1) 
         train_triplets = pd.concat([train_triplets, df])
 
@@ -151,7 +161,7 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
     return train_triplets
 
 
-def main():
+def main(name):
     data_dir = '../data/triplets/'
     interaction_label_file = '../data/unique_relations-labeled.csv'
 
@@ -161,10 +171,13 @@ def main():
     
     ddi_df, drug_supplement_df, dfi_df = read_interactions_data(data_dir)
     
-    # simplify interaction names -> just positive/negative interactions
+#     # simplify interaction names -> just positive/negative interactions
     ddi_df_simple = simplify_interactions(ddi_df, interaction_label_file)
     dfi_df_simple = simplify_interactions(dfi_df, interaction_label_file)
     
+    # simplify interaction names -> just interaction
+    # ddi_df_simple = simplify_interactions2(ddi_df)
+    # dfi_df_simple = simplify_interactions2(dfi_df)
     
     train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, use_interactions_data)
     train = add_other_info_to_train(data_dir, train, use_interactions_data)
@@ -173,9 +186,14 @@ def main():
     valid = valid.astype(str)
     test = test.astype(str)
     
-    train.to_csv(data_dir + 'train.tsv', sep='\t', index=False)
-    valid.to_csv(data_dir + 'valid.tsv', sep='\t', index=False)
-    test.to_csv(data_dir + 'test.tsv', sep='\t', index=False)
+    train.to_csv(data_dir + 'train_' + name + '.tsv', sep='\t', index=False)
+    valid.to_csv(data_dir + 'valid_' + name + '.tsv', sep='\t', index=False)
+    test.to_csv(data_dir + 'test_' + name + '.tsv', sep='\t', index=False)
 
 if __name__ == "__main__":
-    main() 
+    name = ""
+    
+    if len(sys.argv) > 1:
+        name = sys.argv[1]
+  
+    main(name) 
