@@ -179,13 +179,8 @@ def main(args):
         print(common_drugs.head(10))
         common_drugs = common_drugs['db_id'].values
     
-<<<<<<< HEAD
         for d in common_drugs:
             kg.predict_tail(d, 'interacts', filter_known=True)
-=======
-    for d in common_drugs:
-        kg.predict_tail(d, 'interacts', filter_known=True)
->>>>>>> af1f1bf05939d59fffa98a301cd66975a330dae0
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='KG training')
