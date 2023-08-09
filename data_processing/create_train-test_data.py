@@ -4,7 +4,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from os import listdir
 import itertools
+<<<<<<< HEAD
 import sys
+=======
+>>>>>>> af1f1bf05939d59fffa98a301cd66975a330dae0
 
 def read_interactions_data(data_dir):
     ddi_df = pd.read_csv(data_dir + 'ddi.tsv', sep='\t', index_col=[0])
@@ -180,7 +183,7 @@ def main(name):
     # dfi_df_simple = simplify_interactions2(dfi_df)
     
     train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, use_interactions_data)
-    train = add_other_info_to_train(data_dir, train, use_interactions_data)
+#     train = add_other_info_to_train(data_dir, train, use_interactions_data)
     
     train = train.astype(str)
     valid = valid.astype(str)
