@@ -9,7 +9,7 @@ import torch
 from pykeen.predict import predict_target, predict_triples
 from pykeen.pipeline import pipeline
 from pykeen.triples import TriplesFactory
-from pykeen.evaluation import RankBasedEvaluator
+from pykeen.evaluation import RankBasedEvaluator, OGBEvaluator
 
 
 def convert_to_triples_factory(data):
@@ -64,12 +64,14 @@ class KG_model:
         self.num_epochs = params['epochs']
         self.optimizer = params['optimizer']
         self.learning_rate = params['learning_rate']
-        self.evaluator = RankBasedEvaluator
+        self.evaluator = (OGBEvaluator if params['evaluator'] == 'ogb' else RankBasedEvaluator)
         self.loss = params['loss']
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')    
         self.batch_size = params['batch']
         self.embedding_dim = params['embedding_dim']
         self.margin = params['margin']
+        self.negative_sampler = 'basic'
+        self.num_neg_per_pos = 30
 
     def __str__(self):  
         print(f'Training {self.model_name} - {self.specification} for {self.num_epochs} epochs on {self.device}.')
@@ -110,7 +112,7 @@ class KG_model:
         )  
 
     def predict_tail(self, head, relation, filter_known=False):
-        prediction_dir = '../predictions/'
+        prediction_dir = '../predictions/' + self.specification + '/'
 
         try:
             pred = predict_target(
@@ -153,7 +155,7 @@ class KG_model:
 
 def main(args):
     
-    PREDICT = False
+    PREDICT = True
 
     print('Reading data...')
     data = DataLoader('../data/triplets/', args.data_name)
@@ -180,7 +182,7 @@ def main(args):
         common_drugs = common_drugs['db_id'].values
     
         for d in common_drugs:
-            kg.predict_tail(d, 'interacts', filter_known=True)
+            kg.predict_tail(d, 'negative', filter_known=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='KG training')

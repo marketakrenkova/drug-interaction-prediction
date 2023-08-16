@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import pandas as pd
+import json
 
 import torch
 import torch.nn.functional as F
@@ -117,8 +118,8 @@ def compute_scores(trained_model, train, valid, valid_neg, test, test_neg):
     
     return pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred
 
-def evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred):
-    evaluator = Evaluator(name = 'ogbl-ddi')
+def evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, model_name):
+    evaluator = Evaluator(name = 'ogbl-biokg')
 
     results = {}
     for K in [10, 20, 30]:
@@ -145,41 +146,43 @@ def evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, 
         print(f'Valid: {100 * valid_hits:.2f}%')
         print(f'Test: {100 * test_hits:.2f}%')
         print()
+        
+    with open('ogb_evaluator_results-' + model_name + '.json', 'w') as f:
+        json.dump(results, f, indent=4)
 
 
 
 def main():
-    print('Loading data...')
-    train, valid, valid_neg, test, test_neg = load_data()
+#     print('Loading data...')
+#     train, valid, valid_neg, test, test_neg = load_data()
     
-    train_df = pd.DataFrame(train, columns=['head', 'relation', 'tail']).astype(str)
-    valid_df = pd.DataFrame(valid, columns=['head', 'relation', 'tail']).astype(str)
-    test_df = pd.DataFrame(test, columns=['head', 'relation', 'tail']).astype(str)
+#     train_df = pd.DataFrame(train, columns=['head', 'relation', 'tail']).astype(str)
+#     valid_df = pd.DataFrame(valid, columns=['head', 'relation', 'tail']).astype(str)
+#     test_df = pd.DataFrame(test, columns=['head', 'relation', 'tail']).astype(str)
     
-    dir_data_my_split = '../data/dataset-ogb/ogbl_ddi-my_split/'
-    save_to_txt(dir_data_my_split, train_df, valid_df, test_df)
+#     dir_data_my_split = '../data/dataset-ogb/ogbl_ddi-my_split/'
+#     save_to_txt(dir_data_my_split, train_df, valid_df, test_df)
     
     config = {
         'metadata': dict(
-            title='HolE'
+            title='ComplEx'
         ),
         'pipeline': dict(
-            training = '../data/dataset-ogb/ogbl_ddi-my_split/train.txt',
-            validation = '../data/dataset-ogb/ogbl_ddi-my_split/valid.txt',
-            testing = '../data/dataset-ogb/ogbl_ddi-my_split/test.txt',
-            model='HolE',
+            training = '../data/dataset-ogb/ogbl_biokg-my_split/train.txt',
+            validation = '../data/dataset-ogb/ogbl_biokg-my_split/valid.txt',
+            testing = '../data/dataset-ogb/ogbl_biokg-my_split/test.txt',
+            model='ComplEx',
             model_kwargs=dict(
                    embedding_dim=96,
             ),
-            optimizer='SGD',
+            optimizer='Adam',
             optimizer_kwargs=dict(lr=0.09),
             loss='marginranking',
-            loss_kwargs=dict(margin=2.64),
             training_loop='slcwa',
             training_kwargs=dict(
-                num_epochs=20, 
+                num_epochs=2, 
                 batch_size=64, 
-                checkpoint_name='HolE_checkpoint-ogb-20.pt',
+                checkpoint_name='ComplEx_checkpoint-ogb-biokg.pt',
                 checkpoint_directory='kg_checkpoints',
                 checkpoint_frequency=5    
             ),
@@ -192,9 +195,7 @@ def main():
             stopper_kwargs=dict(
                 patience=10,
                 relative_delta=0.002
-            ),
-            result_tracker='tensorboard',
-            result_tracker_kwargs=dict(experiment_name='hole-ogb-20', experiment_path='pykeen_logs')
+            )
         )
     }
     
@@ -205,7 +206,7 @@ def main():
     print('Evaluation...')
     pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred = compute_scores(pipeline_result, train, valid, valid_neg, test, test_neg)
     
-    evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred)
+    evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, model_name='ComplEx')
     
 
 
