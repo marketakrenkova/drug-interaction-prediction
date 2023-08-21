@@ -11,6 +11,10 @@ from pykeen.pipeline import pipeline
 from pykeen.triples import TriplesFactory
 from pykeen.evaluation import RankBasedEvaluator, OGBEvaluator
 
+from pykeen.models import TransE, ComplEx
+from torch.optim import Adam
+from pykeen.training import SLCWATrainingLoop
+
 
 def convert_to_triples_factory(data):
     tf_data = TriplesFactory.from_labeled_triples(
@@ -50,7 +54,7 @@ class KG_model:
         self.num_epochs = args.epochs
         self.optimizer = args.optimizer
         self.learning_rate = args.learning_rate
-        self.evaluator = RankBasedEvaluator
+        self.evaluator = RankBasedEvaluator if args.evaluate else None
         self.loss = args.loss 
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')    
         self.batch_size = args.batch_size
@@ -109,7 +113,7 @@ class KG_model:
             evaluation_kwargs = dict(
                 batch_size = 16
             )
-        )  
+        )   
 
     def predict_tail(self, head, relation, filter_known=False):
         prediction_dir = '../predictions/' + self.specification + '/'
@@ -198,6 +202,7 @@ if __name__ == '__main__':
     parser.add_argument('-lm', '--loss_margin', type=float, default=1.0)
     parser.add_argument('-neg', '--neg_sampler', type=str, default='basic')
     parser.add_argument('-nn', '--num_neg_per_pos', type=int, default='1')
+    parser.add_argument('-eval', '--evaluate', type=bool, default=True)
     
 
     args = parser.parse_args()
