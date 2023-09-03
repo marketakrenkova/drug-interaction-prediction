@@ -4,17 +4,15 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from os import listdir
 import itertools
-<<<<<<< HEAD
 import sys
-=======
->>>>>>> af1f1bf05939d59fffa98a301cd66975a330dae0
 
 def read_interactions_data(data_dir):
     ddi_df = pd.read_csv(data_dir + 'ddi.tsv', sep='\t', index_col=[0])
     drug_supplement_df = pd.read_csv(data_dir + 'ds_relations.tsv', sep='\t', index_col=[0])
     dfi_df = pd.read_csv(data_dir + 'dfi_processed.tsv', sep='\t', index_col=[0])
+    herbs_df = pd.read_csv(data_dir + 'herbs-di.tsv', sep='\t', index_col=[0])
     
-    return ddi_df, drug_supplement_df, dfi_df
+    return ddi_df, drug_supplement_df, dfi_df, herbs_df
 
 def simplify_interactions(interaction_df, interaction_label_file):
     labels = pd.read_csv(interaction_label_file, sep=';')
@@ -113,7 +111,7 @@ def split_ddi_dataset(ddi_df):
     
     return train_triplets, valid_triplets, test_triplets 
 
-def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interaction_data):
+def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, herbs_df, use_interaction_data):
     train_triplets, valid_triplets, test_triplets = split_ddi_dataset(ddi_df)
 
     if use_interaction_data[0]:    
@@ -124,9 +122,10 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interaction_
 
     if use_interaction_data[1]:    
         train_triplets_dfi, valid_triplets_dfi, test_triplets_dfi = split_ddi_dataset(dfi_df)
-        train_triplets = pd.concat([train_triplets, train_triplets_dfi])
-        valid_triplets = pd.concat([valid_triplets, valid_triplets_dfi])
-        test_triplets = pd.concat([test_triplets, test_triplets_dfi])
+        train_triplets_herbs, valid_triplets_herbs, test_triplets_herbs = split_ddi_dataset(herbs_df)
+        train_triplets = pd.concat([train_triplets, train_triplets_dfi, train_triplets_herbs])
+        valid_triplets = pd.concat([valid_triplets, valid_triplets_dfi, valid_triplets_herbs])
+        test_triplets = pd.concat([test_triplets, test_triplets_dfi, test_triplets_herbs])
 
     print('All interactions:')
     print('train dataset size:', train_triplets.shape[0])
@@ -138,22 +137,25 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, use_interaction_
 def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
     files = listdir(data_dir)
     
-    files2skip = ['ddi.tsv', 'dfi.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 'ingredients.tsv']
+    files2skip = ['ddi.tsv', 'dfi.tsv', 'herbs-di.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 'ingredients.tsv']
 
     for file in files:
+        # skip defined files
         if file in files2skip:
             continue
         # name -> don't add names of elements, just ids
         if 'train' in file or 'valid' in file or 'test' in file or 'name' in file:
             continue
         # use food and drug supplements in KG iff use_interaction_data[i]=True
-#         if not use_interaction_data[0] and file == 'ds_ingredients.tsv': # drug supplements
         if file == 'ds_ingredients.tsv':
             continue
-        if file == 'hetionet.tsv': # biokg_subgraph
+        if file == 'biokg_subgraph.tsv' or file == 'hetionet.tsv': # biokg_subgraph, hetionet
             continue
         if not use_interaction_data[1] and 'compound' in file: # foods
             continue
+
+        # if 'pathway' in file or 'salt' in file:
+        #     continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])
         
@@ -172,18 +174,18 @@ def main(name):
     # drug-drug is used always
     use_interactions_data = [False, True]
     
-    ddi_df, drug_supplement_df, dfi_df = read_interactions_data(data_dir)
+    ddi_df, drug_supplement_df, dfi_df, herbs_df = read_interactions_data(data_dir)
     
-#     # simplify interaction names -> just positive/negative interactions
-    ddi_df_simple = simplify_interactions(ddi_df, interaction_label_file)
-    dfi_df_simple = simplify_interactions(dfi_df, interaction_label_file)
+    # simplify interaction names -> just positive/negative interactions
+    # ddi_df_simple = simplify_interactions(ddi_df, interaction_label_file)
+    # dfi_df_simple = simplify_interactions(dfi_df, interaction_label_file)
     
     # simplify interaction names -> just interaction
-    # ddi_df_simple = simplify_interactions2(ddi_df)
-    # dfi_df_simple = simplify_interactions2(dfi_df)
+    ddi_df_simple = simplify_interactions2(ddi_df)
+    dfi_df_simple = simplify_interactions2(dfi_df)
     
-    train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, use_interactions_data)
-#     train = add_other_info_to_train(data_dir, train, use_interactions_data)
+    train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, herbs_df, use_interactions_data)
+    train = add_other_info_to_train(data_dir, train, use_interactions_data)
     
     train = train.astype(str)
     valid = valid.astype(str)

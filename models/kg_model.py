@@ -101,7 +101,7 @@ class KG_model:
             negative_sampler_kwargs = dict(
                 num_negs_per_pos = self.num_neg_per_pos
             ),
-            evaluator = self.evaluator,
+            evaluator = None,
             device = self.device,
             training_kwargs = dict(
                 batch_size = self.batch_size,
@@ -117,6 +117,7 @@ class KG_model:
 
     def predict_tail(self, head, relation, filter_known=False):
         prediction_dir = '../predictions/' + self.specification + '/'
+        print(f'Predicting tail for {head}')
 
         try:
             pred = predict_target(
@@ -146,6 +147,15 @@ class KG_model:
         df.to_csv(prediction_dir + self.model_name + '_testset_scores_' + self.specification + '.csv')
         print(df.head())
 
+    def save_metrices(self):
+        prediction_dir = '../predictions/'
+        metrices = dict()
+        metrices['hits@10'] = [self.trained_model.get_metric('hits@10')]
+        metrices['mrr'] = [self.trained_model.get_metric('mrr')]
+
+        df_result = pd.DataFrame(metrices)
+        print(df_result)
+        df_result.to_csv(prediction_dir + self.specification + '_metrices.csv')
 
 #     # predicts all posible new triplets, stores just k triplets with highest scores
 #     # computationally expensive!!!    
@@ -178,15 +188,17 @@ def main(args):
     kg.trained_model.save_to_directory(f'results/results-{args.model}_{args.model_specification}')
     
     kg.scores_for_test_triplets(data.test, k=100)
-    
+
     if PREDICT:
         common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
         common_drugs = common_drugs.dropna()
         print(common_drugs.head(10))
         common_drugs = common_drugs['db_id'].values
     
-        for d in common_drugs:
-            kg.predict_tail(d, 'negative', filter_known=True)
+        for d in common_drugs[:100]:
+            kg.predict_tail(d, 'interacts', filter_known=False)
+
+    kg.save_metrices()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='KG training')
