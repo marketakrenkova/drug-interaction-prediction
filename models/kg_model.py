@@ -3,6 +3,7 @@
 import pandas as pd
 import sys
 import argparse
+import os
 
 import torch
 
@@ -54,7 +55,7 @@ class KG_model:
         self.num_epochs = args.epochs
         self.optimizer = args.optimizer
         self.learning_rate = args.learning_rate
-        self.evaluator = RankBasedEvaluator if args.evaluate else None
+        self.evaluator = RankBasedEvaluator 
         self.loss = args.loss 
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')    
         self.batch_size = args.batch_size
@@ -68,7 +69,7 @@ class KG_model:
         self.num_epochs = params['epochs']
         self.optimizer = params['optimizer']
         self.learning_rate = params['learning_rate']
-        self.evaluator = (OGBEvaluator if params['evaluator'] == 'ogb' else RankBasedEvaluator)
+        self.evaluator = RankBasedEvaluator
         self.loss = params['loss']
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')    
         self.batch_size = params['batch']
@@ -113,41 +114,43 @@ class KG_model:
             evaluation_kwargs = dict(
                 batch_size = 16
             )
-        )   
+        )  
 
-    def predict_tail(self, head, relation, filter_known=False):
-        prediction_dir = '../predictions/' + self.specification + '/'
-        print(f'Predicting tail for {head}')
+    def predict_tail(self, trained_model, triples, head, relation, data_name, filter_known=False):
+        prediction_dir = '../predictions/' + self.specification + '/' + data_name + '/'
 
         try:
             pred = predict_target(
-                model = self.trained_model.model, 
+                model = trained_model,
                 head = head, 
                 relation = relation, 
-                triples_factory = self.trained_model.training,
+                triples_factory = triples,
             )
 
             if filter_known:
                 pred_filtered = pred.filter_triples(self.train_tf)
                 pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
 
-            predicted_tails_df = pred.head(100)
+            if not os.path.exists(prediction_dir):
+                os.mkdir(prediction_dir)
+
+            predicted_tails_df = pred.df.head(100)
             predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
-            
+        
         except:
             print(f'No item with id {head} in the dataset.')
 
     # returns scores for given triplets (validation/test) - only k highest scores
-    def scores_for_test_triplets(self, test_triplets, k=100):
+    def scores_for_test_triplets(self, test_triplets, data_name, k=100):
         prediction_dir = '../predictions/'
         
         pack = predict_triples(model=self.trained_model.model, triples=test_triplets) #self.valid_tf
         df = pack.process(factory=self.trained_model.training).df
         df = df.nlargest(n=k, columns="score")
-        df.to_csv(prediction_dir + self.model_name + '_testset_scores_' + self.specification + '.csv')
+        df.to_csv(prediction_dir + self.model_name + "_" + data_name + '_testset_scores_' + self.specification + '.csv')
         print(df.head())
 
-    def save_metrices(self):
+    def save_metrices(self, data_name):
         prediction_dir = '../predictions/'
         metrices = dict()
         metrices['hits@10'] = [self.trained_model.get_metric('hits@10')]
@@ -155,20 +158,25 @@ class KG_model:
 
         df_result = pd.DataFrame(metrices)
         print(df_result)
-        df_result.to_csv(prediction_dir + self.specification + '_metrices.csv')
+        df_result.to_csv(prediction_dir + self.specification + data_name + '_metrices.csv')
 
-#     # predicts all posible new triplets, stores just k triplets with highest scores
-#     # computationally expensive!!!    
-#     def predict_all_triplets(self, k=100):
-#         pack = predict_all(model=self.trained_model.model, k)
-#         pred = pack.process(factory=result.training)
-#         pred_annotated = pred.add_membership_columns(training=result.training)
-#         return pred_annotated.df
-    
-# ----------------------------
+
+def load_model(model_checkpoint_path, model_result_path):
+    model = None
+
+    if os.path.exists(model_checkpoint_path) and os.path.exists(model_result_path):
+        model = torch.load(model_result_path)
+        checkpoint = torch.load(model_checkpoint_path)
+        model.load_state_dict(checkpoint['model_state_dict'])
+
+    else:
+        print("No trained model at path: {}".format(model_checkpoint_path))
+
+    return model
+
 
 def main(args):
-    
+ 
     PREDICT = True
 
     print('Reading data...')
@@ -178,27 +186,38 @@ def main(args):
 
     kg = KG_model(args.model, data.train, data.valid, data.test, args.model_specification)
     kg.set_params(args)
-        
-    kg.__str__()
-    print()
-    print('Training model...')
-    kg.train()
-    print('Training done.')
 
-    kg.trained_model.save_to_directory(f'results/results-{args.model}_{args.model_specification}')
-    
-    kg.scores_for_test_triplets(data.test, k=100)
+    model_checkpoint_path = f'kg_checkpoints/{args.model}-{args.model_specification}_checkpoint.pt'
+    model_result_dir = f'results/results-{args.model}_{args.model_specification}'
+
+    # if the model should be trained 
+    if not args.not_train:
+        kg.__str__()
+        print()
+        print('Training model...')
+        kg.train()
+        print('Training done.')
+        kg.scores_for_test_triplets(data.test, args.data_name, k=100)
+        kg.trained_model.save_to_directory(model_result_dir)
+        kg.save_metrices(args.data_name)
 
     if PREDICT:
+        loaded_model = None
+        if args.not_train:
+            print('Loading a trained model...')
+            loaded_model = load_model(model_checkpoint_path, model_result_dir + '/trained_model.pkl')
+
+        print("Predicting new interactions...")
         common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
         common_drugs = common_drugs.dropna()
-        print(common_drugs.head(10))
         common_drugs = common_drugs['db_id'].values
     
         for d in common_drugs[:100]:
-            kg.predict_tail(d, 'interacts', filter_known=False)
+            if loaded_model is None:
+                kg.predict_tail(kg.trained_model, kg.trained_model.training, d, 'interacts', args.data_name, filter_known=False)
+            else:
+                kg.predict_tail(loaded_model, data.train, d, 'interacts', args.data_name, filter_known=False)
 
-    kg.save_metrices()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='KG training')
@@ -214,7 +233,7 @@ if __name__ == '__main__':
     parser.add_argument('-lm', '--loss_margin', type=float, default=1.0)
     parser.add_argument('-neg', '--neg_sampler', type=str, default='basic')
     parser.add_argument('-nn', '--num_neg_per_pos', type=int, default='1')
-    parser.add_argument('-eval', '--evaluate', type=bool, default=True)
+    parser.add_argument("--not_train", action="store_true")
     
 
     args = parser.parse_args()
