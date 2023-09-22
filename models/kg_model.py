@@ -63,6 +63,7 @@ class KG_model:
         self.margin = args.loss_margin
         self.negative_sampler = args.neg_sampler
         self.num_neg_per_pos = args.num_neg_per_pos
+        self.data_name = args.data_name
 
     # use if I call the model from jupyter notebook, where I don't have args
     def set_params2(self, params):
@@ -77,11 +78,12 @@ class KG_model:
         self.margin = params['margin']
         self.negative_sampler = 'basic'
         self.num_neg_per_pos = 30
+        self.data_name = params['data_name']
 
     def __str__(self):  
-        print(f'Training {self.model_name} - {self.specification} for {self.num_epochs} epochs on {self.device}.')
+        print(f'Training {self.model_name} - {self.specification}-{self.data_name} for {self.num_epochs} epochs on {self.device}.')
 
-    def train(self):
+    def train(self, model_checkpoint_path):
         self.trained_model = pipeline(
             training = self.train_tf,
             testing = self.test_tf,
@@ -107,7 +109,7 @@ class KG_model:
             training_kwargs = dict(
                 batch_size = self.batch_size,
                 num_epochs = self.num_epochs,
-                checkpoint_name = self.model_name + '-' + self.specification + '_checkpoint.pt',
+                checkpoint_name = model_checkpoint_path,
                 checkpoint_frequency=10,
                 checkpoint_directory = 'kg_checkpoints'
             ),
@@ -116,8 +118,11 @@ class KG_model:
             )
         )  
 
-    def predict_tail(self, trained_model, triples, head, relation, data_name, filter_known=False):
-        prediction_dir = '../predictions/' + self.specification + '/' + data_name + '/'
+    def predict_tail(self, trained_model, triples, head, relation, filter_known=False):
+        prediction_dir = '../predictions/' + self.specification + '/' + self.data_name + '/'
+
+        if not os.path.exists(prediction_dir):
+            os.makedirs(prediction_dir)
 
         try:
             pred = predict_target(
@@ -127,30 +132,29 @@ class KG_model:
                 triples_factory = triples,
             )
 
+            # print(pred)
+
             if filter_known:
                 pred_filtered = pred.filter_triples(self.train_tf)
                 pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
 
-            if not os.path.exists(prediction_dir):
-                os.mkdir(prediction_dir)
-
-            predicted_tails_df = pred.df.head(100)
+            predicted_tails_df = pred.df.head(10)
             predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
         
         except:
             print(f'No item with id {head} in the dataset.')
 
     # returns scores for given triplets (validation/test) - only k highest scores
-    def scores_for_test_triplets(self, test_triplets, data_name, k=100):
+    def scores_for_test_triplets(self, test_triplets, k=100):
         prediction_dir = '../predictions/'
         
         pack = predict_triples(model=self.trained_model.model, triples=test_triplets) #self.valid_tf
         df = pack.process(factory=self.trained_model.training).df
         df = df.nlargest(n=k, columns="score")
-        df.to_csv(prediction_dir + self.model_name + "_" + data_name + '_testset_scores_' + self.specification + '.csv')
+        df.to_csv(prediction_dir + self.model_name + "_" + self.data_name + '_testset_scores_' + self.specification + '.csv')
         print(df.head())
 
-    def save_metrices(self, data_name):
+    def save_metrices(self):
         prediction_dir = '../predictions/'
         metrices = dict()
         metrices['hits@10'] = [self.trained_model.get_metric('hits@10')]
@@ -158,7 +162,7 @@ class KG_model:
 
         df_result = pd.DataFrame(metrices)
         print(df_result)
-        df_result.to_csv(prediction_dir + self.specification + data_name + '_metrices.csv')
+        df_result.to_csv(prediction_dir + self.specification + self.data_name + '_metrices.csv')
 
 
 def load_model(model_checkpoint_path, model_result_path):
@@ -187,36 +191,52 @@ def main(args):
     kg = KG_model(args.model, data.train, data.valid, data.test, args.model_specification)
     kg.set_params(args)
 
-    model_checkpoint_path = f'kg_checkpoints/{args.model}-{args.model_specification}_checkpoint.pt'
-    model_result_dir = f'results/results-{args.model}_{args.model_specification}'
+    model_checkpoint_path = f'{args.model}-{args.model_specification}-{args.data_name}_checkpoint.pt'
+    model_result_dir = f'results/results-{args.model}_{args.model_specification}-{args.data_name}'
 
     # if the model should be trained 
     if not args.not_train:
         kg.__str__()
         print()
         print('Training model...')
-        kg.train()
+        kg.train(model_checkpoint_path)
         print('Training done.')
-        kg.scores_for_test_triplets(data.test, args.data_name, k=100)
+        kg.scores_for_test_triplets(data.test, k=100)
         kg.trained_model.save_to_directory(model_result_dir)
-        kg.save_metrices(args.data_name)
+        kg.save_metrices()
 
     if PREDICT:
         loaded_model = None
         if args.not_train:
             print('Loading a trained model...')
-            loaded_model = load_model(model_checkpoint_path, model_result_dir + '/trained_model.pkl')
+            loaded_model = load_model('kg_checkpoints/' + model_checkpoint_path, model_result_dir + '/trained_model.pkl')
 
         print("Predicting new interactions...")
         common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
         common_drugs = common_drugs.dropna()
         common_drugs = common_drugs['db_id'].values
+
+        with open('../data/foods4predictions.txt', 'r') as f:
+            foods = f.readlines()
+
+        foods = [food.strip() for food in foods]
     
+        # drug predictions
         for d in common_drugs[:100]:
             if loaded_model is None:
-                kg.predict_tail(kg.trained_model, kg.trained_model.training, d, 'interacts', args.data_name, filter_known=False)
+                kg.predict_tail(kg.trained_model.model, kg.trained_model.training, d, 'interacts', filter_known=False)
             else:
-                kg.predict_tail(loaded_model, data.train, d, 'interacts', args.data_name, filter_known=False)
+                kg.predict_tail(loaded_model, data.train, d, 'interacts', filter_known=False)
+
+        # food predicitons
+        for food in foods[:259]: # 259 - herbs aren't inclused yet in data
+            if loaded_model is None:
+                kg.predict_tail(kg.trained_model, kg.trained_model.training, food, 'interacts', filter_known=False)
+            else:
+                kg.predict_tail(loaded_model, data.train, food, 'interacts', filter_known=False)
+
+
+        print('DONE')
 
 
 if __name__ == '__main__':
