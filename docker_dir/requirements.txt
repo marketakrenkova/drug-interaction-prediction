@@ -113,7 +113,6 @@ pure-eval==0.2.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.21
-pyg-lib==0.2.0+pt20cu117
 Pygments==2.15.0
 pykeen==1.10.1
 pyparsing==3.0.9
@@ -150,8 +149,6 @@ torch==2.0.0
 torch-geometric==2.3.0
 torch-max-mem==0.0.4
 torch-ppr==0.0.8
-torch-scatter==2.1.1+pt20cu117
-torch-sparse==0.6.17+pt20cu117
 tornado==6.3
 tqdm==4.65.0
 traitlets==5.9.0
@@ -160,6 +157,7 @@ typing-extensions==4.5.0
 typing-inspect==0.8.0
 tzdata==2023.3
 urllib3==1.26.15
+wandb==0.15.11
 wcwidth==0.2.6
 webencodings==0.5.1
 websocket-client==1.5.1

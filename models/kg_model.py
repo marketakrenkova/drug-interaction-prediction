@@ -4,6 +4,7 @@ import pandas as pd
 import sys
 import argparse
 import os
+import wandb
 
 import torch
 
@@ -93,9 +94,9 @@ class KG_model:
                 embedding_dim = self.embedding_dim
             ),
             loss = self.loss,
-            loss_kwargs = dict(
-                margin = self.margin
-            ),
+            # loss_kwargs = dict(
+            #     margin = self.margin
+            # ),
             optimizer = self.optimizer,
             optimizer_kwargs = dict(
                 lr = self.learning_rate
@@ -115,8 +116,13 @@ class KG_model:
             ),
             evaluation_kwargs = dict(
                 batch_size = 16
-            )
-        )  
+            ),
+            result_tracker='wandb',
+            result_tracker_kwargs=dict(
+                project='kg_drug_interactions',
+                # experiment=self.model_name + "_" + self.specification,
+            ),  
+        ) 
 
     def predict_tail(self, trained_model, triples, head, relation, filter_known=False):
         prediction_dir = '../predictions/' + self.specification + '/' + self.data_name + '/'
@@ -138,7 +144,7 @@ class KG_model:
                 pred_filtered = pred.filter_triples(self.train_tf)
                 pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
 
-            predicted_tails_df = pred.df.head(10)
+            predicted_tails_df = pred.df.head(100)
             predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
         
         except:
@@ -181,6 +187,8 @@ def load_model(model_checkpoint_path, model_result_path):
 
 def main(args):
  
+    # wandb.login()
+
     PREDICT = True
 
     print('Reading data...')
@@ -231,7 +239,7 @@ def main(args):
         # food predicitons
         for food in foods[:259]: # 259 - herbs aren't inclused yet in data
             if loaded_model is None:
-                kg.predict_tail(kg.trained_model, kg.trained_model.training, food, 'interacts', filter_known=False)
+                kg.predict_tail(kg.trained_model.model, kg.trained_model.training, food, 'interacts', filter_known=False)
             else:
                 kg.predict_tail(loaded_model, data.train, food, 'interacts', filter_known=False)
 
@@ -258,5 +266,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     print(args)
+
+    os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
+    wandb.login()
 
     main(args)
