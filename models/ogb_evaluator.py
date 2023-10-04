@@ -2,6 +2,8 @@
 
 import pandas as pd
 import json
+import os
+import wandb
 
 import torch
 import torch.nn.functional as F
@@ -163,6 +165,11 @@ def main():
 #     dir_data_my_split = '../data/dataset-ogb/ogbl_ddi-my_split/'
 #     save_to_txt(dir_data_my_split, train_df, valid_df, test_df)
     
+    
+    os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
+    wandb.login()
+    
+    
     config = {
         'metadata': dict(
             title='ComplEx'
@@ -173,16 +180,16 @@ def main():
             testing = '../data/dataset-ogb/ogbl_biokg-my_split/test.txt',
             model='ComplEx',
             model_kwargs=dict(
-                   embedding_dim=96,
+                   embedding_dim=600,
             ),
             optimizer='Adam',
-            optimizer_kwargs=dict(lr=0.09),
+            optimizer_kwargs=dict(lr=0.001),
             loss='marginranking',
             training_loop='slcwa',
             training_kwargs=dict(
                 num_epochs=2, 
                 batch_size=64, 
-                checkpoint_name='ComplEx_checkpoint-ogb-biokg.pt',
+                checkpoint_name='ComplEx-ogb-biokg-checkpoint.pt',
                 checkpoint_directory='kg_checkpoints',
                 checkpoint_frequency=5    
             ),
@@ -195,7 +202,11 @@ def main():
             stopper_kwargs=dict(
                 patience=10,
                 relative_delta=0.002
-            )
+            ),
+            result_tracker='wandb',
+            result_tracker_kwargs=dict(
+                project='kg_drug_interactions',
+            ), 
         )
     }
     

@@ -120,7 +120,6 @@ class KG_model:
             result_tracker='wandb',
             result_tracker_kwargs=dict(
                 project='kg_drug_interactions',
-                # experiment=self.model_name + "_" + self.specification,
             ),  
         ) 
 
@@ -138,11 +137,11 @@ class KG_model:
                 triples_factory = triples,
             )
 
-            # print(pred)
-
             if filter_known:
+                # remove tragets known from training set
                 pred_filtered = pred.filter_triples(self.train_tf)
-                pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf).df
+                # add information whether the target is in validation and testing datsets 
+                pred = pred_filtered.add_membership_columns(validation=self.valid_tf, testing=self.test_tf)
 
             predicted_tails_df = pred.df.head(100)
             predicted_tails_df.to_csv(prediction_dir + self.model_name + '_' + head + '_' + relation + '_' + self.specification + '.csv')
@@ -209,7 +208,7 @@ def main(args):
         print('Training model...')
         kg.train(model_checkpoint_path)
         print('Training done.')
-        kg.scores_for_test_triplets(data.test, k=100)
+        # kg.scores_for_test_triplets(data.test, k=100)
         kg.trained_model.save_to_directory(model_result_dir)
         kg.save_metrices()
 
@@ -232,16 +231,16 @@ def main(args):
         # drug predictions
         for d in common_drugs[:100]:
             if loaded_model is None:
-                kg.predict_tail(kg.trained_model.model, kg.trained_model.training, d, 'interacts', filter_known=False)
+                kg.predict_tail(kg.trained_model.model, kg.trained_model.training, d, 'interacts', filter_known=True)
             else:
-                kg.predict_tail(loaded_model, data.train, d, 'interacts', filter_known=False)
+                kg.predict_tail(loaded_model, data.train, d, 'interacts', filter_known=True)
 
         # food predicitons
         for food in foods[:259]: # 259 - herbs aren't inclused yet in data
             if loaded_model is None:
-                kg.predict_tail(kg.trained_model.model, kg.trained_model.training, food, 'interacts', filter_known=False)
+                kg.predict_tail(kg.trained_model.model, kg.trained_model.training, food, 'interacts', filter_known=True)
             else:
-                kg.predict_tail(loaded_model, data.train, food, 'interacts', filter_known=False)
+                kg.predict_tail(loaded_model, data.train, food, 'interacts', filter_known=True)
 
 
         print('DONE')
