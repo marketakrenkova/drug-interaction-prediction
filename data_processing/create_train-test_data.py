@@ -134,10 +134,13 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, herbs_df, use_in
     
     return train_triplets, valid_triplets, test_triplets
 
-def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
+def add_other_info_to_train(data_dir, train_triplets, use_interaction_data, specification):
     files = listdir(data_dir)
     
-    files2skip = ['ddi.tsv', 'dfi.tsv', 'herbs-di.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 'ingredients.tsv']
+    files2skip = ['ddi.tsv', 'dfi.tsv', 'herbs-di.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 
+                  'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 
+                  'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 
+                  'ingredients.tsv']
 
     for file in files:
         # skip defined files
@@ -149,13 +152,19 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data):
         # use food and drug supplements in KG iff use_interaction_data[i]=True
         if file == 'ds_ingredients.tsv':
             continue
-        if file == 'biokg_subgraph.tsv' or file == 'hetionet.tsv': # biokg_subgraph, hetionet
-            continue
         if not use_interaction_data[1] and 'compound' in file: # foods
             continue
 
-        # if 'pathway' in file or 'salt' in file:
-        #     continue
+        # additinal data sources
+        if file == 'biokg_subgraph.tsv' and specification != 'biokg': 
+            continue
+        if file == 'hetionet.tsv' and specification != 'hetionet':
+            continue
+
+        # DrugBank interations only
+        if specification == 'interactions':
+            if 'pathway' in file or 'salt' in file or 'subclass' in file:
+                continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])
         
@@ -185,7 +194,7 @@ def main(name):
     dfi_df_simple = simplify_interactions2(dfi_df)
     
     train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, herbs_df, use_interactions_data)
-    train = add_other_info_to_train(data_dir, train, use_interactions_data)
+    train = add_other_info_to_train(data_dir, train, use_interactions_data, name)
     
     train = train.astype(str)
     valid = valid.astype(str)
