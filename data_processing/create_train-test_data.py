@@ -163,7 +163,7 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data, spec
 
         # DrugBank interations only
         if specification == 'interactions':
-            if 'pathway' in file or 'salt' in file or 'subclass' in file:
+            if 'pathway' in file or 'salt' in file or 'subclass' in file or 'category' in file or 'compound' in file:
                 continue
 
         df = pd.read_csv(data_dir + file, sep='\t', index_col=[0])
@@ -172,6 +172,7 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data, spec
         train_triplets = pd.concat([train_triplets, df])
 
     print('Final size of train dataset (with other relations):', train_triplets.shape[0]) 
+
     return train_triplets
 
 
@@ -196,6 +197,7 @@ def main(name):
     train, valid, test = split_interactions_data(ddi_df_simple, drug_supplement_df, dfi_df_simple, herbs_df, use_interactions_data)
     train = add_other_info_to_train(data_dir, train, use_interactions_data, name)
     
+    print('Size of the whole KG (num triplets):', train.shape[0] + valid.shape[0] + test.shape[0])
     train = train.astype(str)
     valid = valid.astype(str)
     test = test.astype(str)
@@ -204,9 +206,12 @@ def main(name):
     valid.to_csv(data_dir + 'valid_' + name + '.tsv', sep='\t', index=False)
     test.to_csv(data_dir + 'test_' + name + '.tsv', sep='\t', index=False)
 
+
+# name: interactions, drugbank, biokg, hetionet
 if __name__ == "__main__":
     name = ""
-    
+
+
     if len(sys.argv) > 1:
         name = sys.argv[1]
   

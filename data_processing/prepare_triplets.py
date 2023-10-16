@@ -54,8 +54,19 @@ def prepare_triplets_drugbank():
     print(drug_subclass.head())
     print()
     drug_subclass.to_csv(triplets_dir + 'drug_subclass.tsv', sep='\t')
-    # ---------------------------------------------------------------------------------
 
+    # ---------------------------------------------------------------------------------
+    # drug category
+    drug_category = pd.read_csv(drug_dir + 'drug_category.csv', index_col=[0])
+    drug_category['relation'] = list(itertools.repeat('in_category', drug_category.shape[0]))
+    drug_category = drug_category.iloc[:, [0,2,1]]
+    drug_category = drug_category.dropna()
+
+    print('Number of drug categories:', len(drug_category['category'].unique()))
+    print(drug_category.head())
+    drug_category.to_csv(triplets_dir + 'drug_category.tsv', sep='\t')
+
+    # ---------------------------------------------------------------------------------
     # drug_name - ingredients
     mixtures = pd.read_csv(drug_dir + 'drug_mixtures.csv', index_col=[0]) # TODO: inspect data (ingredients - drugbank ID)
     drugs = []
@@ -272,67 +283,7 @@ def prepare_triplets_foodb():
     compound_cas_numbers_df.to_csv(triplets_dir + 'compounds_cas_number.tsv', sep='\t')
 
 # ---------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------
-# iDISK
-def prepare_triplets_idisk():
-    ds_data_dir = 'data/idisk-rrf/'
 
-    # concept id - type
-    concept_type = pd.read_csv(ds_data_dir + 'MRSTY.csv', sep='|')
-    concept_type['relation'] = list(itertools.repeat('is_type', concept_type.shape[0]))
-    concept_type = concept_type.iloc[:,[0,2,1]]
-    print(concept_type.head())
-    print()
-    concept_type.to_csv(triplets_dir + 'ds_concept_type.tsv', sep='\t')
-
-    # atom id - concept id
-    atoms = pd.read_csv(ds_data_dir + 'MRCONSO.csv', sep='|')
-    atoms_concept = atoms[['CUI', 'AUI']]
-    atoms_concept['relation'] = list(itertools.repeat('maps_to', atoms_concept.shape[0]))
-    atoms_concept = atoms_concept.iloc[:,[0,2,1]]
-    print(atoms_concept.head())
-    print()
-    atoms_concept.to_csv(triplets_dir + 'ds_atoms_concept_map.tsv', sep='\t')
-
-    concepts_atoms_dic = atoms_concept.set_index('CUI')['AUI'].to_dict()
-
-    # atom id -name
-    atoms_name = atoms[['AUI', 'STR']]
-    atoms_name['relation'] = list(itertools.repeat('has_name', atoms_name.shape[0]))
-    atoms_name = atoms_name.iloc[:,[0,2,1]]
-    print('Number of atmos (drug supplements):', atoms_name.shape[0])
-    ## if ids are given to the model -> don't substitue id by name
-    # print(atoms_name.head())
-    # print()
-    # atoms_name.to_csv(triplets_dir + 'ds_atoms_names.tsv', sep='\t')
-
-    atoms_names_dic = atoms_name.set_index('AUI')['STR'].to_dict()
-
-
-    # relation: concept1 id - relation id - concept2 id
-    relations = pd.read_csv(ds_data_dir + 'MRREL.csv', sep='|')
-    relations = relations[['CUI1', 'REL', 'CUI2']]
-
-    # split into has_ingredient and interaction files
-    relations_ingredients = relations[relations['REL'] == 'has_ingredient']
-
-    for i, row in relations_ingredients.iterrows():
-        relations_ingredients.at[i, 'CUI1'] = atoms_names_dic[concepts_atoms_dic[row['CUI1']]]
-        relations_ingredients.at[i, 'CUI2'] = atoms_names_dic[concepts_atoms_dic[row['CUI2']]]
-
-    print(relations_ingredients.head())
-    relations_ingredients.to_csv(triplets_dir + 'ds_ingredients.tsv', sep='\t')
-
-    # relations = relations[relations['REL'] != 'has_ingredient']
-    relations = relations[relations['REL'] == 'interacts_with']
-    for i, row in relations.iterrows():
-        relations.at[i, 'CUI1'] = atoms_names_dic[concepts_atoms_dic[row['CUI1']]]
-        relations.at[i, 'CUI2'] = atoms_names_dic[concepts_atoms_dic[row['CUI2']]]
-
-    print(relations.head())
-    relations.to_csv(triplets_dir + 'ds_relations.tsv', sep='\t')
-# ---------------------------------------------------------------------------------
 
 prepare_triplets_drugbank()
 prepare_triplets_foodb()
-# prepare_triplets_idisk()
