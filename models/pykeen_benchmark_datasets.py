@@ -111,7 +111,7 @@ settings = [
         'loss': 'marginranking',
         'embedding_dim': 500,
         'num_negs_per_pos': 1024,
-        'lr': 0.00005,
+        'lr': 0.001,
         'batch_size': 512,
     },
     {
@@ -120,9 +120,45 @@ settings = [
         'loss': 'marginranking',
         'embedding_dim': 500,
         'num_negs_per_pos': 1024,
+        'lr': 0.0001,
+        'batch_size': 512,
+    },
+    {
+        'dataset': 'fb15k237',
+        'model': 'rotate',
+        'loss': 'marginranking',
+        'embedding_dim': 1000,
+        'num_negs_per_pos': 256,
+        'lr': 0.00005,
+        'batch_size': 1024,
+    },
+    {
+        'dataset': 'fb15k237',
+        'model': 'complex',
+        'loss': 'marginranking',
+        'embedding_dim': 1000,
+        'num_negs_per_pos': 256,
         'lr': 0.001,
         'batch_size': 512,
     },
+    {
+        'dataset': 'wn18rr',
+        'model': 'complex',
+        'loss': 'marginranking',
+        'embedding_dim': 500,
+        'num_negs_per_pos': 1024,
+        'lr': 0.002,
+        'batch_size': 512,
+    },
+    {
+        'dataset': 'wn18',
+        'model': 'rotate',
+        'loss': 'marginranking',
+        'embedding_dim': 500,
+        'num_negs_per_pos': 1024,
+        'lr': 0.00005,
+        'batch_size': 512,
+    }
 ]
 
 df_results = pd.DataFrame(columns=["dataset", "model", "mrr", "hits@10"])

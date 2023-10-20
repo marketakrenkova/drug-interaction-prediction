@@ -6,6 +6,8 @@ from os import listdir
 import itertools
 import sys
 
+seen_interactions= set()
+
 def read_interactions_data(data_dir):
     ddi_df = pd.read_csv(data_dir + 'ddi.tsv', sep='\t', index_col=[0])
     drug_supplement_df = pd.read_csv(data_dir + 'ds_relations.tsv', sep='\t', index_col=[0])
@@ -21,9 +23,23 @@ def simplify_interactions(interaction_df, interaction_label_file):
     
     return interaction_df
 
+# Function to check and update the set
+def check_and_update_set(row):
+    pair = frozenset([row['drug1'], row['drug2']])
+    if pair not in seen_interactions:
+        seen_interactions.add(pair)
+        return True
+    return False
+
 def simplify_interactions2(interaction_df):
     interaction_df.interaction = list(itertools.repeat('interacts', interaction_df.shape[0]))
-    
+    print('num interactions before removing dulicates:', interaction_df.shape[0])
+    # interaction_df = interaction_df.drop_duplicates()
+
+    # Apply the function to filter duplicate (also inversed) triplets
+    interaction_df = interaction_df[interaction_df.apply(check_and_update_set, axis=1)]
+    print('num interactions after drop duplicates:', interaction_df.shape[0])
+
     return interaction_df
 
 # compute sizes of train and test sets if the number of exaples is <= 7
@@ -137,7 +153,7 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, herbs_df, use_in
 def add_other_info_to_train(data_dir, train_triplets, use_interaction_data, specification):
     files = listdir(data_dir)
     
-    files2skip = ['ddi.tsv', 'dfi.tsv', 'herbs-di.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 
+    files2skip = ['ddi.tsv', 'dfi.tsv', 'herbs-di.tsv', 'herbs-di-2.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 
                   'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 
                   'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 
                   'ingredients.tsv']

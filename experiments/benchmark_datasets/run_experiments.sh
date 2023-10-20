@@ -24,6 +24,14 @@
 # pykeen experiments ablation config.json -d results
 # cd ..
 
-cd fb15k
+# cd fb15k
+# pykeen experiments ablation config.json -d results
+# cd ..
+
+cd fb15k237
+pykeen experiments ablation config.json -d results
+cd ..
+
+cd wn18rr
 pykeen experiments ablation config.json -d results
 cd ..

@@ -1,0 +1,52 @@
+{
+    "metadata": {
+        "title": "Ablation Study Over Fb15k237."
+    },
+    "ablation": {
+        "datasets": ["fb15k237"],
+        "models":   ["TransE", "ComplEx", "HolE", "RotatE", "RGCN"],
+        "losses": ["MarginRankingLoss", "BCEWithLogitsLoss"],
+        "training_loops": ["slcwa"],
+        "optimizers": ["Adam"],
+        "create_inverse_triples": [false],
+        "model_to_training_loop_to_training_kwargs": {
+            "TransE": {
+                "slcwa": {
+                    "num_epochs": 50,
+		            "batch_size": 512
+                }
+            },
+            "ComplEx": {
+                "slcwa": {
+                    "num_epochs": 50,
+		            "batch_size": 512
+                }
+            },
+            "HolE": {
+                "slcwa": {
+                    "num_epochs": 50,
+		            "batch_size": 512
+                }
+            },
+            "RotatE": {
+                "slcwa": {
+                    "num_epochs": 50,
+		            "batch_size": 512
+                }
+            },
+            "RGCN": {
+                "slcwa": {
+                    "num_epochs": 20,
+		            "batch_size": 512
+                }
+            }
+        }
+    },	
+    "optuna": {
+        "n_trials": 1,
+        "metric": "hits@10",
+        "direction": "maximize",
+        "sampler": "random",
+        "pruner": "nop"
+     }
+}

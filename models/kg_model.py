@@ -21,7 +21,7 @@ from pykeen.training import SLCWATrainingLoop
 def convert_to_triples_factory(data):
     tf_data = TriplesFactory.from_labeled_triples(
         data[["head", "relation", "tail"]].values,
-        create_inverse_triples=False,
+        create_inverse_triples=True,
         entity_to_id=None,
         relation_to_id=None,
         compact_id=False 
@@ -185,8 +185,6 @@ def load_model(model_checkpoint_path, model_result_path):
 
 
 def main(args):
- 
-    # wandb.login()
 
     PREDICT = True
 
@@ -219,24 +217,25 @@ def main(args):
             loaded_model = load_model('kg_checkpoints/' + model_checkpoint_path, model_result_dir + '/trained_model.pkl')
 
         print("Predicting new interactions...")
-        common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
+        # common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
+        common_drugs = pd.read_csv('../data/drugs4prediction.csv', sep=';')
         common_drugs = common_drugs.dropna()
         common_drugs = common_drugs['db_id'].values
 
-        with open('../data/foods4predictions.txt', 'r') as f:
+        with open('../data/foods4predictions-2.txt', 'r') as f:
             foods = f.readlines()
 
         foods = [food.strip() for food in foods]
     
         # drug predictions
-        for d in common_drugs[:100]:
+        for d in common_drugs:
             if loaded_model is None:
                 kg.predict_tail(kg.trained_model.model, kg.trained_model.training, d, 'interacts', filter_known=True)
             else:
                 kg.predict_tail(loaded_model, data.train, d, 'interacts', filter_known=True)
 
         # food predicitons
-        for food in foods[:259]: # 259 - herbs aren't inclused yet in data
+        for food in foods: 
             if loaded_model is None:
                 kg.predict_tail(kg.trained_model.model, kg.trained_model.training, food, 'interacts', filter_known=True)
             else:
