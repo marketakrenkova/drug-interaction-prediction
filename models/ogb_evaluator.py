@@ -3,7 +3,7 @@
 import pandas as pd
 import json
 import os
-import wandb
+# import wandb
 
 import torch
 import torch.nn.functional as F
@@ -31,8 +31,8 @@ def convert_to_triples_factory(data):
 
     return tf_data
 
-def load_data():
-    dataset = PygLinkPropPredDataset(name='ogbl-ddi', root='../data/dataset-ogb/', transform=T.ToSparseTensor())
+def load_data(dataset_name):
+    dataset = PygLinkPropPredDataset(name=dataset_name, root='../data/dataset-ogb/', transform=T.ToSparseTensor())
     
     split_edge = dataset.get_edge_split()
     train_edge, valid_edge, test_edge = split_edge["train"], split_edge["valid"], split_edge["test"]
@@ -40,25 +40,19 @@ def load_data():
     # add relation type - interacts with
     train = train_edge['edge']
     train = torch.tensor([[x[0], 0, x[1]] for x in train])
-#     train_df = pd.DataFrame(train, columns=['head', 'relation', 'tail']).astype(str)
 
     valid = valid_edge['edge']
     valid = torch.tensor([[x[0], 0, x[1]] for x in valid])
-#     valid_df = pd.DataFrame(valid, columns=['head', 'relation', 'tail']).astype(str)
 
     valid_neg = valid_edge['edge_neg']
     valid_neg = torch.tensor([[x[0], 0, x[1]] for x in valid_neg])
 
     test = test_edge['edge']
     test = torch.tensor([[x[0], 0, x[1]] for x in test])
-#     test_df = pd.DataFrame(test, columns=['head', 'relation', 'tail']).astype(str)
 
     test_neg = test_edge['edge_neg']
     test_neg = torch.tensor([[x[0], 0, x[1]] for x in test_neg])
 
-#     train_tf = convert_to_triples_factory(train_df)
-#     valid_tf = convert_to_triples_factory(valid_df)
-#     test_tf = convert_to_triples_factory(test_df)
     
     return train, valid, valid_neg, test, test_neg
 
@@ -120,8 +114,8 @@ def compute_scores(trained_model, train, valid, valid_neg, test, test_neg):
     
     return pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred
 
-def evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, model_name):
-    evaluator = Evaluator(name = 'ogbl-biokg')
+def evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, dataset_name, model_name):
+    evaluator = Evaluator(name = dataset_name)
 
     results = {}
     for K in [10, 20, 30]:
@@ -155,19 +149,20 @@ def evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, 
 
 
 def main():
-#     print('Loading data...')
-#     train, valid, valid_neg, test, test_neg = load_data()
+    print('Loading data...')
+    dataset_name = 'ogbl-ddi'
+    train, valid, valid_neg, test, test_neg = load_data(dataset_name)
     
-#     train_df = pd.DataFrame(train, columns=['head', 'relation', 'tail']).astype(str)
-#     valid_df = pd.DataFrame(valid, columns=['head', 'relation', 'tail']).astype(str)
-#     test_df = pd.DataFrame(test, columns=['head', 'relation', 'tail']).astype(str)
+    train_df = pd.DataFrame(train, columns=['head', 'relation', 'tail']).astype(str)
+    valid_df = pd.DataFrame(valid, columns=['head', 'relation', 'tail']).astype(str)
+    test_df = pd.DataFrame(test, columns=['head', 'relation', 'tail']).astype(str)
     
-#     dir_data_my_split = '../data/dataset-ogb/ogbl_ddi-my_split/'
-#     save_to_txt(dir_data_my_split, train_df, valid_df, test_df)
+    dir_data_my_split = '../data/dataset-ogb/' + dataset_name + '-my_split/'
+    save_to_txt(dir_data_my_split, train_df, valid_df, test_df)
     
     
-    os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
-    wandb.login()
+    # os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
+    # wandb.login()
     
     
     config = {
@@ -175,26 +170,26 @@ def main():
             title='ComplEx'
         ),
         'pipeline': dict(
-            training = '../data/dataset-ogb/ogbl_biokg-my_split/train.txt',
-            validation = '../data/dataset-ogb/ogbl_biokg-my_split/valid.txt',
-            testing = '../data/dataset-ogb/ogbl_biokg-my_split/test.txt',
+            training = dir_data_my_split + 'train.txt',
+            validation = dir_data_my_split + 'valid.txt',
+            testing = dir_data_my_split + 'test.txt',
             model='ComplEx',
             model_kwargs=dict(
-                   embedding_dim=600,
+                   embedding_dim=2000,
             ),
             optimizer='Adam',
             optimizer_kwargs=dict(lr=0.001),
             loss='marginranking',
             training_loop='slcwa',
             training_kwargs=dict(
-                num_epochs=2, 
-                batch_size=64, 
-                checkpoint_name='ComplEx-ogb-biokg-checkpoint.pt',
+                num_epochs=30, 
+                batch_size=512, 
+                checkpoint_name='complex-' + dataset_name + '-checkpoint-final.pt',
                 checkpoint_directory='kg_checkpoints',
                 checkpoint_frequency=5    
             ),
             negative_sampler='basic',
-            negative_sampler_kwargs=dict(num_negs_per_pos=94),
+            negative_sampler_kwargs=dict(num_negs_per_pos=50),
             evaluator='rankbased',
             evaluator_kwargs=dict(filtered=True),
             evaluation_kwargs=dict(batch_size=64),
@@ -203,10 +198,10 @@ def main():
                 patience=10,
                 relative_delta=0.002
             ),
-            result_tracker='wandb',
-            result_tracker_kwargs=dict(
-                project='kg_drug_interactions',
-            ), 
+            # result_tracker='wandb',
+            # result_tracker_kwargs=dict(
+            #     project='ogb',
+            # ), 
         )
     }
     
@@ -216,8 +211,7 @@ def main():
 
     print('Evaluation...')
     pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred = compute_scores(pipeline_result, train, valid, valid_neg, test, test_neg)
-    
-    evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, model_name='ComplEx')
+    evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, dataset_name, model_name='ComplEx')
     
 
 
