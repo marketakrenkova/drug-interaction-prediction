@@ -7,15 +7,12 @@ import os
 
 import torch
 import torch.nn.functional as F
-from torch.utils.data import DataLoader
-from torch_geometric.utils import negative_sampling
 import torch_geometric.transforms as T
 
 from ogb.linkproppred import Evaluator, PygLinkPropPredDataset
 
-from pykeen.evaluation import RankBasedEvaluator
 from pykeen.triples import TriplesFactory
-from pykeen.pipeline import pipeline, pipeline_from_config 
+from pykeen.pipeline import pipeline_from_config 
 
 
 def convert_to_triples_factory(data):
@@ -53,8 +50,33 @@ def load_data(dataset_name):
     test_neg = test_edge['edge_neg']
     test_neg = torch.tensor([[x[0], 0, x[1]] for x in test_neg])
 
+    return train, valid, valid_neg, test, test_neg 
+
+def load_data2(dataset_name):
+
+    dataset = PygLinkPropPredDataset(name=dataset_name, root='../data/dataset-ogb/', transform=T.ToSparseTensor())
     
-    return train, valid, valid_neg, test, test_neg
+    split_edge = dataset.get_edge_split()
+    train_triples, valid_triples, test_triples = split_edge["train"], split_edge["valid"], split_edge["test"]
+    
+    head = train_triples['head']
+    relation = train_triples['relation']
+    tail = train_triples['tail']
+    train_df = pd.DataFrame({'head': head, 'relation': relation, 'tail': tail})
+
+    head = valid_triples['head']
+    relation = valid_triples['relation']
+    tail = valid_triples['tail']
+    valid_df = pd.DataFrame({'head': head, 'relation': relation, 'tail': tail})
+
+
+    head = test_triples['head']
+    relation = test_triples['relation']
+    tail = test_triples['tail']
+    test_df = pd.DataFrame({'head': head, 'relation': relation, 'tail': tail})
+
+    
+    return train_df, valid_df, test_df
 
 
 def save_to_txt(dir_data_my_split, train_df, valid_df, test_df):
@@ -146,16 +168,29 @@ def evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, 
     with open('ogb_evaluator_results-' + model_name + '.json', 'w') as f:
         json.dump(results, f, indent=4)
 
+def save_metrices(pipeline_result, dataset_name):
+        prediction_dir = 'results/'
+        metrices = dict()
+        metrices['hits@10'] = [pipeline_result.get_metric('hits@10')]
+        metrices['mrr'] = [pipeline_result.get_metric('mrr')]
 
+        df_result = pd.DataFrame(metrices)
+        print(df_result)
+        df_result.to_csv(prediction_dir + dataset_name + '_metrices.csv')
 
 def main():
     print('Loading data...')
     dataset_name = 'ogbl-ddi'
-    train, valid, valid_neg, test, test_neg = load_data(dataset_name)
+
+    if 'ddi' in dataset_name: 
+        train, valid, valid_neg, test, test_neg = load_data(dataset_name)
+        
+        train_df = pd.DataFrame(train, columns=['head', 'relation', 'tail']).astype(str)
+        valid_df = pd.DataFrame(valid, columns=['head', 'relation', 'tail']).astype(str)
+        test_df = pd.DataFrame(test, columns=['head', 'relation', 'tail']).astype(str)
     
-    train_df = pd.DataFrame(train, columns=['head', 'relation', 'tail']).astype(str)
-    valid_df = pd.DataFrame(valid, columns=['head', 'relation', 'tail']).astype(str)
-    test_df = pd.DataFrame(test, columns=['head', 'relation', 'tail']).astype(str)
+    else:
+        train_df, valid_df, test_df = load_data2(dataset_name)
     
     dir_data_my_split = '../data/dataset-ogb/' + dataset_name + '-my_split/'
     save_to_txt(dir_data_my_split, train_df, valid_df, test_df)
@@ -163,39 +198,40 @@ def main():
     
     # os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
     # wandb.login()
-    
+    model_name = 'TransE'
     
     config = {
         'metadata': dict(
-            title='ComplEx'
+            title=model_name
         ),
         'pipeline': dict(
             training = dir_data_my_split + 'train.txt',
             validation = dir_data_my_split + 'valid.txt',
             testing = dir_data_my_split + 'test.txt',
-            model='ComplEx',
+            model=model_name,
             model_kwargs=dict(
-                   embedding_dim=2000,
+                   embedding_dim=600,
             ),
-            optimizer='Adam',
-            optimizer_kwargs=dict(lr=0.001),
+            optimizer='SGD',
+            optimizer_kwargs=dict(lr=0.01),
             loss='marginranking',
+            loss_kwargs = dict(margin=0.91),
             training_loop='slcwa',
             training_kwargs=dict(
-                num_epochs=30, 
-                batch_size=512, 
-                checkpoint_name='complex-' + dataset_name + '-checkpoint-final.pt',
+                num_epochs=200, 
+                batch_size=256, 
+                checkpoint_name=model_name + '-' + dataset_name + '-checkpoint-final.pt',
                 checkpoint_directory='kg_checkpoints',
                 checkpoint_frequency=5    
             ),
             negative_sampler='basic',
-            negative_sampler_kwargs=dict(num_negs_per_pos=50),
+            negative_sampler_kwargs=dict(num_negs_per_pos=16),
             evaluator='rankbased',
             evaluator_kwargs=dict(filtered=True),
             evaluation_kwargs=dict(batch_size=64),
             stopper='early',
             stopper_kwargs=dict(
-                patience=10,
+                patience=5,
                 relative_delta=0.002
             ),
             # result_tracker='wandb',
@@ -208,10 +244,13 @@ def main():
     print('Training...')
     pipeline_result = pipeline_from_config(config)
     print('Training done.')
+    pipeline_result.save_to_directory('results/' + dataset_name + '_' + model_name)
+    save_metrices(pipeline_result, dataset_name)
 
-    print('Evaluation...')
-    pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred = compute_scores(pipeline_result, train, valid, valid_neg, test, test_neg)
-    evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, dataset_name, model_name='ComplEx')
+    if 'ddi' in dataset_name:
+        print('Evaluation...')
+        pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred = compute_scores(pipeline_result, train, valid, valid_neg, test, test_neg)
+        evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, dataset_name, model_name='ComplEx')
     
 
 

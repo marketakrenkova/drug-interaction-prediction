@@ -2,7 +2,7 @@
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from os import listdir
+from os import listdir, path, makedirs
 import itertools
 import sys
 
@@ -59,17 +59,20 @@ def compute_size(n):
 
 # train : valid : test = 80 : 10 : 10
 def split_data_relation(df_relation):
+    
+    rs = 12
+
     # too few triplets with the realtion
     if df_relation.shape[0] <= 7:
         train_size, valid_size = compute_size(df_relation.shape[0])
-        df_relation = df_relation.sample(frac=1, random_state=42)  
+        df_relation = df_relation.sample(frac=1, random_state=rs)  
         X_train = df_relation.iloc[:train_size]
         X_valid = df_relation.iloc[train_size:valid_size]
         X_test = df_relation.iloc[valid_size:]
 
     else:
-        X_train, X_rem = train_test_split(df_relation, train_size=0.8, random_state=42)
-        X_valid, X_test = train_test_split(X_rem, test_size=0.5, random_state=42)
+        X_train, X_rem = train_test_split(df_relation, train_size=0.8, random_state=rs)
+        X_valid, X_test = train_test_split(X_rem, test_size=0.5, random_state=rs)
         
     return X_train, X_valid, X_test
 
@@ -163,7 +166,7 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data, spec
         if file in files2skip:
             continue
         # name -> don't add names of elements, just ids
-        if 'train' in file or 'valid' in file or 'test' in file or 'name' in file:
+        if 'train' in file or 'valid' in file or 'test' in file or 'name' in file or 'run' in file:
             continue
         # use food and drug supplements in KG iff use_interaction_data[i]=True
         if file == 'ds_ingredients.tsv':
@@ -192,9 +195,9 @@ def add_other_info_to_train(data_dir, train_triplets, use_interaction_data, spec
     return train_triplets
 
 
-def main(name):
-    data_dir = '../data/triplets/'
-    interaction_label_file = '../data/unique_relations-labeled.csv'
+def main(name, run):
+    data_dir = '../data/triplets/' 
+    # interaction_label_file = '../data/unique_relations-labeled.csv'
 
     # which interactions use - drug-drug_supplement, drug-food
     # drug-drug is used always
@@ -217,18 +220,25 @@ def main(name):
     train = train.astype(str)
     valid = valid.astype(str)
     test = test.astype(str)
+
+    run += "/"
+
+    if not path.exists(data_dir + run):
+        makedirs(data_dir + run)
     
-    train.to_csv(data_dir + 'train_' + name + '.tsv', sep='\t', index=False)
-    valid.to_csv(data_dir + 'valid_' + name + '.tsv', sep='\t', index=False)
-    test.to_csv(data_dir + 'test_' + name + '.tsv', sep='\t', index=False)
+    train.to_csv(data_dir + run + 'train_' + name + '.tsv', sep='\t', index=False)
+    valid.to_csv(data_dir + run + 'valid_' + name + '.tsv', sep='\t', index=False)
+    test.to_csv(data_dir + run + 'test_' + name + '.tsv', sep='\t', index=False)
 
 
 # name: interactions, drugbank, biokg, hetionet
+# run: run1, run2, ...
 if __name__ == "__main__":
     name = ""
-
+    run = ""
 
     if len(sys.argv) > 1:
         name = sys.argv[1]
-  
-    main(name) 
+        run = sys.argv[2]
+
+    main(name, run) 

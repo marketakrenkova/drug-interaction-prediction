@@ -4,7 +4,7 @@ import pandas as pd
 import sys
 import argparse
 import os
-import wandb
+#import wandb
 
 import torch
 
@@ -94,9 +94,9 @@ class KG_model:
                 embedding_dim = self.embedding_dim
             ),
             loss = self.loss,
-            # loss_kwargs = dict(
-            #     margin = self.margin
-            # ),
+            loss_kwargs = dict(
+                margin = self.margin
+            ),
             optimizer = self.optimizer,
             optimizer_kwargs = dict(
                 lr = self.learning_rate
@@ -117,10 +117,12 @@ class KG_model:
             evaluation_kwargs = dict(
                 batch_size = 16
             ),
-            result_tracker='wandb',
-            result_tracker_kwargs=dict(
-                project='kg_drug_interactions',
-            ),  
+            stopper='early',
+            stopper_kwargs=dict(frequency=5, patience=2, relative_delta=0.002),
+            #result_tracker='wandb',
+            #result_tracker_kwargs=dict(
+            #    project='kg_drug_interactions',
+            #),  
         ) 
 
     def predict_tail(self, trained_model, triples, head, relation, filter_known=False):
@@ -189,15 +191,16 @@ def main(args):
     PREDICT = True
 
     print('Reading data...')
-    data = DataLoader('../data/triplets/', args.data_name)
-    # data = DataLoader('../data/dataset-ogb/ogbl_biokg-my_split/')
+    data = DataLoader('../data/triplets/' + args.run + '/', args.data_name)
     data.load()
 
-    kg = KG_model(args.model, data.train, data.valid, data.test, args.model_specification)
+    model_specification = args.model_specification + '-' + args.run
+
+    kg = KG_model(args.model, data.train, data.valid, data.test, model_specification)
     kg.set_params(args)
 
-    model_checkpoint_path = f'{args.model}-{args.model_specification}-{args.data_name}_checkpoint.pt'
-    model_result_dir = f'results/results-{args.model}_{args.model_specification}-{args.data_name}'
+    model_checkpoint_path = f'{args.model}-{model_specification}-{args.data_name}_checkpoint.pt'
+    model_result_dir = f'results/results-{args.model}_{model_specification}-{args.data_name}'
 
     # if the model should be trained 
     if not args.not_train:
@@ -260,12 +263,14 @@ if __name__ == '__main__':
     parser.add_argument('-neg', '--neg_sampler', type=str, default='basic')
     parser.add_argument('-nn', '--num_neg_per_pos', type=int, default='1')
     parser.add_argument("--not_train", action="store_true")
+    parser.add_argument("-r", "--run", type=str, default='run1')
     
 
     args = parser.parse_args()
     print(args)
 
-    os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
-    wandb.login()
+    #os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
+    #wandb.login()
 
     main(args)
+
