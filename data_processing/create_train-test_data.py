@@ -156,7 +156,7 @@ def split_interactions_data(ddi_df, drug_supplement_df, dfi_df, herbs_df, use_in
 def add_other_info_to_train(data_dir, train_triplets, use_interaction_data, specification):
     files = listdir(data_dir)
     
-    files2skip = ['ddi.tsv', 'dfi.tsv', 'herbs-di.tsv', 'herbs-di-2.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 
+    files2skip = ['ddi.tsv', 'dfi.tsv', 'herbs-di.tsv', 'herbs-di-old.tsv', 'dfi_processed.tsv', 'ds_relations.tsv', 
                   'ds_atoms_concept_map.tsv', 'ds_concept_type.tsv', '.ipynb_checkpoints', 
                   'drug_atc_codes.tsv', 'drugs_inchi_key.tsv', 'salts_salts_inchi_key.tsv', 
                   'ingredients.tsv']

@@ -220,8 +220,8 @@ def main(args):
             loaded_model = load_model('kg_checkpoints/' + model_checkpoint_path, model_result_dir + '/trained_model.pkl')
 
         print("Predicting new interactions...")
-        # common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
-        common_drugs = pd.read_csv('../data/drugs4prediction.csv', sep=';')
+        common_drugs = pd.read_csv('../data/common_drugs_num_interactions.csv', sep=';')
+        #common_drugs = pd.read_csv('../data/drugs4prediction.csv', sep=';')
         common_drugs = common_drugs.dropna()
         common_drugs = common_drugs['db_id'].values
 
@@ -231,7 +231,7 @@ def main(args):
         foods = [food.strip() for food in foods]
     
         # drug predictions
-        for d in common_drugs:
+        for d in common_drugs[:100]:
             if loaded_model is None:
                 kg.predict_tail(kg.trained_model.model, kg.trained_model.training, d, 'interacts', filter_known=True)
             else:
