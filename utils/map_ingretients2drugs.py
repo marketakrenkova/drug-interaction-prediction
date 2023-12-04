@@ -2,6 +2,8 @@ import pandas as pd
 
 # map drug names to just ingredients in possible-dfi.csv
 
+# How to run: python3 map_ingretients2drugs.py
+
 possible_dfi = pd.read_csv('possible_dfi_simple_dfi_predictor.csv')
 drug_ingredients = pd.read_csv('../data/triplets/ingredients.tsv', sep='\t', index_col=[0])
 
@@ -11,7 +13,6 @@ drug_id_name_map_dict = dict(zip(drug_id_name_map.drug_name, drug_id_name_map.id
 
 ingredients = list(set(drug_ingredients['ingredient']))
 ingredients = [x.strip() for x in ingredients]
-# print(ingredients[:20])
 
 corrected_drugs = []
 ingredient_drugs_map = dict()

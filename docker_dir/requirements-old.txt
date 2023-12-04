@@ -1,8 +1,0 @@
-numpy
-pandas
-jupyterlab==3.4.8
-matplotlib
-scikit-learn
-pykeen==1.9.0
-seaborn
-torch==1.13.1

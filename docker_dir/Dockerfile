@@ -12,7 +12,6 @@ RUN pip3 install pyg-lib torch-scatter torch-sparse -f https://data.pyg.org/whl/
 RUN pip3 install ipywidgets 
 
 RUN pip3 install ogb
-#RUN pip3 install pykeen[tensorboard]
  
 RUN mkdir /work
 WORKDIR /work
