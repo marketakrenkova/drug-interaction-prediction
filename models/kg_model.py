@@ -114,9 +114,9 @@ class KG_model:
                 checkpoint_frequency=10,
                 checkpoint_directory = 'kg_checkpoints'
             ),
-            evaluation_kwargs = dict(
-                batch_size = 16
-            ),
+            #evaluation_kwargs = dict(
+            #    batch_size = 16
+            #),
             stopper='early',
             stopper_kwargs=dict(frequency=5, patience=2, relative_delta=0.002),
             #result_tracker='wandb',

@@ -180,7 +180,7 @@ def save_metrices(pipeline_result, dataset_name):
 
 def main():
     print('Loading data...')
-    dataset_name = 'ogbl-ddi'
+    dataset_name = 'ogbl-biokg'
 
     if 'ddi' in dataset_name: 
         train, valid, valid_neg, test, test_neg = load_data(dataset_name)
@@ -198,7 +198,7 @@ def main():
     
     # os.environ["WANDB_API_KEY"] = "a0dcca4cf18920b5c23ec09023f46ffa76caad5b"
     # wandb.login()
-    model_name = 'TransE'
+    model_name = 'RotatE'
     
     config = {
         'metadata': dict(
@@ -210,25 +210,24 @@ def main():
             testing = dir_data_my_split + 'test.txt',
             model=model_name,
             model_kwargs=dict(
-                   embedding_dim=600,
+                   embedding_dim=1000,
             ),
-            optimizer='SGD',
-            optimizer_kwargs=dict(lr=0.01),
+            optimizer='Adam',
+            optimizer_kwargs=dict(lr=0.0001),
             loss='marginranking',
-            loss_kwargs = dict(margin=0.91),
             training_loop='slcwa',
             training_kwargs=dict(
-                num_epochs=200, 
-                batch_size=256, 
+                num_epochs=100, 
+                batch_size=512, 
                 checkpoint_name=model_name + '-' + dataset_name + '-checkpoint-final.pt',
                 checkpoint_directory='kg_checkpoints',
                 checkpoint_frequency=5    
             ),
             negative_sampler='basic',
-            negative_sampler_kwargs=dict(num_negs_per_pos=16),
+            negative_sampler_kwargs=dict(num_negs_per_pos=128),
             evaluator='rankbased',
             evaluator_kwargs=dict(filtered=True),
-            evaluation_kwargs=dict(batch_size=64),
+            #evaluation_kwargs=dict(batch_size=16),
             stopper='early',
             stopper_kwargs=dict(
                 patience=5,
@@ -250,7 +249,7 @@ def main():
     if 'ddi' in dataset_name:
         print('Evaluation...')
         pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred = compute_scores(pipeline_result, train, valid, valid_neg, test, test_neg)
-        evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, dataset_name, model_name='ComplEx')
+        evaluate_ogb(pos_train_pred, pos_valid_pred, neg_valid_pred, pos_test_pred, neg_test_pred, dataset_name, model_name=model_name)
     
 
 
