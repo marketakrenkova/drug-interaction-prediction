@@ -1,6 +1,7 @@
 #!/bin/sh
 
-# run: ./create_kg_data.sh run1
+# This sript creates 4 knowledge graphs - prepare train, validation and test triplets.
+# How to run: ./create_kg_data.sh run1
 
 echo "Createing KG1: interactions"
 ./create_train-test_data.py interactions $1

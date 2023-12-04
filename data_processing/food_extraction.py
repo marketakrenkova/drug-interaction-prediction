@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+This script extracts names of foods and herbs for prediction.
+"""
+
 import pandas as pd
 
 food_comouds_path = "../data/triplets/compounds_names.tsv"

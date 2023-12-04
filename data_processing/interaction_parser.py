@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
-# some code from:
-# https://github.com/dsi-bdi/biokg
-# biokg/biokg/processing/parsers.py 
+"""
+Ths script preprocesses drug interactions from DugBank. 
+It converts sentences that describes the interaction side effect into a category that describes the side effect.
+
+Some code taken from:
+    https://github.com/dsi-bdi/biokg: biokg/biokg/processing/parsers.py
+"""
+ 
 
 import re
 import pandas as pd
