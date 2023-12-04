@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "title": "Ablation Study Over my data (DrugBank, FooDB, BioKG)."
+    },
+    "ablation": {
+        "datasets": [
+	  {	      
+        "training": "../../../../data/triplets/run1/train_drugbank.txt",
+	    "validation": "../../../../data/triplets/run1/valid_drugbank.txt",
+	    "testing": "../../../../data/triplets/run1/test_drugbank.txt"
+	  }
+	],
+        "models":   ["RGCN"],
+        "training_loops": ["slcwa"],
+        "optimizers": ["Adam"],
+        "create_inverse_triples": [false]
+    },	
+    "optuna": {
+        "n_trials": 2,
+        "metric": "hits@10",
+        "direction": "maximize",
+        "sampler": "random",
+        "pruner": "nop"
+     }
+}
