@@ -1,0 +1,101 @@
+,tail_id,score,tail_label,in_validation,in_testing
+15053,15053,9.29966926574707,Cytochrome P-450 CYP2D6 Substrates,False,False
+58651,58651,8.005280494689941,Tyrosine Kinase Inhibitors,False,False
+15048,15048,7.650702476501465,Cytochrome P-450 CYP2D6 Inhibitors,False,False
+48129,48129,7.579938888549805,P-glycoprotein substrates,False,False
+15109,15109,7.553003311157227,Cytochrome P-450 Substrates,False,False
+15010,15010,7.516654968261719,Cytochrome P-450 CYP2B6 Substrates,False,False
+15022,15022,7.515928268432617,Cytochrome P-450 CYP2C19 Substrates,False,False
+15075,15075,7.428648948669434,Cytochrome P-450 CYP3A4 Inhibitors,False,False
+2094,2094,7.3624587059021,Amines,False,False
+47798,47798,7.332291603088379,Neurotransmitter Agents,False,False
+26191,26191,7.250945091247559,Ethylamines,False,False
+15007,15007,7.235404014587402,Cytochrome P-450 CYP2B6 Inhibitors (strength unknown),False,False
+47774,47774,7.23525857925415,Nervous System,False,False
+45051,45051,7.233467102050781,Membrane Transport Modulators,False,False
+2910,2910,7.134963512420654,Benzene Derivatives,False,False
+48130,48130,7.11188268661499,P-glycoprotein substrates with a Narrow Therapeutic Index,False,False
+15080,15080,7.0932159423828125,Cytochrome P-450 CYP3A4 Substrates,False,False
+48128,48128,7.079366683959961,P-glycoprotein inhibitors,False,False
+50881,50881,6.987579822540283,Piperazines,False,False
+2561,2561,6.980603218078613,Anesthetics,False,False
+15079,15079,6.9531779289245605,Cytochrome P-450 CYP3A4 Inhibitors (weak),False,False
+14767,14767,6.897286415100098,Central Nervous System Depressants,False,False
+15069,15069,6.875654220581055,Cytochrome P-450 CYP3A Substrates,False,False
+58006,58006,6.8705244064331055,Sulfones,False,False
+52535,52535,6.814465045928955,Serotonergic Drugs Shown to Increase Risk of Serotonin Syndrome,False,False
+2091,2091,6.799871444702148,Amides,False,False
+48104,48104,6.759261131286621,Oxazines,False,False
+51127,51127,6.654379367828369,Pyrimidines,False,False
+15005,15005,6.632467269897461,Cytochrome P-450 CYP2B6 Inhibitors,False,False
+52552,52552,6.629124641418457,Serotonin Agents,False,False
+15024,15024,6.610505104064941,Cytochrome P-450 CYP2C19 inhibitors (strength unknown),False,False
+31849,31849,6.608398914337158,Gene::23532,False,False
+15070,15070,6.578217029571533,Cytochrome P-450 CYP3A4 Inducers,False,False
+1993,1993,6.572376728057861,Adrenergic Agents,False,False
+26206,26206,6.567620277404785,Experimental Unapproved Treatments for COVID-19,False,False
+44265,44265,6.540471076965332,Genito Urinary System and Sex Hormones,False,False
+2027,2027,6.521725654602051,Agents producing tachycardia,False,False
+51515,51515,6.511543273925781,QTc Prolonging Agents,False,False
+15000,15000,6.497509479522705,Cytochrome P-450 CYP2B6 Inducers,False,False
+15064,15064,6.460537910461426,Cytochrome P-450 CYP2E1 Substrates,False,False
+33528,33528,6.4120330810546875,Gene::29888,False,False
+15107,15107,6.392808437347412,Cytochrome P-450 Enzyme Inducers,False,False
+2043,2043,6.373424530029297,Alcohols,False,False
+42486,42486,6.347503185272217,Gene::84873,False,False
+15046,15046,6.347033500671387,Cytochrome P-450 CYP2C9 Substrates,False,False
+15034,15034,6.322782516479492,Cytochrome P-450 CYP2C8 Substrates,False,False
+48013,48013,6.320193290710449,OATP1B1/SLCO1B1 Inhibitors,False,False
+39359,39359,6.312877655029297,Gene::64123,False,False
+47753,47753,6.282304763793945,Narrow Therapeutic Index Drugs,False,False
+42453,42453,6.2779412269592285,Gene::84811,False,False
+15018,15018,6.266139030456543,Cytochrome P-450 CYP2C19 Inhibitors,False,False
+15082,15082,6.247977256774902,Cytochrome P-450 CYP3A4 Substrates with a Narrow Therapeutic Index,False,False
+2672,2672,6.234842300415039,Anticonvulsants,False,False
+34339,34339,6.230874061584473,Gene::3593,False,False
+15066,15066,6.191657066345215,Cytochrome P-450 CYP3A Inducers,False,False
+15043,15043,6.191176414489746,Cytochrome P-450 CYP2C9 Inhibitors (strength unknown),False,False
+2748,2748,6.1794867515563965,Antineoplastic Agents,False,False
+15068,15068,6.172096252441406,Cytochrome P-450 CYP3A Inhibitors,False,False
+15093,15093,6.146975517272949,Cytochrome P-450 CYP3A5 Substrates,False,False
+44466,44466,6.106156349182129,"Heterocyclic Compounds, Fused-Ring",False,False
+27308,27308,6.100811004638672,Gastrointestinal Agents,False,False
+58670,58670,6.073378562927246,UGT1A9 Substrates,False,False
+2875,2875,6.039661407470703,BCRP/ABCG2 Inhibitors,False,False
+47714,47714,6.039566993713379,Musculo-Skeletal System,False,False
+33027,33027,6.036316394805908,Gene::283150,False,False
+1994,1994,6.010498046875,Adrenergic Agonists,False,False
+15029,15029,6.00460958480835,Cytochrome P-450 CYP2C8 Inhibitors,False,False
+15002,15002,5.993083953857422,Cytochrome P-450 CYP2B6 Inducers (strength unknown),False,False
+30722,30722,5.965899467468262,Gene::1999,False,False
+15031,15031,5.951419830322266,Cytochrome P-450 CYP2C8 Inhibitors (strength unknown),False,False
+58473,58473,5.9485883712768555,Terpenes,False,False
+15108,15108,5.940925598144531,Cytochrome P-450 Enzyme Inhibitors,False,False
+26185,26185,5.922964096069336,Ethers,False,False
+34334,34334,5.91304874420166,Gene::3588,False,False
+15041,15041,5.895990371704102,Cytochrome P-450 CYP2C9 Inhibitors,False,False
+33517,33517,5.893058776855469,Gene::29850,False,False
+15072,15072,5.890932559967041,Cytochrome P-450 CYP3A4 Inducers (strength unknown),False,False
+26192,26192,5.8888373374938965,Ethylene Glycols,False,False
+44501,44501,5.886675834655762,"Hormones, Hormone Substitutes, and Hormone Antagonists",False,False
+44855,44855,5.876248359680176,Kinase Inhibitor,False,False
+34342,34342,5.852452754974365,Gene::3596,False,False
+47711,47711,5.812772274017334,Muscle Relaxants,False,False
+15021,15021,5.764430999755859,Cytochrome P-450 CYP2C19 Inhibitors (weak),False,False
+15050,15050,5.760213851928711,Cytochrome P-450 CYP2D6 Inhibitors (strength unknown),False,False
+44452,44452,5.758950233459473,Hepatotoxic Agents,False,False
+2876,2876,5.738409996032715,BCRP/ABCG2 Substrates,False,False
+48065,48065,5.728654861450195,Organic Anion Transporting Polypeptide 2B1 Inhibitors,False,False
+15073,15073,5.719489097595215,Cytochrome P-450 CYP3A4 Inducers (strong),False,False
+15081,15081,5.706789970397949,Cytochrome P-450 CYP3A4 Substrates (strength unknown),False,False
+48019,48019,5.705617904663086,OCT1 inhibitors,False,False
+52529,52529,5.690016746520996,Sensory System Agents,False,False
+44397,44397,5.68871545791626,HIV Protease Inhibitors,False,False
+1950,1950,5.662631034851074,"Acids, Carbocyclic",False,False
+43366,43366,5.649268627166748,Gene::9159,False,False
+35327,35327,5.643065929412842,Gene::4323,False,False
+51083,51083,5.642090797424316,Psycholeptics,False,False
+38775,38775,5.633242607116699,Gene::586,False,False
+37565,37565,5.629761219024658,Gene::55437,False,False
+40793,40793,5.604649543762207,Gene::7695,False,False
+30412,30412,5.595733642578125,Gene::170302,False,False

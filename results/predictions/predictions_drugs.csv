@@ -1,0 +1,112 @@
+drug1;drug1_id;relation;drug2;drug2_id
+Fluorouracil;DB00544;interacts;Reserpine;DB00206
+Fluorouracil;DB00544;interacts;Buspirone;DB00490
+Fluorouracil;DB00544;interacts;Insulin glargine;DB00047
+Fluorouracil;DB00544;interacts;Tramadol;DB00193
+Fluorouracil;DB00544;interacts;Trospium;DB00209
+Fluorouracil;DB00544;interacts;Indinavir;DB00224
+Fluorouracil;DB00544;interacts;Insulin ;DB00046
+Fluorouracil;DB00544;interacts;Flucloxacillin;DB00301
+Fluorouracil;DB00544;interacts;Doxycycline;DB00254
+Fluorouracil;DB00544;interacts;Norepinephrine;DB00368
+Gemcitabine;DB00441;interacts;Lovastatin;DB00227
+Gemcitabine;DB00441;interacts;Ziprasidone;DB00246
+Gemcitabine;DB00441;interacts;Esmolol;DB00187
+Gemcitabine;DB00441;interacts;Diltiazem;DB00343
+Gemcitabine;DB00441;interacts;Succinic acid;DB00139
+Gemcitabine;DB00441;interacts;Flucloxacillin;DB00301
+Gemcitabine;DB00441;interacts;Trimethadione;DB00347
+Gemcitabine;DB00441;interacts;Theophylline;DB00277
+Gemcitabine;DB00441;interacts;Aminohippuric acid;DB00345
+Gemcitabine;DB00441;interacts;DB11756;DB11756
+Paclitaxel;DB01229;interacts;Sumatriptan;DB00669
+Paclitaxel;DB01229;interacts;Fexofenadine;DB00950
+Paclitaxel;DB01229;interacts;Tenoxicam;DB00469
+Paclitaxel;DB01229;interacts;Liothyronine;DB00279
+Paclitaxel;DB01229;interacts;Tolazamide;DB00839
+Paclitaxel;DB01229;interacts;Memantine;DB01043
+Paclitaxel;DB01229;interacts;Bupropion;DB01156
+Paclitaxel;DB01229;interacts;Sulfisoxazole;DB00263
+Paclitaxel;DB01229;interacts;Tolterodine;DB01036
+Paclitaxel;DB01229;interacts;Levomenthol;DB00825
+Anastrozole;DB01217;interacts;Itraconazole;DB01167
+Anastrozole;DB01217;interacts;Fluocinonide;DB01047
+Anastrozole;DB01217;interacts;Treprostinil;DB00374
+Anastrozole;DB01217;interacts;Irinotecan;DB00762
+Anastrozole;DB01217;interacts;Beclomethasone dipropionate;DB00394
+Anastrozole;DB01217;interacts;Gemtuzumab ozogamicin;DB00056
+Anastrozole;DB01217;interacts;Vardenafil;DB00862
+Anastrozole;DB01217;interacts;Primidone;DB00794
+Anastrozole;DB01217;interacts;Warfarin;DB00682
+Anastrozole;DB01217;interacts;Sulfinpyrazone;DB01138
+Verapamil;DB00661;interacts;Aminohippuric acid;DB00345
+Verapamil;DB00661;interacts;Protriptyline;DB00344
+Verapamil;DB00661;interacts;Oxaliplatin;DB00526
+Verapamil;DB00661;interacts;Aminoglutethimide;DB00357
+Verapamil;DB00661;interacts;Succinic acid;DB00139
+Verapamil;DB00661;interacts;Entacapone;DB00494
+Verapamil;DB00661;interacts;Adenine;DB00173
+Verapamil;DB00661;interacts;Sapropterin;DB00360
+Verapamil;DB00661;interacts;Amsacrine;DB00276
+Verapamil;DB00661;interacts;Flucloxacillin;DB00301
+Pemetrexed;DB00642;interacts;Carbimazole;DB00389
+Pemetrexed;DB00642;interacts;Sulfisoxazole;DB00263
+Pemetrexed;DB00642;interacts;Codeine;DB00318
+Pemetrexed;DB00642;interacts;Terfenadine;DB00342
+Pemetrexed;DB00642;interacts;Entacapone;DB00494
+Pemetrexed;DB00642;interacts;Entacapone;DB00494
+Pemetrexed;DB00642;interacts;Acetohexamide;DB00414
+Pemetrexed;DB00642;interacts;Trazodone;DB00656
+Pemetrexed;DB00642;interacts;Aminosalicylic acid;DB00233
+Pemetrexed;DB00642;interacts;Gefitinib;DB00317
+Methotrexate;DB00563;interacts;Nicotine;DB00184
+Methotrexate;DB00563;interacts;Sulpiride;DB00391
+Methotrexate;DB00563;interacts;Nevirapine;DB00238
+Methotrexate;DB00563;interacts;Desogestrel;DB00304
+Methotrexate;DB00563;interacts;Crolibulin;DB05189
+Methotrexate;DB00563;interacts;Oxycodone;DB00497
+Methotrexate;DB00563;interacts;Minoxidil;DB00350
+Methotrexate;DB00563;interacts;Adenine;DB00173
+Methotrexate;DB00563;interacts;Morphine;DB00295
+Methotrexate;DB00563;interacts;Thiamine;DB00152
+Carboplatin;DB00958;interacts;Disulfiram;DB00822
+Carboplatin;DB00958;interacts;Loperamide;DB00836
+Carboplatin;DB00958;interacts;Tacrine;DB00382
+Carboplatin;DB00958;interacts;Levomenthol;DB00825
+Carboplatin;DB00958;interacts;Flumethasone;DB00663
+Carboplatin;DB00958;interacts;Nalidixic acid;DB00779
+Carboplatin;DB00958;interacts;Clonidine;DB00575
+Carboplatin;DB00958;interacts;Trimethadione;DB00347
+Carboplatin;DB00958;interacts;Morphine;DB00295
+Carboplatin;DB00958;interacts;Hydrocortisone;DB00741
+Capecitabine;DB01101;interacts;Norethisterone;DB00717
+Capecitabine;DB01101;interacts;Loperamide;DB00836
+Capecitabine;DB01101;interacts;Theophylline;DB00277
+Capecitabine;DB01101;interacts;Apomorphine;DB00714
+Capecitabine;DB01101;interacts;Atorvastatin;DB01076
+Capecitabine;DB01101;interacts;Bicalutamide;DB01128
+Capecitabine;DB01101;interacts;Morphine;DB00295
+Capecitabine;DB01101;interacts;Ivermectin;DB00602
+Capecitabine;DB01101;interacts;Pramlintide;DB01278
+Capecitabine;DB01101;interacts;Tacrine;DB00382
+Warfarin;DB00682;interacts;Loratadine;DB00455
+Warfarin;DB00682;interacts;Carisoprodol;DB00395
+Warfarin;DB00682;interacts;Amineptine;DB04836
+Warfarin;DB00682;interacts;Minoxidil;DB00350
+Warfarin;DB00682;interacts;Adenine;DB00173
+Warfarin;DB00682;interacts;Aminohippuric acid;DB00345
+Warfarin;DB00682;interacts;Metharbital;DB00463
+Warfarin;DB00682;interacts;Benazepril;DB14125
+Warfarin;DB00682;interacts;Oxycodone;DB00497
+Warfarin;DB00682;interacts;Hydroxyzine;DB00557
+Cyclophosphamide;DB00531;interacts;Conjugated estrogens;DB00286
+Cyclophosphamide;DB00531;interacts;Insulin pork;DB00071
+Cyclophosphamide;DB00531;interacts;Mefloquine;DB00358
+Cyclophosphamide;DB00531;interacts;Pregabalin;DB00230
+Cyclophosphamide;DB00531;interacts;Alfuzosin;DB00346
+Cyclophosphamide;DB00531;interacts;Butabarbital;DB00237
+Cyclophosphamide;DB00531;interacts;Pyrazinamide;DB00339
+Cyclophosphamide;DB00531;interacts;Liothyronine;DB00279
+Cyclophosphamide;DB00531;interacts;Triprolidine;DB00427
+Cyclophosphamide;DB00531;interacts;Albutrepenonacog alfa;DB13884
+Cyclophosphamide;DB00531;interacts;Tacrine;DB00382

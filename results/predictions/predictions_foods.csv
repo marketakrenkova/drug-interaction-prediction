@@ -1,0 +1,71 @@
+food;relation;drug2;drug2_id
+Pummelo;interacts;Eplerenone;DB00700
+Pummelo;interacts;Tacrolimus;DB00864
+Pummelo;interacts;Methimazole;DB00763
+Pummelo;interacts;Opium;DB11130
+Pummelo;interacts;Secobarbital;DB00418
+Pummelo;interacts;Meperidine;DB00454
+Pummelo;interacts;Thiethylperazine;DB00372
+Pummelo;interacts;Trazodone;DB00656
+Pummelo;interacts;Conivaptan;DB00872
+Pummelo;interacts;Nilotinib;DB04868
+Grapefruit;interacts;Cabergoline;DB00248
+Grapefruit;interacts;Ivosidenib;DB14568
+Grapefruit;interacts;Dicoumarol;DB00266
+Grapefruit;interacts;Aminophylline;DB01223
+Grapefruit;interacts;Cisapride;DB00604
+Grapefruit;interacts;Diazepam;DB00829
+Grapefruit;interacts;Tamoxifen;DB00675
+Grapefruit;interacts;Zidovudine;DB00495
+Grapefruit;interacts;Prednisone;DB00635
+Grapefruit;interacts;Primaquine;DB01087
+St. John's Wort;interacts;Atazanavir;DB01072
+St. John's Wort;interacts;Clarithromycin;DB01211
+St. John's Wort;interacts;Azelastine;DB00972
+St. John's Wort;interacts;Gefitinib;DB00317
+St. John's Wort;interacts;Melatonin;DB01065
+St. John's Wort;interacts;Progesterone;DB00396
+St. John's Wort;interacts;Adenine;DB00173
+St. John's Wort;interacts;Trimetrexate;DB01157
+St. John's Wort;interacts;Idarubicin;DB01177
+St. John's Wort;interacts;Yohimbine;DB01392
+Dandelion;interacts;Acetylsalicylic acid;DB00945
+Dandelion;interacts;Chloroquine;DB00608
+Dandelion;interacts;Betaxolol;DB00195
+Dandelion;interacts;Cenobamate;DB06119
+Dandelion;interacts;Saxagliptin;DB06335
+Dandelion;interacts;Methotrexate;DB00563
+Dandelion;interacts;Fluocinolone acetonide;DB00591
+Dandelion;interacts;Buspirone;DB00490
+Dandelion;interacts;Quinine;DB00468
+Dandelion;interacts;Ketamine;DB01221
+Nettle;interacts;Lercanidipine;DB00528
+Nettle;interacts;Flunarizine;DB04841
+Nettle;interacts;Buspirone;DB00490
+Nettle;interacts;Parecoxib;DB08439
+Nettle;interacts;Celecoxib;DB00482
+Nettle;interacts;Digoxin;DB00390
+Nettle;interacts;Sulfadiazine;DB00359
+Nettle;interacts;Meperidine;DB00454
+Nettle;interacts;Chlorzoxazone;DB00356
+Nettle;interacts;Nimesulide;DB04743
+Cordyceps;interacts;Prednisone;DB00635
+Cordyceps;interacts;Ranolazine;DB00243
+Cordyceps;interacts;Doxepin;DB01142
+Cordyceps;interacts;Ranitidine;DB00863
+Cordyceps;interacts;Amphotericin B;DB00681
+Cordyceps;interacts;Flurbiprofen;DB00712
+Cordyceps;interacts;Primidone;DB00794
+Cordyceps;interacts;Paclitaxel;DB01229
+Cordyceps;interacts;Difluocortolone;DB09095
+Cordyceps;interacts;Capecitabine;DB01101
+Reishi Mushroom;interacts;Quinidine;DB00908
+Reishi Mushroom;interacts;Carvedilol;DB01136
+Reishi Mushroom;interacts;Methysergide;DB00247
+Reishi Mushroom;interacts;Trazodone;DB00656
+Reishi Mushroom;interacts;Cabergoline;DB00248
+Reishi Mushroom;interacts;Digoxin;DB00390
+Reishi Mushroom;interacts;Thioridazine;DB00679
+Reishi Mushroom;interacts;Desipramine;DB01151
+Reishi Mushroom;interacts;Chlorpromazine;DB00477
+Reishi Mushroom;interacts;Trimethadione;DB00347
