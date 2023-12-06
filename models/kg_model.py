@@ -185,7 +185,7 @@ class KG_model:
 
         pack = predict_triples(
             model=self.trained_model.model, triples=test_triplets
-        )  # self.valid_tf
+        )  
         df = pack.process(factory=self.trained_model.training).df
         df = df.nlargest(n=k, columns="score")
         df.to_csv(
