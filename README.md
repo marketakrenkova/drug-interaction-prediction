@@ -39,7 +39,7 @@ The core of this project relies on the PyKEEN Python library for knowledge graph
         ./kg_model.py -d interactions -m ComplEx -s test_run -emb 1000 -e 10 -o Adam -lr 0.0001
         ```
 
-In the `data` folder, a *ready-to-use* sample of data for training and evaluation is provided.
+In the `data` folder, a *ready-to-use* sample of data for training and evaluation is provided. So, steps 1, 2, 3 can be skipped, and the KG can be trained using the above command.
 
 
 <!-- -----
